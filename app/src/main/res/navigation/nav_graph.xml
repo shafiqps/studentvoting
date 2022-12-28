@@ -3,26 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/Home">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.studentvoting.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        android:id="@+id/Home"
+        android:name="com.example.studentvoting.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.studentvoting.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/electionPage"
+        android:name="com.example.studentvoting.ElectionPage"
+        android:label="fragment_election_page"
+        tools:layout="@layout/fragment_election_page" />
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="com.example.studentvoting.ProfilePage"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" />
+    <fragment
+        android:id="@+id/settingsPage"
+        android:name="com.example.studentvoting.SettingsPage"
+        android:label="fragment_settings_page"
+        tools:layout="@layout/fragment_settings_page" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.studentvoting.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.studentvoting.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/feedback"
+        android:name="com.example.studentvoting.Feedback"
+        android:label="fragment_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/candidateProfile"
+        android:name="com.example.studentvoting.CandidateProfile"
+        android:label="fragment_candidate_profile"
+        tools:layout="@layout/fragment_candidate_profile" />
+    <fragment
+        android:id="@+id/partyProfile"
+        android:name="com.example.studentvoting.PartyProfile"
+        android:label="fragment_party_profile"
+        tools:layout="@layout/fragment_party_profile" />
+    <fragment
+        android:id="@+id/facultyProfile"
+        android:name="com.example.studentvoting.FacultyProfile"
+        android:label="fragment_faculty_profile"
+        tools:layout="@layout/fragment_faculty_profile" />
+    <fragment
+        android:id="@+id/voteCast"
+        android:name="com.example.studentvoting.VoteCast"
+        android:label="fragment_vote_cast"
+        tools:layout="@layout/fragment_vote_cast" />
+    <fragment
+        android:id="@+id/importantDates"
+        android:name="com.example.studentvoting.ImportantDates"
+        android:label="fragment_important_dates"
+        tools:layout="@layout/fragment_important_dates" />
+    <fragment
+        android:id="@+id/verifyVote"
+        android:name="com.example.studentvoting.VerifyVote"
+        android:label="fragment_verify_vote"
+        tools:layout="@layout/fragment_verify_vote" />
+    <fragment
+        android:id="@+id/liveMapResult"
+        android:name="com.example.studentvoting.LiveMapResult"
+        android:label="fragment_live_map_result"
+        tools:layout="@layout/fragment_live_map_result" />
+    <fragment
+        android:id="@+id/liveFullResult"
+        android:name="com.example.studentvoting.LiveFullResult"
+        android:label="fragment_live_full_result"
+        tools:layout="@layout/fragment_live_full_result" />
 </navigation>
