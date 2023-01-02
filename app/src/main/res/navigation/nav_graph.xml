@@ -8,7 +8,11 @@
         android:id="@+id/Home"
         android:name="com.example.studentvoting.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_Home_to_liveMapResult"
+            app:destination="@id/liveMapResult" />
+    </fragment>
     <fragment
         android:id="@+id/electionPage"
         android:name="com.example.studentvoting.ElectionPage"
