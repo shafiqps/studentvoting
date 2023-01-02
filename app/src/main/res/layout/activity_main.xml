@@ -14,12 +14,12 @@
         android:id="@+id/container"
         android:layout_above="@id/bottom_nav_view"/>
 
-    <androidx.appcompat.widget.Toolbar
+<!--    <androidx.appcompat.widget.Toolbar
         android:id="@+id/TBMainAct"
         android:layout_width="match_parent"
         android:layout_height="280px"
         android:background="#000033"
-        android:minHeight="?attr/actionBarSize" />
+        android:minHeight="?attr/actionBarSize" />-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/NHFMain"
@@ -33,7 +33,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150px"
         android:layout_alignParentBottom="true"
         android:background="#000033"
         app:itemIconTint="@color/white"
