@@ -17,8 +17,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/TBMainAct"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:layout_height="280px"
+        android:background="#000033"
         android:minHeight="?attr/actionBarSize" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -35,5 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom"/>
+        android:background="#000033"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="#FFFFFF"
+        app:menu="@menu/menu_bottom" />
 </RelativeLayout>
