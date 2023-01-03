@@ -77,7 +77,11 @@
         android:id="@+id/liveMapResult"
         android:name="com.example.studentvoting.LiveMapResult"
         android:label="fragment_live_map_result"
-        tools:layout="@layout/fragment_live_map_result" />
+        tools:layout="@layout/fragment_live_map_result" >
+        <action
+            android:id="@+id/action_liveMapResult_to_Home"
+            app:destination="@id/Home" />
+    </fragment>
     <fragment
         android:id="@+id/liveFullResult"
         android:name="com.example.studentvoting.LiveFullResult"

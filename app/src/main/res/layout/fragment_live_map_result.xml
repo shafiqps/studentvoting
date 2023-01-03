@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LiveMapResult">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ResultTB"
+        android:layout_width="match_parent"
+        android:layout_height="143px"
+        android:background="#000033"
+        android:minHeight="?attr/actionBarSize" />
+
+    <TextView
+        android:id="@+id/textResultTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo_bold"
+        android:text="Result"
+        android:textColor="#FFFFFF"
+        android:textSize="70px"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,6 +34,16 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/VoteMap"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="1500px"
+        android:layout_alignParentBottom="true"
+        android:translationY="-50pt"/>
 
+    <ImageButton
+        android:id="@+id/BtnPrevResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/arrow_back_"
+        android:translationX="40px"
+        android:translationY="10px"/>
 </RelativeLayout>
