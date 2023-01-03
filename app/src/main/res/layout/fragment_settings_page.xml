@@ -17,12 +17,13 @@
         android:id="@+id/textSettingsTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/archivo_bold"
         android:text="Settings"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="70px"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,21 +37,31 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="223dp"
-            android:src="@drawable/thumbnail_ytn"
-            tools:src="@drawable/thumbnail_ytn" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/screenshot_20230103_012204"
+            tools:src="@drawable/screenshot_20230103_012204" />
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/screenshot_20230103_011821"
+            tools:src="@drawable/screenshot_20230103_011821" />
 
         <ImageButton
             android:id="@+id/imageButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/screenshot_20230103_054803" />
     </LinearLayout>
 </RelativeLayout>
