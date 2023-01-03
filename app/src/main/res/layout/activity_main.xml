@@ -22,7 +22,7 @@
         android:minHeight="?attr/actionBarSize" />-->
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/NHFMain"
+        android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -38,5 +38,6 @@
         android:background="#000033"
         app:itemIconTint="@color/white"
         app:itemTextColor="#FFFFFF"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_bottom" />
 </RelativeLayout>

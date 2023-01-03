@@ -46,4 +46,28 @@
         android:src="@drawable/arrow_back_"
         android:translationX="40px"
         android:translationY="10px"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/TabResultPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ResultTB"
+        app:tabBackground="@drawable/result_selection_bar"
+        app:tabTextAppearance="@style/ResultSelectionTextAppearance"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/teal_700">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/TabLiveMapResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live map result" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/TabLiveFullResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live full result" />
+    </com.google.android.material.tabs.TabLayout>
+
 </RelativeLayout>
