@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VoteCast">
+    tools:context=".VoteCast"
+    android:id="@+id/RelativeLayout">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/votingTB"
         android:layout_width="match_parent"
         android:layout_height="143px"
         android:background="#000033"
-        android:minHeight="?attr/actionBarSize" />
-</FrameLayout>
+        android:minHeight="?attr/actionBarSize"
+        tools:layout_conversion_absoluteHeight="54dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textVotingTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Voting"
+        android:textColor="#FFFFFF"
+        android:textSize="70px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textFacultyName"
+        android:layout_width="wrap_content"
+        android:layout_height="74dp"
+        android:layout_below="@+id/votingTB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="564dp"
+        android:text="Faculty of Computer Science and Information Technology"
+        android:textColor="#000033"
+        android:textSize="70px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textIntrucstions"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="199dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="507dp"
+        android:text="Vote one (1) candidate"
+        android:textColor="#121212"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+</RelativeLayout>
