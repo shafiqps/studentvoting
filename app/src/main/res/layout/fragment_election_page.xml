@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#17175E"
     tools:context=".ElectionPage">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,18 +17,52 @@
         android:id="@+id/textElectionTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/archivo_bold"
         android:text="Election"
         android:textColor="#FFFFFF"
         android:textSize="70px"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Election Fragment"
         android:layout_centerInParent="true"
-        android:textSize="25dp"/>
+        android:text="Election Fragment"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:id="@+id/vertilay1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="55dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/horilay1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/archivo_bold"
+                android:paddingLeft="10dip"
+                android:paddingTop="5dip"
+                android:text="Time Until Voting Begins"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
