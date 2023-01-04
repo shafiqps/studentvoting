@@ -10,8 +10,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_Home_to_liveMapResult"
-            app:destination="@id/liveMapResult" />
+            android:id="@+id/action_Home_to_result"
+            app:destination="@id/result" />
     </fragment>
     <fragment
         android:id="@+id/electionPage"
@@ -77,14 +77,19 @@
         android:id="@+id/liveMapResult"
         android:name="com.example.studentvoting.LiveMapResult"
         android:label="fragment_live_map_result"
-        tools:layout="@layout/fragment_live_map_result" >
-        <action
-            android:id="@+id/action_liveMapResult_to_Home"
-            app:destination="@id/Home" />
-    </fragment>
+        tools:layout="@layout/fragment_live_map_result" />
     <fragment
         android:id="@+id/liveFullResult"
         android:name="com.example.studentvoting.LiveFullResult"
         android:label="fragment_live_full_result"
         tools:layout="@layout/fragment_live_full_result" />
+    <fragment
+        android:id="@+id/result"
+        android:name="com.example.studentvoting.Result"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_result_to_Home"
+            app:destination="@id/Home" />
+    </fragment>
 </navigation>

@@ -30,7 +30,7 @@ public class Home extends Fragment {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.buttonToResultPage:
-                fragment = new LiveMapResult();
+                fragment = new Result();
                 replaceFragment(fragment);
                 break;
         }

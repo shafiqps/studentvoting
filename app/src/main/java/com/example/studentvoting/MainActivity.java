@@ -18,8 +18,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.studentvoting.databinding.ActivityMainBinding;
+import com.google.android.material.tabs.TabLayout;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Phone status bar setup
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             window.setNavigationBarColor(this.getResources().getColor(R.color.darkblue));
         }
 
+        // Bottom navigation menu setup
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
