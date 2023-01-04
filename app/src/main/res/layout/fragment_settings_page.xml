@@ -29,4 +29,49 @@
         android:textSize="70px"
         android:textStyle="bold" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/FAQbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SettingsTB"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#FFFFFF"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="55dp"
+        android:text="FAQ"
+        android:textSize="20dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/FeedbackBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FAQbtn"
+        android:layout_alignParentEnd="true"
+        android:text="Write a feedback"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#FFFFFF"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="55dp"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FeedbackBTN"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/roundedcorner"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="55dp"
+        android:textAllCaps="false"
+        android:text="Log out"
+        android:textSize="20dp" />
+
 </RelativeLayout>
