@@ -19,9 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/SettingsTB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="9dp"
         android:fontFamily="@font/archivo_bold"
         android:text="Settings"
         android:textAlignment="center"
@@ -39,9 +43,14 @@
         android:layout_marginEnd="0dp"
         android:background="#FFFFFF"
         android:gravity="left|center_vertical"
-        android:paddingLeft="55dp"
+        android:paddingLeft="75dp"
         android:text="FAQ"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:drawableRight="@drawable/arrow_forward"
+        />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -55,9 +64,12 @@
         android:layout_marginEnd="0dp"
         android:background="#FFFFFF"
         android:gravity="left|center_vertical"
-        android:paddingLeft="55dp"
+        android:paddingLeft="75dp"
         android:textAllCaps="false"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:drawableRight="@drawable/arrow_forward"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logoutBTN"
@@ -69,9 +81,12 @@
         android:layout_marginEnd="0dp"
         android:background="@drawable/roundedcorner"
         android:gravity="left|center_vertical"
-        android:paddingLeft="55dp"
+        android:paddingLeft="75dp"
         android:textAllCaps="false"
         android:text="Log out"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:drawableRight="@drawable/arrow_forward"/>
 
 </RelativeLayout>
