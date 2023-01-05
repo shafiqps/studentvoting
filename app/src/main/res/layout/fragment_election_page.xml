@@ -130,6 +130,27 @@
 
             </LinearLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="370dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="#ffffff"
+                    android:backgroundTintMode="add"
+                    android:fontFamily="@font/archivo_bold"
+                    android:hint="Search For A Candidate"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:textColor="#000000"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#000000"
+                    app:textInputLayoutFocusedRectEnabled="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
