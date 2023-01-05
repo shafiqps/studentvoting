@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEDEDED"
-    tools:context=".SettingsPage">
+    tools:context=".FAQPage">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/SettingsTB"
+        android:id="@+id/FAQTB"
         android:layout_width="match_parent"
         android:layout_height="143px"
         android:background="#000033"
         android:minHeight="?attr/actionBarSize" />
 
     <TextView
-        android:id="@+id/textSettingsTB"
+        android:id="@+id/textFAQTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/SettingsTB"
+        android:layout_alignBottom="@+id/FAQTB"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -42,64 +42,19 @@
         android:translationX="40px"
         android:translationY="33px"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/FAQbtn"
+    <ExpandableListView
+        android:id="@+id/faqExpandableListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SettingsTB"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="#FFFFFF"
-        android:drawableLeft="@drawable/faqlogo"
-        android:drawableRight="@drawable/arrow_forward"
-        android:drawablePadding="20dp"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="33dp"
-        android:paddingRight="26dp"
-        android:singleLine="true"
-        android:text="FAQ"
-        android:textSize="20dp" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/FeedbackBTN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/FAQbtn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="#FFFFFF"
-        android:drawablePadding="20dp"
-        android:drawableLeft="@drawable/feedbacklogo"
-        android:drawableRight="@drawable/arrow_forward"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="33dp"
-        android:paddingRight="26dp"
-        android:singleLine="true"
-        android:text="Write a feedback"
-        android:textAllCaps="false"
-        android:textSize="20dp" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logoutBTN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/FeedbackBTN"
+        android:layout_height="197dp"
+        android:layout_below="@+id/FAQTB"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:background="@drawable/roundedcorner"
-        android:drawablePadding="20dp"
-        android:drawableLeft="@drawable/logoutlogo"
+        android:divider="@android:color/white"
+        android:dividerHeight="0.5dp"
         android:drawableRight="@drawable/arrow_forward"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="33dp"
-        android:paddingRight="26dp"
-        android:singleLine="true"
-        android:text="Log out"
-        android:textAllCaps="false"
-        android:textSize="20dp" />
+        android:indicatorEnd="?android:attr/expandableListPreferredItemIndicatorRight" />
+
 
 </RelativeLayout>
