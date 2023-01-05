@@ -6,10 +6,13 @@
     tools:context=".VoteCast"
     android:id="@+id/RelativeLayout">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/votingTB"
         android:layout_width="match_parent"
         android:layout_height="143px"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="-4dp"
         android:background="#000033"
         android:minHeight="?attr/actionBarSize"
         tools:layout_conversion_absoluteHeight="54dp"
@@ -27,92 +30,110 @@
         android:textSize="70px"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textFacultyName"
-        android:layout_width="wrap_content"
-        android:layout_height="74dp"
-        android:layout_below="@+id/votingTB"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="564dp"
-        android:text="Faculty of Computer Science and Information Technology"
-        android:textColor="#000033"
-        android:textSize="70px"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textIntrucstions"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginEnd="184dp"
-        android:layout_marginBottom="507dp"
-        android:text="Vote one (1) candidate"
-        android:textColor="#121212"
-        android:textSize="40px"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textFacultyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Faculty of Computer Science and Information Technology"
+            android:textColor="#000033"
+            android:textSize="70px"
+            android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="true">
+        <TextView
+            android:id="@+id/textIntrucstions"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Vote one (1) candidate"
+            android:textColor="#121212"
+            android:textSize="40px"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/radioBtn1"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CandidateOne"
-            android:onClick="checkButton"/>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
 
-        <RadioButton
-            android:id="@+id/radioBtn2"
+            <RadioButton
+                android:id="@+id/radioBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton"
+                android:text="CandidateOne" />
+
+            <RadioButton
+                android:id="@+id/radioBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton"
+                android:text="CandidateTwo" />
+
+            <RadioButton
+                android:id="@+id/radioBtn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton"
+                android:text="CandidateThree" />
+        </RadioGroup>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/votingTB2"
+                android:layout_width="279dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="10dp"
+                android:background="#000033"
+                android:minHeight="?attr/actionBarSize"
+                tools:layout_conversion_absoluteHeight="54dp"
+                tools:layout_conversion_absoluteWidth="411dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="checkButton"
-            android:text="CandidateTwo" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="39dp"
+            android:text="Confirm" />
 
-        <RadioButton
-            android:id="@+id/radioBtn3"
+        <TextView
+            android:id="@+id/text_selected_candidate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CandidateThree"
-            android:onClick="checkButton"/>
-    </RadioGroup>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="36dp"
+            android:text="Your Selection: "
+            android:textSize="15sp" />
 
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_selected_candidate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="1dp"
-        android:layout_marginRight="36dp"
-        android:text="Your Selection: "
-        android:textSize="15sp" />
-
-    <Button
-        android:id="@+id/confirmBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_selected_candidate"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="39dp"
-        android:text="Confirm" />
 
 </RelativeLayout>
