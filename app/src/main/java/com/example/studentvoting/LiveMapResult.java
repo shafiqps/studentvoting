@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LiveMapResult extends Fragment implements OnMapReadyCallback {
@@ -40,6 +42,15 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback {
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(0, 0))
                 .title("Marker"));
+
+
+        LatLngBounds australiaBounds = new LatLngBounds(
+                new LatLng(-44, 113), // SW bounds
+                new LatLng(-10, 154)  // NE bounds
+        );
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(australiaBounds, 0));
+
+
     }
 
 }
