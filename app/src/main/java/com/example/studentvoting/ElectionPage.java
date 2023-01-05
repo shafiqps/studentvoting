@@ -17,10 +17,22 @@ public class ElectionPage extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
 
         Button BtnToCastVote = (Button) rootView.findViewById(R.id.goToVotingButton);
+        Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
 
+        BtnToResult.setOnClickListener(this::onClick1);
         BtnToCastVote.setOnClickListener(this::onClick);
         return rootView;
     }
+
+    public void onClick1(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.buttonToResultPage:
+                fragment = new Result();
+                replaceFragment(fragment);
+                break;
+        }
+    };
 
     private void onClick(View view) {
         Fragment fragment = null;

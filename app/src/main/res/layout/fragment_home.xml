@@ -24,20 +24,8 @@
         android:textSize="70px"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/TextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="25dp"
-        android:layout_centerInParent="true"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonToResultPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="268dp"
-        android:text="Button to result" />
+
+
 
 </RelativeLayout>

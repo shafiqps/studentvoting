@@ -19,13 +19,14 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
+        /*Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
         BtnToResult.setOnClickListener(this::onClick);
+        */
 
         return rootView;
     }
 
-    public void onClick(View view) {
+    /*public void onClick(View view) {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.buttonToResultPage:
@@ -36,12 +37,15 @@ public class Home extends Fragment {
     }
 
 
+
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, someFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+     */
 
 
   /*  @Override
