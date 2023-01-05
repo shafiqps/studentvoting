@@ -17,12 +17,12 @@
         android:id="@+id/textHomeTB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/archivo_bold"
         android:text="Home"
         android:textColor="#FFFFFF"
         android:textSize="70px"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/TextView1"
