@@ -20,7 +20,6 @@ public class Home extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
-
         BtnToResult.setOnClickListener(this::onClick);
 
         return rootView;
