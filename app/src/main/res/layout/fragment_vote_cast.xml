@@ -33,9 +33,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
 
         <TextView
@@ -56,82 +58,136 @@
             android:textColor="#121212"
             android:textSize="40px"
             android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginTop="250dp"
-        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="277dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
+            android:layout_marginTop="50dp"
+            android:background="#000033">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Bong Mokhtar"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Party Y"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"/>
 
             <RadioButton
                 android:id="@+id/radioBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="checkButton"
-                android:text="CandidateOne" />
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="227dp"
+                android:onClick="checkButton" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#000033">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Mat Sabu"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Party W"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"/>
 
             <RadioButton
                 android:id="@+id/radioBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="checkButton"
-                android:text="CandidateTwo" />
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="227dp"
+                android:onClick="checkButton" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#000033">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Ahmad Maslan"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Party X"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"/>
 
             <RadioButton
                 android:id="@+id/radioBtn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="checkButton"
-                android:text="CandidateThree" />
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="227dp"
+                android:onClick="checkButton" />
+
+        </RelativeLayout>
         </RadioGroup>
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/votingTB2"
-                android:layout_width="279dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="10dp"
-                android:background="#000033"
-                android:minHeight="?attr/actionBarSize"
-                tools:layout_conversion_absoluteHeight="54dp"
-                tools:layout_conversion_absoluteWidth="411dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp" />
-
         </LinearLayout>
+
 
         <Button
             android:id="@+id/confirmBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="6dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="53dp"
             android:layout_marginRight="39dp"
             android:text="Confirm" />
 
-        <TextView
-            android:id="@+id/text_selected_candidate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="36dp"
-            android:text="Your Selection: "
-            android:textSize="15sp" />
+
 
     </LinearLayout>
 

@@ -20,7 +20,6 @@ public class VoteCast extends Fragment {
     //candidate selection using radio button
     RadioGroup radioGroup;
     RadioButton radioButton;
-    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +30,6 @@ public class VoteCast extends Fragment {
         //candidate selection using radio button
 
         RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.radioGroup);
-        TextView textView = (TextView) rootView.findViewById(R.id.text_selected_candidate);
 
         //confirm Button when done voting
         Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
