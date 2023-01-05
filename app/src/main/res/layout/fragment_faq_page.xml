@@ -45,7 +45,7 @@
     <ExpandableListView
         android:id="@+id/faqExpandableListView"
         android:layout_width="match_parent"
-        android:layout_height="197dp"
+        android:layout_height="196dp"
         android:layout_below="@+id/FAQTB"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
@@ -54,7 +54,9 @@
         android:divider="@android:color/white"
         android:dividerHeight="0.5dp"
         android:drawableRight="@drawable/arrow_forward"
-        android:indicatorEnd="?android:attr/expandableListPreferredItemIndicatorRight" />
+        android:groupIndicator="@drawable/faq_selector"
+        android:layoutDirection="rtl"
+        android:isScrollContainer="true" />
 
 
 </RelativeLayout>
