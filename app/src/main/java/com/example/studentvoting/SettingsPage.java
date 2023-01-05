@@ -81,7 +81,7 @@ public class SettingsPage extends Fragment {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.FAQbtn:
-                fragment = new LiveMapResult();
+                fragment = new FAQPage();
                 replaceFragment(fragment);
                 break;
             case R.id.FeedbackBTN:

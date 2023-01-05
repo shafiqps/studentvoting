@@ -92,4 +92,8 @@
             android:id="@+id/action_result_to_Home"
             app:destination="@id/Home" />
     </fragment>
+    <fragment
+        android:id="@+id/FAQPage"
+        android:name="com.example.studentvoting.FAQPage"
+        android:label="FAQPage" />
 </navigation>
