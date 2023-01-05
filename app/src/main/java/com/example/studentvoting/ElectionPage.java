@@ -17,4 +17,21 @@ public class ElectionPage extends Fragment {
         return inflater.inflate(R.layout.fragment_election_page, container, false);
 
     }
+/*
+    public void importantdates(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.textView16:
+                fragment = new Result();
+                replaceFragment(fragment);
+                break;
+        }
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    } */
 }

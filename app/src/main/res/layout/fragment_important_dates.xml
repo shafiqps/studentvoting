@@ -5,10 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".ImportantDates">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/electionTB"
+            android:layout_width="match_parent"
+            android:layout_height="143px"
+            android:background="#000033"
+            android:minHeight="?attr/actionBarSize" />
+
+        <TextView
+            android:id="@+id/textElectionTB2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/archivo_bold"
+            android:text="Important Dates"
+            android:textColor="#FFFFFF"
+            android:textSize="70px"
+            android:textStyle="bold" />
+    </RelativeLayout>
 </FrameLayout>

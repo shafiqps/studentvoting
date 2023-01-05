@@ -99,6 +99,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:clickable="true"
                             android:fontFamily="@font/archivo"
                             android:text="important dates"
                             android:textAllCaps="false"
