@@ -17,7 +17,9 @@
             android:layout_height="143px"
             android:background="#000033"
             android:minHeight="?attr/actionBarSize"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-153dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/textHomeTB"
@@ -29,8 +31,9 @@
             android:textColor="#FFFFFF"
             android:textSize="70px"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/HomeTB"
+            app:layout_constraintStart_toStartOf="@+id/HomeTB"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="168dp"
             tools:layout_editor_absoluteY="0dp" />
 
 
