@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDEDEDED"
+    tools:context=".SettingsPage">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/SettingsTB"
+        android:layout_width="match_parent"
+        android:layout_height="143px"
+        android:background="#000033"
+        android:minHeight="?attr/actionBarSize" />
+
+    <TextView
+        android:id="@+id/textSettingsTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/SettingsTB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/archivo_bold"
+        android:text="FAQ"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="70px"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/BtnPrevResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/arrow_back_"
+        android:translationX="40px"
+        android:translationY="33px"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/FAQbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SettingsTB"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#FFFFFF"
+        android:drawableLeft="@drawable/faqlogo"
+        android:drawableRight="@drawable/arrow_forward"
+        android:drawablePadding="20dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="33dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:text="FAQ"
+        android:textSize="20dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/FeedbackBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FAQbtn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#FFFFFF"
+        android:drawablePadding="20dp"
+        android:drawableLeft="@drawable/feedbacklogo"
+        android:drawableRight="@drawable/arrow_forward"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="33dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:text="Write a feedback"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FeedbackBTN"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/roundedcorner"
+        android:drawablePadding="20dp"
+        android:drawableLeft="@drawable/logoutlogo"
+        android:drawableRight="@drawable/arrow_forward"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="33dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:text="Log out"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
+
+</RelativeLayout>
