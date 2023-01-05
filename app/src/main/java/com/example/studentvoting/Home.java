@@ -36,6 +36,7 @@ public class Home extends Fragment {
         }
     }
 
+
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, someFragment);

@@ -27,6 +27,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     ElectionPage electionPageFragment = new ElectionPage();
     ProfilePage profilePageFragment = new ProfilePage();
     SettingsPage settingsPageFragment = new SettingsPage();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Bottom navigation menu setup
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.Home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                         return true;
                     case R.id.electionPage:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, electionPageFragment).commit();
@@ -78,4 +85,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

@@ -61,4 +61,57 @@
         android:textSize="40px"
         android:textStyle="bold" />
 
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:checked="true">
+
+        <RadioButton
+            android:id="@+id/radioBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CandidateOne"
+            android:onClick="checkButton"/>
+
+        <RadioButton
+            android:id="@+id/radioBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkButton"
+            android:text="CandidateTwo" />
+
+        <RadioButton
+            android:id="@+id/radioBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CandidateThree"
+            android:onClick="checkButton"/>
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/text_selected_candidate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:text="Your Selection: "
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_selected_candidate"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="39dp"
+        android:text="Confirm" />
+
 </RelativeLayout>

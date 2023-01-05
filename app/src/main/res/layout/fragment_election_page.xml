@@ -57,6 +57,14 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/buttonToOpenVoting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Voting is open!"/>
+
         </LinearLayout>
 
         <LinearLayout
