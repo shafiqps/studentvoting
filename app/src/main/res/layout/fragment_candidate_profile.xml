@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="590dp"
+        android:layout_height="match_parent"
         android:background="@drawable/roundedcorner">
 
         <androidx.appcompat.widget.Toolbar
@@ -48,7 +48,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
             android:paddingLeft="0dp"
-            android:text="LeBron James"
+            android:text="LeBron "
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
@@ -56,8 +56,37 @@
             android:textStyle="bold" />
 
 
+        <TextView
+            android:id="@+id/partyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/dot"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/dot"
+            android:text="Party AWAL"
+            android:textColor="@color/fuckcolor"
+            android:textSize="50px" />
+
+        <TextView
+            android:id="@+id/facultyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/positionTV"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="120dp"
+            android:paddingLeft="0dp"
+            android:text="Faculty of YOUR MOTHER"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="#2A3C9A"
+            android:textSize="43px" />
+
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/dot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/nameTV"
@@ -98,7 +127,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/matricnumTV"
+            android:id="@+id/positionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nameTV"
@@ -106,11 +135,76 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:paddingLeft="0dp"
-            android:text="U2000963"
+            android:text="President"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="45px" />
+
+        <TextView
+            android:id="@+id/infoTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facultyTV"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="120dp"
+            android:paddingLeft="0dp"
+            android:text="Featured information"
+            android:textColor="@color/black"
+            android:textSize="43px"
+            android:textStyle="bold"/>
+
+        <HorizontalScrollView
+            android:id="@+id/scrrolview"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:layout_below="@+id/infoTV"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:divider="@drawable/divider"
+                android:isScrollContainer="false"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/info1"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/info2"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/info3"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/info4"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
 
     </RelativeLayout>
 
