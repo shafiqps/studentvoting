@@ -8,8 +8,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/VoteMap"
         android:layout_width="match_parent"
-        android:layout_height="1500px"
-        android:layout_alignParentBottom="true"
-        android:translationY="-50pt"/>
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
