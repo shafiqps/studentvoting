@@ -15,8 +15,8 @@
             android:id="@+id/login_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="172dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Log In"
             android:textAppearance="@style/Widget.AppCompat.Spinner.Underlined"
@@ -26,10 +26,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="337dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="120dp"
             android:background="@drawable/loginbackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_tv">
@@ -40,21 +40,22 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="26dp"
-                android:layout_marginEnd="139dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="213dp"
                 android:fontFamily="@font/archivo_bold"
                 android:text="Username"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="17dp" />
 
             <EditText
                 android:id="@+id/username_textbox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_below="@+id/username_tv"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="65dp"
-                android:background="@drawable/loginbackground"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="85dp"
+                android:background="@drawable/roundedtextbox"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
@@ -64,20 +65,22 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/username_textbox"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="139dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="213dp"
                 android:fontFamily="@font/archivo_bold"
                 android:text="Password"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="17dp" />
 
             <EditText
                 android:id="@+id/password_textbox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_below="@+id/password_tv"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="62dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="85dp"
+                android:background="@drawable/roundedtextbox"
                 android:ems="10"
                 android:inputType="textPassword" />
 
@@ -86,21 +89,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/password_textbox"
-                android:layout_marginTop="30dp"
-                android:text="I forgot my password"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="78dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/archivo"
-                android:textColor="@color/white"/>
+                android:text="I forgot my password"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/login_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="72dp"
+                android:layout_height="27dp"
                 android:layout_below="@+id/forgotpassword_tv"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="69dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="15dp"
-                android:text="Log In" />
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="31dp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Log In"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/noaccount_tv"
@@ -108,11 +118,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_btn"
                 android:layout_alignEnd="@+id/login_btn"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="50dp"
                 android:fontFamily="@font/archivo"
+                android:text="Don't have an account? Register here"
                 android:textColor="@color/white"
-                android:text="Don't have an account? Register here" />
+                android:textSize="12dp" />
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
