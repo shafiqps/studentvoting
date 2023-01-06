@@ -28,16 +28,17 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="152dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="9dp"
-            android:layout_marginEnd="153dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="9dp"
             android:fontFamily="@font/archivo_bold"
-            android:text="Profile"
+            android:text="Candidate Profile"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="70px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/nameTV"
@@ -157,10 +158,26 @@
             android:textSize="43px"
             android:textStyle="bold"/>
 
-        <HorizontalScrollView
-            android:id="@+id/scrrolview"
+        <TextView
+            android:id="@+id/socialTV"
             android:layout_width="wrap_content"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scrollable"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="120dp"
+            android:paddingLeft="0dp"
+            android:text="Socials"
+            android:textColor="@color/black"
+            android:textSize="43px"
+            android:textStyle="bold"/>
+
+        <HorizontalScrollView
+            android:id="@+id/scrollable"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             android:layout_below="@+id/infoTV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
