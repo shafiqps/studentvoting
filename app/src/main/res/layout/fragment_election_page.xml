@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#17175E"
+    android:background="@color/darkblue"
     tools:context=".ElectionPage">
 
     <androidx.appcompat.widget.Toolbar
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="126dp"
-        android:layout_marginBottom="271dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="108dp"
         android:text="Button to result" />
 
     <TextView
@@ -35,26 +35,18 @@
         android:textSize="70px"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Election Fragment"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp" />
-
     <LinearLayout
         android:id="@+id/vertilay1"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/horilay1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/horilay3"
@@ -131,27 +123,31 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="5dp"
-                        android:backgroundTint="#E91E63"
+                        android:backgroundTint="@color/fuckcolor"
                         android:backgroundTintMode="add"
                         android:fontFamily="@font/archivo_bold"
                         android:text="VOTING IS OPEN!"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="94dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchTextInput"
                     android:layout_width="370dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="25dp"
-                    android:backgroundTint="#ffffff"
+                    android:background="@drawable/roundedtextbox"
+                    android:backgroundTint="@color/backgroundgrey"
                     android:backgroundTintMode="add"
+                    android:drawableBottom="@drawable/roundedtextbox"
                     android:fontFamily="@font/archivo_bold"
                     android:hint="Search For A Candidate"
                     android:selectAllOnFocus="true"
@@ -160,17 +156,23 @@
                     android:textColorHighlight="#FFFFFF"
                     android:textColorHint="#000000"
                     app:textInputLayoutFocusedRectEnabled="false" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="84dp"
+                    android:layout_height="41dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/archivo"
+                    android:text="Search by :"
+                    android:textColor="#FFFFFF" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
         </LinearLayout>
 
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

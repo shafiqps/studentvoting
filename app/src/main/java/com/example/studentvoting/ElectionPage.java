@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ElectionPage extends Fragment {
     @Override
@@ -18,21 +19,14 @@ public class ElectionPage extends Fragment {
 
         Button BtnToCastVote = (Button) rootView.findViewById(R.id.goToVotingButton);
         Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
+        TextView tvToImportantDates = (TextView) rootView.findViewById(R.id.textView16);
 
         BtnToResult.setOnClickListener(this::onClick1);
         BtnToCastVote.setOnClickListener(this::onClick);
+        tvToImportantDates.setOnClickListener(this::onClick2);
+
         return rootView;
     }
-
-    public void onClick1(View view) {
-        Fragment fragment = null;
-        switch (view.getId()) {
-            case R.id.buttonToResultPage:
-                fragment = new Result();
-                replaceFragment(fragment);
-                break;
-        }
-    };
 
     private void onClick(View view) {
         Fragment fragment = null;
@@ -43,6 +37,26 @@ public class ElectionPage extends Fragment {
                 break;
         }
     }
+    public void onClick1(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.buttonToResultPage:
+                fragment = new Result();
+                replaceFragment(fragment);
+                break;
+        }
+    };
+
+    private void onClick2(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.textView16:
+                fragment = new ImportantDates();
+                replaceFragment(fragment);
+                break;
+        }
+    }
+
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, someFragment);
