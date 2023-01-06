@@ -1,20 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FacultyProfile">
+    android:background="#FFFFFF"
+    tools:context=".CandidateProfile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/roundedcorner">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profileTB"
+            android:layout_width="match_parent"
+            android:layout_height="143px"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <TextView
+            android:id="@+id/profileTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/profileTB"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="9dp"
+            android:fontFamily="@font/archivo_bold"
+            android:text="Faculty Profile"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="70px"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/facultyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileTB"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="30dp"
+            android:textAlignment="center"
+            android:paddingLeft="0dp"
+            android:text="Faculty blablablanlalalal sanjivan balajawahar"
+            android:textColor="@color/black"
+            android:textSize="70px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/competingCandidates_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facultyTV"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="120dp"
+            android:paddingLeft="0dp"
+            android:text="Competing candidates"
+            android:textColor="@color/black"
+            android:textSize="58px"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/competingCandidates_TV"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:divider="@drawable/divider_vertical_scrollable"
+                    android:isScrollContainer="false"
+                    android:showDividers="middle">
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </FrameLayout>
