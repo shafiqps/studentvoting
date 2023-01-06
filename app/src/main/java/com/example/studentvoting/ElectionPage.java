@@ -26,7 +26,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
 
-        // Map To View Faculties (shout out umar)
+        // Map To View Faculties (shoutout umar)
         // Get the MapView from the layout file
         MapView mapView = rootView.findViewById(R.id.mapView);
         // Initialize the MapView
