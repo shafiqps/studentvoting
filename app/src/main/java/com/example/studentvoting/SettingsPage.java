@@ -85,7 +85,7 @@ public class SettingsPage extends Fragment {
                 replaceFragment(fragment);
                 break;
             case R.id.FeedbackBTN:
-                fragment = new ProfilePage();
+                fragment = new Feedback();
                 replaceFragment(fragment);
                 break;
             case R.id.logoutBTN:

@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Feedback">
+    android:background="#EDEDEDED"
+    tools:context=".FAQPage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/feedbackTB"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="143px"
+        android:background="#000033"
+        android:minHeight="?attr/actionBarSize" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textFeedbackTB"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/feedbackTB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/archivo_bold"
+        android:text="Feedback"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="70px"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/BtnPrevResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/arrow_back_"
+        android:translationX="40px"
+        android:translationY="33px"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="320dp"
+        android:layout_height="318dp"
+        android:layout_below="@id/feedbackTB"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="125dp"
+        android:background="@drawable/roundedtextbox"
+        android:backgroundTint="@color/darkblue"
+        android:layout_marginEnd="46dp">
+
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="197dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/white"
+            android:progressDrawable="@drawable/ratingbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
