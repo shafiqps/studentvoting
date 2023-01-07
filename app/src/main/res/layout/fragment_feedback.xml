@@ -55,14 +55,68 @@
 
         <RatingBar
             android:id="@+id/ratingBar2"
-            android:layout_width="197dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="40dp"
+            android:layout_width="241dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="44dp"
             android:backgroundTint="@color/white"
-            android:progressDrawable="@drawable/ratingbar"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:progressTint="@color/white"
+            android:rating="4"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/archivo_bold"
+            android:textSize="16dp"
+            android:text="Give us a rating!"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/archivo_bold"
+            android:textSize="16dp"
+            android:text="What do you think about this app?"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="296dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/roundedtextbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:layout_width="125dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/archivo_bold"
+            android:text="Submit Feedback"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
