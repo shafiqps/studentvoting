@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,54 +20,62 @@ import java.util.ArrayList;
 
 public class Adapter_News extends RecyclerView.Adapter<Adapter_News.ViewHolder>{
 
+    News[] news;
     Context context;
-    ArrayList<News> newsArrayList;
 
-    public Adapter_News(ArrayList<News> newsArrayList) {
-        this.newsArrayList = newsArrayList;
+    public Adapter_News(News[] news, Home home) {
+        this.news = news;
+        this.context = context;
     }
-
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new ViewHolder
-                (LayoutInflater.from(parent.getContext()).inflate(R.layout.list_news, parent, false));
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.list_news,parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+
+        return viewHolder;
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        News news = newsArrayList.get(position);
-        holder.title_news.setText(news.heading);
-        holder.imageView.setImageResource(news.imageView);
-        holder.desc_news.setText(news.descNews);
+        final News newsList = news[position];
+        holder.title_news.setText(newsList.getTitle_news());
+        holder.desc_news.setText(newsList.getDescNews());
+        holder.imageNews.setImageResource(newsList.getImageNews());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, newsList.getTitle_news(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return newsArrayList.size();
+        return news.length;
     }
 
 
 
 
 
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-
-        ShapeableImageView imageView;
+        ImageView imageNews;
         TextView title_news;
         TextView desc_news;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageNews);
+            imageNews = itemView.findViewById(R.id.imageNews);
             title_news = itemView.findViewById(R.id.title_news);
             desc_news = itemView.findViewById(R.id.desc_news);
         }

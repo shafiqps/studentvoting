@@ -19,11 +19,12 @@ import java.util.ArrayList;
 
 public class Home extends Fragment {
 
-    private ArrayList<News> newsArrayList;
+    //private ArrayList<News> newsArrayList;
     private String[] newsHeading;
+    private String[] newsDescription;
     private int[] imageResourceID;
     private RecyclerView recyclerview;
-    private String[] newsDescription;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,55 +34,70 @@ public class Home extends Fragment {
         /*Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
         BtnToResult.setOnClickListener(this::onClick);
         */
+        //dataInitialize();
+        recyclerview = rootView.findViewById(R.id.recyclerView);
+        recyclerview.setLayoutManager(new LinearLayoutManager(getContext())); //getActivity()
+        recyclerview.setHasFixedSize(true);
+//        //Adapter_News adapter_news = new Adapter_News(getContext(), newsArrayList);
+//        recyclerview.setAdapter(adapter_news);
+//        adapter_news.notifyDataSetChanged();
+
+        News[] news = new News[]{
+                new News("Angkatan Mahasiswa", "Majoriti 112 kerusi adalah sasaran utama Angakatan", R.drawable.news1),
+                new News("Mahasiswa Progresif", "Perubahan keadaan politik merisaukan semua mahasiswa/i", R.drawable.news2),
+                new News("Neo Siswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news3),
+                new News("Angkatan Mahasiswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news1),
+                new News("Neo Siswa", "KPerubahan keadaan politik merisaukan semua mahasiswa/i ", R.drawable.news2),
+
+        };
+
+        Adapter_News adapter_news = new Adapter_News(news, Home.this );
+        recyclerview.setAdapter(adapter_news);
 
         return rootView;
     }
 
-    //for recyclerView news
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+//    //for recyclerView news
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//
+//    }
 
-        dataInitialize();
-        recyclerview = view.findViewById(R.id.recyclerView);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerview.setHasFixedSize(true);
-        Adapter_News adapter_news = new Adapter_News( newsArrayList);
-    }
-
-    private void dataInitialize(){
-
-        newsArrayList = new ArrayList<>();
-
-        newsHeading =  new String[]{
-                getString(R.string.head_1),
-                getString(R.string.head_2),
-                getString(R.string.head_3),
-
-        };
-
-        imageResourceID = new int[]{
-
-                R.drawable.news1,
-                R.drawable.news2,
-                R.drawable.news3,
-
-        };
-
-        newsDescription = new String[]{
-                String.valueOf(R.string.desc_1),
-                String.valueOf(R.string.desc_2),
-                String.valueOf(R.string.desc_3),
-
-        };
-
-        for(int i=0; i<newsHeading.length; i++){
-
-            News news = new News(newsHeading[i], imageResourceID[i], newsDescription[i]);
-            newsArrayList.add(news);
-        }
-
-    }
+//    private void dataInitialize(){
+//
+//        newsArrayList = new ArrayList<>();
+//
+//        newsHeading =  new String[]{
+//                getString(R.string.head_1),
+//                getString(R.string.head_2),
+//                getString(R.string.head_3),
+//
+//        };
+//
+//        imageResourceID = new int[]{
+//
+//                R.drawable.news1,
+//                R.drawable.news2,
+//                R.drawable.news3,
+//
+//        };
+//
+//        newsDescription = new String[]{
+//                getString(R.string.desc_1),
+//                getString(R.string.desc_2),
+//                getString(R.string.desc_3),
+//
+//        };
+//
+//        for(int i=0; i<newsHeading.length; i++){
+//
+//            News news = new News(newsHeading[i], newsDescription[i], imageResourceID[i]);
+//            newsArrayList.add(news);
+//        }
+//
+//    }
 
     /*public void onClick(View view) {
         Fragment fragment = null;

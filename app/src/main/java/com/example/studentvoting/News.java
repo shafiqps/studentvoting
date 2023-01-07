@@ -2,22 +2,22 @@ package com.example.studentvoting;
 
 public class News {
 
-    String heading;
+    String title_news;
     String descNews;
-    int imageView;
+    int imageNews;
 
-    public News(String heading, int imageView, String s) {
-        this.heading = heading;
-        this.imageView = imageView;
+    public News(String title_news, String descNews, int imageNews) {
+        this.title_news = title_news;
         this.descNews = descNews;
+        this.imageNews = imageNews;
     }
 
-    public String getHeading() {
-        return heading;
+    public String getTitle_news() {
+        return title_news;
     }
 
-    public void setHeading(String heading) {
-        this.heading = heading;
+    public void setTitle_news(String title_news) {
+        this.title_news = title_news;
     }
 
     public String getDescNews() {
@@ -28,11 +28,11 @@ public class News {
         this.descNews = descNews;
     }
 
-    public int getImageView() {
-        return imageView;
+    public int getImageNews() {
+        return imageNews;
     }
 
-    public void setImageView(int imageView) {
-        this.imageView = imageView;
+    public void setImageNews(int imageNews) {
+        this.imageNews = imageNews;
     }
 }
