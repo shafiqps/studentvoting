@@ -87,7 +87,7 @@
             android:paddingStart="30px"/>
 
         <ProgressBar
-            android:id="@+id/candidateProgress2"
+            android:id="@+id/eventBar"
             android:layout_width="match_parent"
             android:layout_height="150px"
             android:layout_below="@+id/FacNameResult"
