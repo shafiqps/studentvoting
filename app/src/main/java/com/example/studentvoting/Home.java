@@ -46,8 +46,12 @@ public class Home extends Fragment {
                 new News("Angkatan Mahasiswa", "Majoriti 112 kerusi adalah sasaran utama Angakatan", R.drawable.news1),
                 new News("Mahasiswa Progresif", "Perubahan keadaan politik merisaukan semua mahasiswa/i", R.drawable.news2),
                 new News("Neo Siswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news3),
-                new News("Angkatan Mahasiswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news1),
-                new News("Neo Siswa", "KPerubahan keadaan politik merisaukan semua mahasiswa/i ", R.drawable.news2),
+                new News("Angkatan Mahasiswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news4),
+                new News("UM Chanselor", "Mahasiswa/i perlu membuat pilihan yang bijak dan tepat ", R.drawable.news5),
+                new News("Associate Prof Dr Ali", "Masa hadapan kepimpinan mahasiswa/i terletak pada undian semua", R.drawable.news6),
+                new News("Mohd Anuar", "Sebagai wakil parti saya membawa mandat yang besar", R.drawable.news7),
+                new News("Astro Awani", "Pilihanraya Umum yang ke 19 Universiti Malaya menjadi tumpuan negara", R.drawable.news8),
+                new News("Jejaka Sengkek", "Kemelut menyiapkan tugasan MAD semakin dirasai", R.drawable.news9),
 
         };
 
