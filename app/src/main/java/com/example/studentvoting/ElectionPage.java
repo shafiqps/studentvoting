@@ -26,7 +26,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
 
-        // Map To View Faculties (shoutout umar)
+        // Map To View Faculties (shoutout umar)(thanks for the shoutout -umar)
         // Get the MapView from the layout file
         MapView mapView = rootView.findViewById(R.id.mapView);
         // Initialize the MapView
@@ -95,7 +95,6 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
         googleMap.setLatLngBoundsForCameraTarget(universitiMalayaBounds);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(universitiMalayaCenter, zoomLevel));
-
         setFacultyMarkers(googleMap);
     }
 

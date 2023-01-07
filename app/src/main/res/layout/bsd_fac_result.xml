@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="750px">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/FacNameResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/archivo_bold"
+            android:paddingStart="30px"
+            android:text="Faculty"
+            android:textColor="@color/lightblue"
+            android:textSize="52px" />
+
+        <ProgressBar
+            android:id="@+id/candidateProgress1"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_below="@+id/FacNameResult"
+            android:layout_marginTop="130px"
+            android:progressDrawable="@drawable/result_progress1"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_marginTop="130px"
+            android:paddingTop="5px"
+            android:paddingStart="30px"
+            android:text="Candidate 1"
+            android:textSize="64px"
+            android:fontFamily="@font/archivo_bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_marginTop="130px"
+            android:paddingTop="75px"
+            android:paddingStart="30px"
+            android:text="Party 1"
+            android:textSize="40px"
+            android:fontFamily="@font/archivo_bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_marginTop="130px"
+            android:paddingTop="25px"
+            android:paddingStart="790px"
+            android:text="100%"
+            android:fontFamily="@font/archivo_bold"
+            android:textColor="@color/white"
+            android:textSize="64px"/>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
