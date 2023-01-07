@@ -30,6 +30,24 @@ public class VoteCast extends Fragment {
         //candidate selection using radio button
 
         RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedButtonId) {
+                switch(checkedButtonId){
+                    case R.id.radioBtn1:
+                        Toast.makeText(getContext(), "Candidate 1 is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.radioBtn2:
+                        Toast.makeText(getContext(), "Candidate 2 is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.radioBtn3:
+                        Toast.makeText(getContext(), "Candidate 3 is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
+
+            }
+        });
 
         //confirm Button when done voting
         Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);

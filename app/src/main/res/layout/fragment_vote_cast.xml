@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/textIntrucstions"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Vote one (1) candidate"
@@ -61,141 +61,144 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:background="#000033">
-
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="51dp"
-                android:src="@drawable/bong"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Bong Mokhtar"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Party Y"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"/>
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#000033">
 
-            <RadioButton
-                android:id="@+id/radioBtn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="258dp"
-                android:onClick="checkButton" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/mat" />
 
-        </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Mat Sabu"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="#000033">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Angkatan Mahasiswa"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="51dp"
-                android:src="@drawable/mat" />
+                </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Mat Sabu"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#000033">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Party W"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"/>
 
-            <RadioButton
-                android:id="@+id/radioBtn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="258dp"
-                android:onClick="checkButton" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/bong" />
 
-        </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Bong Mokhtar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="#000033">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Mahasiswa Progresif"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="51dp"
-                android:src="@drawable/ahmad" />
+                </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Ahmad Maslan"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="#000033">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:text="Party X"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ahmad" />
 
-            <RadioButton
-                android:id="@+id/radioBtn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="258dp"
-                android:onClick="checkButton" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Ahmad Maslan"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
 
-        </RelativeLayout>
-        </RadioGroup>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@font/inter"
+                        android:text="Neo Siswa"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="87dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp">
+
+                <RadioButton
+                    android:id="@+id/radioBtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColorLink="#000033" />
+
+                <RadioButton
+                    android:id="@+id/radioBtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioButton
+                    android:id="@+id/radioBtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp" />
+
+            </RadioGroup>
+
         </LinearLayout>
 
 
@@ -209,7 +212,6 @@
             android:layout_marginEnd="53dp"
             android:layout_marginRight="39dp"
             android:text="Confirm" />
-
 
 
     </LinearLayout>
