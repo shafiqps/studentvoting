@@ -12,4 +12,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="map_id">eb186311dabd9b33</string>
+
+    <!-- Strings to use in news -->
+    <string name="head_1">Angkatan Mahasiswa</string>
+    <string name="head_2">Mahasiswa Progresif</string>
+    <string name="head_3">Neo Siswa</string>
+
+    <string name="desc_1">Majoriti 112 kerusi adalah sasaran utama Angakatan</string>
+    <string name="desc_2">Majoriti 112 kerusi adalah sasaran utama Angakatan</string>
+    <string name="desc_3">Majoriti 112 kerusi adalah sasaran utama Angakatan</string>
 </resources>

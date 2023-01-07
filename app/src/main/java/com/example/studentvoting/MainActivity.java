@@ -35,6 +35,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 

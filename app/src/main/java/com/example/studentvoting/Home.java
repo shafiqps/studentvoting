@@ -2,17 +2,28 @@ package com.example.studentvoting;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class Home extends Fragment {
+
+    private ArrayList<News> newsArrayList;
+    private String[] newsHeading;
+    private int[] imageResourceID;
+    private RecyclerView recyclerview;
+    private String[] newsDescription;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,6 +35,52 @@ public class Home extends Fragment {
         */
 
         return rootView;
+    }
+
+    //for recyclerView news
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        dataInitialize();
+        recyclerview = view.findViewById(R.id.recyclerView);
+        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerview.setHasFixedSize(true);
+        Adapter_News adapter_news = new Adapter_News( newsArrayList);
+    }
+
+    private void dataInitialize(){
+
+        newsArrayList = new ArrayList<>();
+
+        newsHeading =  new String[]{
+                getString(R.string.head_1),
+                getString(R.string.head_2),
+                getString(R.string.head_3),
+
+        };
+
+        imageResourceID = new int[]{
+
+                R.drawable.news1,
+                R.drawable.news2,
+                R.drawable.news3,
+
+        };
+
+        newsDescription = new String[]{
+                String.valueOf(R.string.desc_1),
+                String.valueOf(R.string.desc_2),
+                String.valueOf(R.string.desc_3),
+
+        };
+
+        for(int i=0; i<newsHeading.length; i++){
+
+            News news = new News(newsHeading[i], imageResourceID[i], newsDescription[i]);
+            newsArrayList.add(news);
+        }
+
     }
 
     /*public void onClick(View view) {
