@@ -120,10 +120,10 @@
                 android:layout_alignEnd="@+id/login_btn"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="50dp"
+                android:clickable="true"
                 android:fontFamily="@font/archivo"
                 android:text="Don't have an account? Register here"
                 android:textColor="@color/white"
-                android:clickable="true"
                 android:textSize="12dp" />
         </RelativeLayout>
 

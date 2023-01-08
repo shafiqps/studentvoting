@@ -78,6 +78,19 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordTB" />
 
         <TextView
+            android:id="@+id/addressTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="45dp"
+            android:fontFamily="@font/archivo_bold"
+            android:text="Address"
+            android:textColor="@color/white"
+            android:textSize="55px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
+
+        <TextView
             android:id="@+id/facultyregisterTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +101,7 @@
             android:textColor="@color/white"
             android:textSize="55px"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
+            app:layout_constraintTop_toBottomOf="@+id/addressTB" />
 
         <EditText
             android:id="@+id/nameTB"
@@ -157,16 +170,56 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV" />
 
-        <Spinner
-            android:id="@+id/facultySpinner"
+        <EditText
+            android:id="@+id/addressTB"
             android:layout_width="331dp"
             android:layout_height="31dp"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="45dp"
-            android:spinnerMode="dropdown"
+            android:layout_marginTop="8dp"
             android:background="@drawable/roundedtextbox"
+            android:ems="10"
+            android:fontFamily="@font/archivo"
+            android:inputType="textPassword"
+            android:text=""
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV" />
+            app:layout_constraintTop_toBottomOf="@+id/addressTV" />
+
+        <RelativeLayout
+            android:id="@+id/facultyRL"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight=".28"
+            android:background="@drawable/roundedtextbox"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV"
+            >
+            <Spinner
+                android:id="@+id/facultySpinner"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown"
+                android:background="@android:color/transparent"
+                 />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_down"
+                 />
+        </RelativeLayout>
+
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
@@ -181,7 +234,9 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facultySpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/facultyRL" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

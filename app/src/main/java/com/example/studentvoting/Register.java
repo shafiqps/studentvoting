@@ -68,8 +68,21 @@ public class Register extends Fragment {
 //create a list of items for the spinner.
         String[] items = new String[]{
                 "Faculty of Computer Science and Information Technology",
+                "Academy of Islamic Studies",
+                "Faculty of Sports and Exercise Science",
+                "Faculty of Law",
+                "Faculty of Engineering",
+                "Faculty of Built Environment",
                 "Faculty of Medicine",
-                "Faculty of Engineering"};
+                "Faculty of Dentistry",
+                "Faculty of Business and Accountancy",
+                "Faculty of Economics and Administration",
+                "Faculty of Education",
+                "Faculty of Arts and Social Sciences",
+                "Faculty of Science",
+                "Faculty of Creative Arts",
+                "Faculty of Languages and Linguistics",
+                "Academy of Malay Studies"};
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
 //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, items);
