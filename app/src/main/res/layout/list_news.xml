@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageNews"
             android:layout_width="384dp"
-            android:layout_height="283dp"
+            android:layout_height="250dp"
             android:layout_alignParentTop="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,20 +25,20 @@
             android:id="@+id/title_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="196dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="173dp"
             android:fontFamily="@font/inter"
             android:text="@string/head_1"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_marginStart="27dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/desc_news"
             android:layout_width="357dp"
-            android:layout_height="44dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
             android:fontFamily="@font/inter"
             android:text="@string/desc_1"
