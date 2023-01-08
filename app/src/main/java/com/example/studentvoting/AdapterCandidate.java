@@ -12,54 +12,44 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
 
-public class AdapterCandidate extends RecyclerView.Adapter<AdapterCandidate.ViewHolder>{
 
-    Candidate[] candidates;
-    Context context;
+public class AdapterCandidate extends RecyclerView.Adapter<AdapterCandidate.CandidateViewHolder>{
 
-    public AdapterCandidate(Candidate[] candidates, LiveFullResult liveFullResult){
-        this.candidates = candidates;
-        this.context = context;
+    private List<Candidate> candidateList;
+
+    AdapterCandidate(List<Candidate> candidateList){
+        this.candidateList = candidateList;
+    }
+
+    @NonNull
+    @Override
+    public CandidateViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.candidate_progressbar, parent, false);
+        return new CandidateViewHolder(view);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.livefullresult_cardview, parent, false);
-        return new ViewHolder(v);
+    public void onBindViewHolder(@NonNull CandidateViewHolder viewHolder, int position) {
+        Candidate candidate = candidateList.get(position);
+        viewHolder.name.setText(candidate.getName());
+        viewHolder.party.setText(candidate.getParty());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterCandidate.ViewHolder holder, int position) {
-        final Candidate candidateList = candidates[position];
-        holder.nameTextView.setText(candidateList.getName());
-        holder.partyTextView.setText(candidateList.getParty());
-        holder.facultyTextView.setText(candidateList.getFaculty());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, candidateList.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    public int getItemCount() {
+        return candidateList.size();
     }
 
-    @Override
-    public int getItemCount() { return candidates.length;}
+    public class CandidateViewHolder extends RecyclerView.ViewHolder{
+        TextView name;
+        TextView party;
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public CardView cardView;
-        public TextView nameTextView;
-        public TextView partyTextView;
-        public TextView facultyTextView;
-
-        public ViewHolder(View v) {
-            super(v);
-            cardView = (CardView) v.findViewById(R.id.livefullresultCV);
-            nameTextView = (TextView) v.findViewById(R.id.candidateNameTV);
-            partyTextView = (TextView) v.findViewById(R.id.partyNameTV);
-            facultyTextView = (TextView) v.findViewById(R.id.facNameTV);
+        public CandidateViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.candidateNameTV);
+            party = itemView.findViewById(R.id.partyNameTV);
         }
     }
 }

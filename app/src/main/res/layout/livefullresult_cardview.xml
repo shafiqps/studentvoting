@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/livefullresultCV"
     android:layout_width="990px"
     android:layout_height="wrap_content"
     android:layout_marginTop="50px"
-    android:layout_marginStart="45px">
+    android:layout_marginStart="45px"
+    app:cardCornerRadius="30px">
 
     <TextView
         android:id="@+id/facNameTV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Faculty"
         android:fontFamily="@font/archivo_bold"
         android:textSize="52px"
@@ -18,47 +20,53 @@
         android:layout_marginTop="30px"
         android:paddingStart="30px"/>
 
-    <ProgressBar
-        android:id="@+id/candidateProgress"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/candidateprogressRV"
         android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_below="@id/facNameTV"
-        android:layout_marginTop="130px"
-        android:progressDrawable="@drawable/result_progress1"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
-    <TextView
-        android:id="@+id/candidateNameTV"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_marginTop="130px"
-        android:paddingTop="5px"
-        android:paddingStart="30px"
-        android:text="Candidate 1"
-        android:textSize="64px"
-        android:fontFamily="@font/archivo_bold"
-        android:textColor="@color/white"/>
-    <TextView
-        android:id="@+id/partyNameTV"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_marginTop="130px"
-        android:paddingTop="75px"
-        android:paddingStart="30px"
-        android:text="Party 1"
-        android:textSize="40px"
-        android:fontFamily="@font/archivo_bold"
-        android:textColor="@color/white"/>
-    <TextView
-        android:id="@+id/candidatePercentTV"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_marginTop="130px"
-        android:paddingTop="25px"
-        android:paddingStart="790px"
-        android:text="100%"
-        android:fontFamily="@font/archivo_bold"
-        android:textColor="@color/white"
-        android:textSize="64px"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        tools:listitem="@layout/candidate_progressbar"/>
+<!--    <ProgressBar-->
+<!--        android:id="@+id/candidateProgress"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150px"-->
+<!--        android:layout_below="@id/facNameTV"-->
+<!--        android:layout_marginTop="130px"-->
+<!--        android:progressDrawable="@drawable/result_progress1"-->
+<!--        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/candidateNameTV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150px"-->
+<!--        android:layout_marginTop="130px"-->
+<!--        android:paddingTop="5px"-->
+<!--        android:paddingStart="30px"-->
+<!--        android:text="Candidate 1"-->
+<!--        android:textSize="64px"-->
+<!--        android:fontFamily="@font/archivo_bold"-->
+<!--        android:textColor="@color/white"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/partyNameTV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150px"-->
+<!--        android:layout_marginTop="130px"-->
+<!--        android:paddingTop="75px"-->
+<!--        android:paddingStart="30px"-->
+<!--        android:text="Party 1"-->
+<!--        android:textSize="40px"-->
+<!--        android:fontFamily="@font/archivo_bold"-->
+<!--        android:textColor="@color/white"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/candidatePercentTV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150px"-->
+<!--        android:layout_marginTop="130px"-->
+<!--        android:paddingTop="25px"-->
+<!--        android:paddingStart="790px"-->
+<!--        android:text="100%"-->
+<!--        android:fontFamily="@font/archivo_bold"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="64px"/>-->
 
 
 </androidx.cardview.widget.CardView>
