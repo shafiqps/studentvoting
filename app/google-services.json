@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "805814783988",
+    "project_id": "studentvoting-fc2ca",
+    "storage_bucket": "studentvoting-fc2ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805814783988:android:b999960c5b221c5e3073a1",
+        "android_client_info": {
+          "package_name": "com.example.studentvoting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805814783988-tjftpj6krno50pq01lopp5du7as6t9nd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALka0OCz4UKL5rhdDC9VxM06rWQxTnOa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805814783988-tjftpj6krno50pq01lopp5du7as6t9nd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
