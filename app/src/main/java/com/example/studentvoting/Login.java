@@ -2,9 +2,11 @@ package com.example.studentvoting;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +15,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Login#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class Login extends Fragment {
-    String usernameDB = "nigga";
-    String passwordDB = "n1gga";
+    DatabaseReference reff;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -74,19 +83,34 @@ public class Login extends Fragment {
 
         TextView tv = (TextView) rootView.findViewById(R.id.noaccount_tv);
 
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         BtnToResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = null;
-                if(username.getText().toString().equals(usernameDB) &&
-                        password.getText().toString().equals(passwordDB)) {
-                    fragment = new Home();
-                    replaceFragment(fragment);
-                }else{
-                    Toast.makeText(rootView.getContext(), "Wrong Credentials",
-                            Toast.LENGTH_SHORT).show();
+                String matrixno = username.getText().toString().toUpperCase(Locale.ROOT);
+                String pass = password.getText().toString();
+                reff.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(matrixno)) {
+                                final String getPassword = snapshot.child(matrixno).child("password").getValue(String.class);
 
-                }
+                                if(getPassword.equals(pass)){
+                                    Fragment fragment = null;
+                                    fragment = new Home();
+                                    replaceFragment(fragment);
+                                }
+
+                            } else {
+                                Toast.makeText(rootView.getContext(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
             }
         });
 
