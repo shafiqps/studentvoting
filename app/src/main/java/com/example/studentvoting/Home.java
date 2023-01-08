@@ -28,9 +28,9 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        /*Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
+        Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
         BtnToResult.setOnClickListener(this::onClick);
-        */
+
         //dataInitialize();
         recyclerview = rootView.findViewById(R.id.recyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext())); //getActivity()
@@ -110,8 +110,6 @@ public class Home extends Fragment {
         }
     }
 
-
-
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, someFragment);
@@ -120,14 +118,14 @@ public class Home extends Fragment {
     }
 
 
-
+//
 //   @Override
 //    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
 //        Button BtnToResult = view.findViewById(R.id.buttonToResultPage);
 //        View.OnClickListener OCLToResultPage = new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_Home_to_liveMapResult);
+//                Navigation.findNavController(view).navigate(R.id.action_Home_to_result);
 //            }
 //        };
 //        BtnToResult.setOnClickListener(OCLToResultPage);
