@@ -13,11 +13,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView20"
-            android:layout_width="166dp"
-            android:layout_height="46dp"
+            android:id="@+id/registrationTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="128dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Registration"
             android:textColor="@color/white"
@@ -26,125 +26,163 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView19"
-            android:layout_width="128dp"
-            android:layout_height="32dp"
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
-            android:layout_marginEnd="264dp"
+            android:layout_marginStart="45dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Name"
             android:textColor="@color/white"
             android:textSize="55px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registrationTV" />
 
         <TextView
-            android:id="@+id/textView21"
-            android:layout_width="254dp"
-            android:layout_height="35dp"
+            android:id="@+id/siswamailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="140dp"
+            android:layout_marginStart="45dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Siswamail Username"
             android:textColor="@color/white"
             android:textSize="55px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTB" />
 
         <TextView
-            android:id="@+id/textView22"
-            android:layout_width="146dp"
-            android:layout_height="38dp"
+            android:id="@+id/passwordTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="244dp"
+            android:layout_marginStart="45dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Password"
             android:textColor="@color/white"
-            android:textSize="60px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            android:textSize="55px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/siswamailTB" />
 
         <TextView
-            android:id="@+id/textView23"
-            android:layout_width="222dp"
-            android:layout_height="34dp"
+            android:id="@+id/confirmPasswordTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="168dp"
+            android:layout_marginStart="45dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Confirm Password"
             android:textColor="@color/white"
-            android:textSize="60px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+            android:textSize="55px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTB" />
 
         <TextView
-            android:id="@+id/textView24"
-            android:layout_width="146dp"
-            android:layout_height="38dp"
+            android:id="@+id/facultyregisterTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="244dp"
+            android:layout_marginStart="45dp"
             android:fontFamily="@font/archivo_bold"
-            android:text="Registration"
+            android:text="Faculty"
             android:textColor="@color/white"
-            android:textSize="60px"
+            android:textSize="55px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
+
+        <EditText
+            android:id="@+id/nameTB"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/roundedtextbox"
+            android:ems="10"
+            android:fontFamily="@font/archivo"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+        <EditText
+            android:id="@+id/siswamailTB"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/roundedtextbox"
+            android:ems="10"
+            android:fontFamily="@font/archivo"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/siswamailTV" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextLayout"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:textColorHint="#B9B8B8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTV"
+            app:passwordToggleEnabled="true" />
+            <EditText
+                android:id="@+id/passwordTB"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/roundedtextbox"
+                android:ems="10"
+                android:fontFamily="@font/archivo"
+                android:inputType="textPassword"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
+
+
+        <EditText
+            android:id="@+id/confirmPasswordTB"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/roundedtextbox"
+            android:ems="10"
+            android:fontFamily="@font/archivo"
+            android:inputType="textPassword"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV" />
+
+        <Spinner
+            android:id="@+id/facultySpinner"
+            android:layout_width="331dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/roundedtextbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:layout_width="72dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/archivo_bold"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+            app:layout_constraintTop_toBottomOf="@+id/facultySpinner" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="378dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
-            android:layout_width="378dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName4"
-            android:layout_width="378dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName5"
-            android:layout_width="378dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -3,10 +3,12 @@ package com.example.studentvoting;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +60,38 @@ public class Login extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+
+        TextView tv = (TextView) rootView.findViewById(R.id.noaccount_tv);
+
+        tv.setOnClickListener(this::onClick);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return rootView;
+    }
+
+    public void onClick(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.noaccount_tv:
+                fragment = new Register();
+                replaceFragment(fragment);
+                break;
+//            case R.id.FeedbackBTN:
+//                fragment = new Feedback();
+//                replaceFragment(fragment);
+//                break;
+//            case R.id.logoutBTN:
+//                fragment = new Login();
+//                replaceFragment(fragment);
+//                break;
+        }
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
