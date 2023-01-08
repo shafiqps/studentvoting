@@ -9,6 +9,9 @@
     android:layout_marginStart="45px"
     app:cardCornerRadius="30px">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/facNameTV"
         android:layout_width="match_parent"
@@ -24,8 +27,11 @@
         android:id="@+id/candidateprogressRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120px"
+        android:layout_marginTop="30px"
+        android:layout_below="@id/facNameTV"
         tools:listitem="@layout/candidate_progressbar"/>
+
+</RelativeLayout>
 <!--    <ProgressBar-->
 <!--        android:id="@+id/candidateProgress"-->
 <!--        android:layout_width="match_parent"-->
