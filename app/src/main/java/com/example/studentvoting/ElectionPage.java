@@ -36,10 +36,8 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         mapView.getMapAsync(this);
 
         Button BtnToCastVote = (Button) rootView.findViewById(R.id.goToVotingButton);
-        Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
         TextView tvToImportantDates = (TextView) rootView.findViewById(R.id.textView16);
 
-        BtnToResult.setOnClickListener(this::onClick1);
         BtnToCastVote.setOnClickListener(this::onClick);
         tvToImportantDates.setOnClickListener(this::onClick2);
 

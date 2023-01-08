@@ -24,6 +24,21 @@
             android:textSize="70px"
             android:textStyle="bold"/>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonToResultPage"
+            android:layout_width="wrap_content"
+            android:layout_height="89px"
+            android:layout_toRightOf="@id/textView2"
+            android:translationY="25px"
+            android:translationX="240px"
+            android:layout_below="@id/HomeTB"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/fuckcolor"
+            android:fontFamily="@font/archivo"
+            android:textAllCaps="false"
+            android:text="Result"
+            android:textSize="36px"
+            android:textColor="@color/backgroundgrey" />
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -31,7 +46,7 @@
             android:fontFamily="@font/archivo_semibold"
             android:text="What's happening?"
             android:textColor="#000033"
-            android:textSize="22dp"
+            android:textSize="56px"
             android:textStyle="bold"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
