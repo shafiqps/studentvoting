@@ -56,7 +56,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="60px"
+            android:textSize="70px"
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
@@ -101,22 +101,22 @@
             android:paddingLeft="0dp"
             android:text="About this party"
             android:textColor="@color/black"
-            android:textSize="50px"
+            android:textSize="60px"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/about_TV"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/aboutTV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="60dp"
-            android:text="SIALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+            android:text="LOL"
             android:textColor="@color/fuckcolor"
-            android:textSize="43px" />
+            android:textSize="53px" />
 
         <TextView
             android:id="@+id/currentMembersTV"
@@ -131,7 +131,7 @@
             android:paddingLeft="0dp"
             android:text="Current Members"
             android:textColor="@color/black"
-            android:textSize="43px"
+            android:textSize="63px"
             android:textStyle="bold" />
 
         <HorizontalScrollView
@@ -354,13 +354,13 @@
             android:paddingLeft="0dp"
             android:text="Party's Manifesto"
             android:textColor="@color/black"
-            android:textSize="50px"
+            android:textSize="60px"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
             android:id="@+id/manifestoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/manifestoTV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
@@ -379,20 +379,36 @@
                     android:divider="@drawable/divider_vertical_scrollable"
                     android:isScrollContainer="false"
                     android:orientation="vertical"
-                    android:showDividers="middle">
+                    android:showDividers="middle"
+                    >
 
 
                     <TextView
                         android:id="@+id/textView28"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
+                        android:background="@drawable/manifesto_bg"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
                         android:text="1. mak kau babi"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:background="@drawable/manifesto_bg"
                         android:textSize="40px"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="10dp"
+                        android:background="#FFFFFF" />
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@drawable/manifesto_bg"
+                        android:gravity="center_vertical"
                         android:paddingLeft="5dp"
-                        android:gravity="center_vertical"/>
+                        android:text="1. mak kau babi"
+                        android:textColor="@color/white"
+                        android:textSize="40px"
+                        android:textStyle="bold"  />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

@@ -54,7 +54,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="50px"
+            android:textSize="60px"
             android:textStyle="bold" />
 
 
@@ -70,7 +70,7 @@
             android:paddingLeft="0dp"
             android:text="Email"
             android:textColor="@color/black"
-            android:textSize="43px"
+            android:textSize="55px"
             android:textStyle="bold" />
 
         <TextView
@@ -84,7 +84,7 @@
             android:paddingLeft="0dp"
             android:text="shafiq@gmail.com"
             android:textColor="#2A3C9A"
-            android:textSize="43px" />
+            android:textSize="53px" />
 
         <TextView
             android:id="@+id/homeAddressTV"
@@ -97,7 +97,7 @@
             android:paddingLeft="0dp"
             android:text="Home Address"
             android:textColor="@color/black"
-            android:textSize="43px"
+            android:textSize="53px"
             android:textStyle="bold" />
 
         <TextView
@@ -111,7 +111,7 @@
             android:paddingLeft="0dp"
             android:text="8, jalan pecah, MALAYSIA"
             android:textColor="#2A3C9A"
-            android:textSize="43px" />
+            android:textSize="53px" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/circular_bg"
@@ -157,7 +157,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="#2A3C9A"
-            android:textSize="43px" />
+            android:textSize="50px" />
 
         <TextView
             android:id="@+id/positionTV"
@@ -174,7 +174,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="45px" />
+            android:textSize="55px" />
     </RelativeLayout>
 
 </FrameLayout>

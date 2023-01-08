@@ -53,7 +53,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="50px"
+            android:textSize="60px"
             android:textStyle="bold" />
 
 
@@ -67,8 +67,8 @@
             android:layout_toEndOf="@+id/dot"
             android:text="Party AWAL"
             android:textColor="@color/fuckcolor"
-            android:textStyle="bold"
-            android:textSize="50px" />
+            android:textSize="60px"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/facultyTV"
@@ -85,8 +85,8 @@
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="@color/fuckcolor"
-            android:textStyle="bold"
-            android:textSize="43px" />
+            android:textSize="53px"
+            android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/dot"
@@ -142,7 +142,7 @@
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="45px" />
+            android:textSize="55px" />
 
         <TextView
             android:id="@+id/infoTV"
@@ -157,8 +157,8 @@
             android:paddingLeft="0dp"
             android:text="Featured information"
             android:textColor="@color/black"
-            android:textSize="43px"
-            android:textStyle="bold"/>
+            android:textSize="53px"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/socialTV"
@@ -173,8 +173,8 @@
             android:paddingLeft="0dp"
             android:text="Socials"
             android:textColor="@color/black"
-            android:textSize="43px"
-            android:textStyle="bold"/>
+            android:textSize="53px"
+            android:textStyle="bold" />
 
         <HorizontalScrollView
             android:id="@+id/scrollable"

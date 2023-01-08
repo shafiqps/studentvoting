@@ -51,9 +51,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
-            android:textAlignment="center"
             android:paddingLeft="0dp"
             android:text="Faculty blablablanlalalal sanjivan balajawahar"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="70px"
             android:textStyle="bold" />
@@ -67,12 +67,12 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="60dp"
             android:paddingLeft="0dp"
             android:text="Competing candidates"
             android:textColor="@color/black"
-            android:textSize="58px"
-            android:textStyle="bold"/>
+            android:textSize="68px"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/previousRep_TV"
@@ -83,12 +83,12 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="60dp"
             android:paddingLeft="0dp"
             android:text="Previous representatives"
             android:textColor="@color/black"
-            android:textSize="58px"
-            android:textStyle="bold"/>
+            android:textSize="68px"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/socials_TV"
@@ -103,8 +103,8 @@
             android:paddingLeft="0dp"
             android:text="Socials"
             android:textColor="@color/black"
-            android:textSize="58px"
-            android:textStyle="bold"/>
+            android:textSize="68px"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
