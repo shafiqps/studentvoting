@@ -25,122 +25,134 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Name"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registrationTV" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="401dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/loginbackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registrationTV"
+            app:layout_constraintVertical_bias="0.402">
 
-        <TextView
-            android:id="@+id/siswamailTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Siswamail Username"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTB" />
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/passwordTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Password"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/siswamailTB" />
+            <TextView
+                android:id="@+id/siswamailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Siswamail Username"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTB" />
 
-        <TextView
-            android:id="@+id/confirmPasswordTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Confirm Password"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTB" />
+            <TextView
+                android:id="@+id/passwordTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Password"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/siswamailTB" />
 
-        <TextView
-            android:id="@+id/addressTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Address"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
+            <TextView
+                android:id="@+id/confirmPasswordTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Confirm Password"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTB" />
 
-        <TextView
-            android:id="@+id/facultyregisterTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="45dp"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Faculty"
-            android:textColor="@color/white"
-            android:textSize="55px"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addressTB" />
+            <TextView
+                android:id="@+id/addressTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Address"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
 
-        <EditText
-            android:id="@+id/nameTB"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+            <TextView
+                android:id="@+id/facultyregisterTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Faculty"
+                android:textColor="@color/white"
+                android:textSize="55px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addressTB" />
 
-        <EditText
-            android:id="@+id/siswamailTB"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPersonName"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/siswamailTV" />
+            <EditText
+                android:id="@+id/nameTB"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/roundedtextbox"
+                android:ems="10"
+                android:fontFamily="@font/archivo"
+                android:inputType="textPersonName"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameTV" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordTextLayout"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:textColorHint="#B9B8B8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTV"
-            app:passwordToggleEnabled="true" />
+            <EditText
+                android:id="@+id/siswamailTB"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/roundedtextbox"
+                android:ems="10"
+                android:fontFamily="@font/archivo"
+                android:inputType="textPersonName"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/siswamailTV" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTextLayout"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:textColorHint="#B9B8B8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTV"
+                app:passwordToggleEnabled="true" />
+
             <EditText
                 android:id="@+id/passwordTB"
                 android:layout_width="331dp"
@@ -156,86 +168,85 @@
                 app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
 
 
-        <EditText
-            android:id="@+id/confirmPasswordTB"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPassword"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV" />
-
-        <EditText
-            android:id="@+id/addressTB"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/roundedtextbox"
-            android:ems="10"
-            android:fontFamily="@font/archivo"
-            android:inputType="textPassword"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addressTV" />
-
-        <RelativeLayout
-            android:id="@+id/facultyRL"
-            android:layout_width="331dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight=".28"
-            android:background="@drawable/roundedtextbox"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV"
-            >
-            <Spinner
-                android:id="@+id/facultySpinner"
+            <EditText
+                android:id="@+id/confirmPasswordTB"
                 android:layout_width="331dp"
                 android:layout_height="31dp"
-                android:gravity="center"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:spinnerMode="dropdown"
-                android:background="@android:color/transparent"
-                 />
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:src="@drawable/arrow_down"
-                 />
-        </RelativeLayout>
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/roundedtextbox"
+                android:ems="10"
+                android:fontFamily="@font/archivo"
+                android:inputType="textPassword"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV" />
+
+            <EditText
+                android:id="@+id/addressTB"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/roundedtextbox"
+                android:ems="10"
+                android:fontFamily="@font/archivo"
+                android:inputType="textPassword"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addressTV" />
+
+            <RelativeLayout
+                android:id="@+id/facultyRL"
+                android:layout_width="331dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight=".28"
+                android:background="@drawable/roundedtextbox"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV">
+
+                <Spinner
+                    android:id="@+id/facultySpinner"
+                    android:layout_width="331dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_down" />
+            </RelativeLayout>
 
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_btn"
+                android:layout_width="72dp"
+                android:layout_height="27dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/archivo_bold"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facultyRL" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/login_btn"
-            android:layout_width="72dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/archivo_bold"
-            android:text="Register"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facultyRL" />
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
