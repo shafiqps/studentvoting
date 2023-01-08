@@ -1,64 +1,87 @@
 package com.example.studentvoting;
 
+import android.hardware.biometrics.BiometricManager;
+import android.hardware.biometrics.BiometricPrompt;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link VerifyVote#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.concurrent.Executor;
+
+
+
+
 public class VerifyVote extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    BiometricPrompt biometricPrompt;
+    BiometricPrompt.PromptInfo promptInfo;
+    RelativeLayout verification_layout;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public VerifyVote() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment VerifyVote.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static VerifyVote newInstance(String param1, String param2) {
-        VerifyVote fragment = new VerifyVote();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_verify_vote, container, false);
+        View view = inflater.inflate(R.layout.fragment_verify_vote, container, false);
+
+
+        verification_layout = view.findViewById(R.id.verification_fragment);
+
+        BiometricManager biometricManager = (BiometricManager) getActivity().getSystemService(VerifyVote.class);
+        switch(biometricManager.canAuthenticate()){
+            case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+                Toast.makeText(getActivity().getApplicationContext(), "Device don't have FingerPrint feature", Toast.LENGTH_SHORT).show();
+                break;
+            case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+                Toast.makeText(getActivity().getApplicationContext(), "FingerPrint doesn't working", Toast.LENGTH_SHORT).show();
+            case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+                Toast.makeText(getActivity().getApplicationContext(), "No FingerPrint assigned", Toast.LENGTH_SHORT).show();
+
+        }
+
+        Executor executor = ContextCompat.getMainExecutor(view.getContext());
+
+        biometricPrompt = new androidx.biometric.BiometricPrompt(verification_layout.this, executor, new androidx.biometric.BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull androidx.biometric.BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(getActivity().getApplicationContext(), "Your Vote is verified", Toast.LENGTH_SHORT).show();
+                verification_layout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromtInfo.Builder().setTitle("Verified Your Vote with Your FingerPrint")
+                .setDescription("Use Fingerprint to Verify Your Vote").setDeviceCredentialAllowed(true).build();
+
+        biometricPrompt.authenticate(promptInfo);
+
+
+        return view;
     }
 }

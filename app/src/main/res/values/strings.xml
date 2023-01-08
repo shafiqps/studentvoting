@@ -13,12 +13,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="map_id">eb186311dabd9b33</string>
 
-    <!-- Strings to use in news -->
     <string name="head_1">Angkatan Mahasiswa</string>
-    <string name="head_2">Mahasiswa Progresif</string>
-    <string name="head_3">Neo Siswa</string>
+    <string name="desc_1">Majoriti 112 kerusi adalah sasaran utama parti Angkatan</string>
 
-    <string name="desc_1">Majoriti 112 kerusi adalah sasaran utama Angakatan</string>
-    <string name="desc_2">Perubahan keadaan politik di dalam kampus memberi kebimbangan kepada semua mahasiswa/i</string>
-    <string name="desc_3">Lompat parti oleh wakil Fakuliti Pendidikan menimbulkan tanda tanya</string>
 </resources>

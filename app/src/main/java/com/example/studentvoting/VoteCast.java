@@ -1,5 +1,6 @@
 package com.example.studentvoting;
 
+import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ public class VoteCast extends Fragment {
     //candidate selection using radio button
     RadioGroup radioGroup;
     RadioButton radioButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +55,8 @@ public class VoteCast extends Fragment {
         Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
 
         confirmBtn.setOnClickListener(this::onClick);
+
+
 
         return rootView;
     }
