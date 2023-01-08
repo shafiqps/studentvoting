@@ -27,18 +27,19 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonToResultPage"
             android:layout_width="wrap_content"
-            android:layout_height="89px"
-            android:layout_toRightOf="@id/textView2"
-            android:translationY="25px"
-            android:translationX="240px"
-            android:layout_below="@id/HomeTB"
+            android:layout_height="60px"
+            android:layout_below="@+id/textHomeTB"
+            android:layout_marginStart="103dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/textView2"
             android:background="@drawable/rounded_button"
             android:backgroundTint="@color/fuckcolor"
             android:fontFamily="@font/archivo"
-            android:textAllCaps="false"
             android:text="Result"
-            android:textSize="36px"
-            android:textColor="@color/backgroundgrey" />
+            android:textAllCaps="false"
+            android:textColor="@color/backgroundgrey"
+            android:textSize="36px" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -57,6 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/list_news"
-            android:layout_below="@id/textView2"/>
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="45dp"/>
 
     </RelativeLayout>
