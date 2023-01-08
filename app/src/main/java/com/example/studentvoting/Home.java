@@ -2,20 +2,13 @@ package com.example.studentvoting;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
-import java.util.ArrayList;
 
 public class Home extends Fragment {
 
@@ -55,7 +48,7 @@ public class Home extends Fragment {
 
         };
 
-        Adapter_News adapter_news = new Adapter_News(news, Home.this );
+        AdapterNews adapter_news = new AdapterNews(news, Home.this );
         recyclerview.setAdapter(adapter_news);
 
         return rootView;

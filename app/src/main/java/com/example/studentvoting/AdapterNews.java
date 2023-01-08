@@ -11,24 +11,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.shape.Shapeable;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-
-public class Adapter_News extends RecyclerView.Adapter<Adapter_News.ViewHolder>{
+public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder>{
 
     News[] news;
     Context context;
 
-    public Adapter_News(News[] news, Home home) {
+    public AdapterNews(News[] news, Home home) {
         this.news = news;
         this.context = context;
     }
 
-    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
@@ -61,8 +53,6 @@ public class Adapter_News extends RecyclerView.Adapter<Adapter_News.ViewHolder>{
     public int getItemCount() {
         return news.length;
     }
-
-
 
 
 
