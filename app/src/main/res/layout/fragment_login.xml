@@ -28,9 +28,10 @@
         <RelativeLayout
             android:layout_width="370dp"
             android:layout_height="337dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="120dp"
             android:background="@drawable/loginbackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_tv">
 
