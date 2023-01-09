@@ -8,10 +8,13 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.PersistableBundle;
 import android.view.View;
 
+import androidx.biometric.BiometricManager;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,6 +33,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.biometric.BiometricPrompt;
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
 
     BottomNavigationView bottomNavigationView;
     Home homeFragment = new Home();
@@ -88,6 +93,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

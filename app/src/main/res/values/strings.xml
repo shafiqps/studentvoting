@@ -15,7 +15,7 @@
 
     <string name="head_1">Angkatan Mahasiswa</string>
     <string name="desc_1">Majoriti 112 kerusi adalah sasaran utama parti Angkatan</string>
-    
+
     <string-array name="candidateLIST">
         <item>babi1</item>
         <item>babi2</item>
