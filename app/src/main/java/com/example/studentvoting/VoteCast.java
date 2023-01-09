@@ -55,17 +55,6 @@ public class VoteCast extends Fragment {
             }
         });
 
-//        //confirm Button when done voting
-//        Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
-//
-//        confirmBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getSupportFragmentManager().beginTransaction().replace(R.id.container, ElectionPage).commit();
-//            }
-//        });
-
-
 
         return rootView;
     }
