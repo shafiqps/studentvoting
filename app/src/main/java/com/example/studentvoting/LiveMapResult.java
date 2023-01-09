@@ -3,6 +3,7 @@ package com.example.studentvoting;
 import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -30,6 +32,7 @@ import java.util.Map;
 
 public class LiveMapResult extends Fragment implements OnMapReadyCallback {
     private GoogleMap map;
+    BottomSheetDialog bottomSheetDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +50,7 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback {
         // Get the GoogleMap object from the MapView
         mapView.getMapAsync(this);
 
-        return rootView;
+            return rootView;
     }
 
 
@@ -170,13 +173,15 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback {
 
     public boolean onMarkerClick(Marker marker){
         String name = marker.getSnippet();
+        View bottomSheetView = getLayoutInflater().inflate(R.layout.bsd_fac_result, null);
 
         switch(name){
-            case "FSKTM": showBottomSheetDialog();
-            return true;
+            case "FSKTM":
+                showBottomSheetDialog();
+                break;
 
             case "API": showBottomSheetDialog();
-            return true;
+            break;
 
             case "Sports": showBottomSheetDialog();
                 return true;
@@ -222,6 +227,7 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback {
 
             default: return false;
         }
+        return true;
     }
 
     private void showBottomSheetDialog(){
