@@ -55,21 +55,27 @@ public class VoteCast extends Fragment {
             }
         });
 
-
         return rootView;
     }
 
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         Button confirmBtn = (Button) context.findViewById(R.id.confirmBtn);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(context, FingerPrintActivity.class);
+                Intent intent = new Intent(context, FingerPrintActivity.class);
                 startActivity(intent);
             }
         });
+    }
 
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }
