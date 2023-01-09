@@ -34,6 +34,7 @@
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bottom_nav_menu_background"
+        android:visibility="visible"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/white"
         app:itemTextColor="#FFFFFF"

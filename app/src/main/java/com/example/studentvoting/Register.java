@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -75,6 +76,9 @@ DatabaseReference reff;
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_register, container, false);
 
+        // Hide bottom nav menu
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_nav_view);
+        ((MainActivity)getActivity()).hideBottomNav();
 
         //get the spinner from the xml.
 

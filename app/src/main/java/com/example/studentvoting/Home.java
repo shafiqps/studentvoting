@@ -32,6 +32,7 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        ((MainActivity)getActivity()).showBottomNav();
 
         Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
         //RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);

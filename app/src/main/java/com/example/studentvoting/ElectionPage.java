@@ -372,6 +372,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         facText.setText(Faculty);
         facText.setOnClickListener(this::onClick);
 
+
         //Candidate A
         TextView candA = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateA);
         candA.setText(CandidateA);

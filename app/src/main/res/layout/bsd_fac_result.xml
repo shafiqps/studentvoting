@@ -15,7 +15,6 @@
             android:layout_marginTop="30px"
             android:fontFamily="@font/archivo_bold"
             android:paddingStart="30px"
-            android:text="Faculty"
             android:textColor="@color/lightblue"
             android:textSize="52px" />
 

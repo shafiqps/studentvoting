@@ -5,38 +5,18 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.PersistableBundle;
 import android.view.View;
 
-import androidx.biometric.BiometricManager;
-import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.studentvoting.databinding.ActivityMainBinding;
-import com.google.android.material.tabs.TabLayout;
 
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.biometric.BiometricPrompt;
 
 public class MainActivity extends AppCompatActivity {
     public static String currentlyLoggedIn = "";
@@ -47,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
+    Login loginFragment = new Login();
     Home homeFragment = new Home();
     ElectionPage electionPageFragment = new ElectionPage();
     ProfilePage profilePageFragment = new ProfilePage();
@@ -71,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Bottom navigation menu setup
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, loginFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -95,4 +77,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    void hideBottomNav(){
+        bottomNavigationView.setVisibility(View.GONE);
+    }
+
+    void showBottomNav(){
+        bottomNavigationView.setVisibility(View.VISIBLE);
+    }
 }
