@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,6 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
@@ -59,7 +58,12 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         tvToImportantDates.setOnClickListener(this::onClick2);
         BtnNameFilter.setOnClickListener(this::onClick3);
 
-        Toast.makeText(rootView.getContext(), "FUCK YOU", Toast.LENGTH_LONG).show();
+        /*
+        //Toast
+        Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Testing", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
+        toast.show();
+         */
 
         //Candidates List
         /*
