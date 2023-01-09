@@ -72,12 +72,4 @@ public class VoteCast extends Fragment {
 
     }
 
-
-    public void replaceFragment(Fragment someFragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, someFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
 }
