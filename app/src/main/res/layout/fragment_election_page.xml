@@ -113,12 +113,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="5dp"
-                        android:backgroundTint="@color/fuckcolor"
-                        android:backgroundTintMode="add"
+                        android:backgroundTint="@color/lightblue"
                         android:fontFamily="@font/archivo_bold"
-                        android:text="VOTING IS OPEN!"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                        android:text="Voting will open soon"
+                        android:textAlignment="center"
+                        android:textColor="#C5BFBF"
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.Gravity;
@@ -30,7 +31,15 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.Locale;
+
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
+    private static final long START_TIME_IN_MILLIS = 10000 ;
+    private TextView mTextViewCountDown;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private Button goToVotingButton;
 
     //Candidates List
     private String[] candidatesName;
@@ -48,6 +57,15 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         SpannableString content = new SpannableString("important dates");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         textView.setText(content);
+
+        //Timer
+        goToVotingButton = (Button) rootView.findViewById(R.id.goToVotingButton);
+        mTextViewCountDown = rootView.findViewById(R.id.textView7);
+        startTimer();
+
+        if(mTimerRunning = false) {
+            goToVotingButton.setText("Hi");
+        }
 
         // Map To View Faculties (shoutout umar)(thanks for the shoutout -umar)
         // Get the MapView from the layout file
@@ -89,6 +107,37 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         recyclerview.setAdapter(adapter_candidate); */
 
         return rootView;
+    }
+
+    private void startTimer(){
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                mTimerRunning = false ;
+                goToVotingButton.setText("Voting Is Open!");
+                goToVotingButton.setTextColor(getResources().getColor(R.color.white));
+                goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
+            }
+
+        }.start();
+
+        mTimerRunning = true ;
+    }
+
+    private void updateCountDownText(){
+        int days = (int) mTimeLeftInMillis / 1000 / 86400 ;
+        int hours = (int) mTimeLeftInMillis / 1000 % 86400 / 3600 ;
+        int minutes = (int) mTimeLeftInMillis / 1000 % 3600 / 60 ;
+        int seconds = (int) mTimeLeftInMillis / 1000 % 60 ;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d:%02d:%02d",days,hours,minutes,seconds);
+        mTextViewCountDown.setText(timeLeftFormatted);
     }
 
     private void onClick(View view) {
