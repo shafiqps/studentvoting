@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".CandidateProfile">
+    tools:context=".CandidateProfile"
+    android:id="@+id/framelayoutfacprofile">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/relativelayoutfac"
        >
 
         <androidx.appcompat.widget.Toolbar
@@ -19,6 +21,15 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
+
+        <ImageButton
+            android:id="@+id/BtnPrevResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/arrow_back_"
+            android:translationX="40px"
+            android:translationY="33px"/>
 
         <TextView
             android:id="@+id/profileTV"
@@ -78,7 +89,7 @@
             android:id="@+id/previousRep_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recyclerView"
+            android:layout_below="@+id/recyclerViewfac"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
@@ -107,9 +118,9 @@
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerViewfac"
             android:layout_width="wrap_content"
-            android:layout_height="132dp"
+            android:layout_height="135dp"
             android:layout_below="@id/competingCandidates_TV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
@@ -117,7 +128,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:orientation="vertical"
-            tools:listitem="@layout/list_competing_candidates" />
+            tools:listitem="@layout/list_competing_candidates"
+            android:clickable="true"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView2"

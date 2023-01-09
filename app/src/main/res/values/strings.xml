@@ -15,6 +15,32 @@
 
     <string name="head_1">Angkatan Mahasiswa</string>
     <string name="desc_1">Majoriti 112 kerusi adalah sasaran utama parti Angkatan</string>
+    
+    <string-array name="candidateLIST">
+        <item>babi1</item>
+        <item>babi2</item>
+        <item>bab3i</item>
+        <item>babi4</item>
+        <item>babi5</item>
+        <item>babi6</item>
+        <item>babi7</item>
+        <item>babi8</item>
+        <item>babi9</item>
+        <item>babi10</item>
+    </string-array>
+
+    <string-array name="PARTY">
+        <item>babi1000</item>
+        <item>babi2000</item>
+        <item>bab3i000</item>
+        <item>babi40000</item>
+        <item>babi5000</item>
+        <item>babi6000</item>
+        <item>babi7000</item>
+        <item>babi8000</item>
+        <item>babi900</item>
+        <item>babi10000</item>
+    </string-array>
 
     <string name="article_1">KOTA KINABALU: Setiausaha Agung Bersatu Datuk Seri Hamzah Zainudin berkata pihaknya masih menunggu pengesahan daripada Jabatan Pendaftaran Pertubuhan (RoS) berhubung status Bersatu Sabah dalam Gabungan Rakyat Sabah (GRS).
 Hamzah berkata ini susulan tindakan bekas Ketua Badan Pimpinan Bersatu Sabah Datuk Seri Hajiji Noor keluar daripada Bersatu pada Disember tahun lalu.

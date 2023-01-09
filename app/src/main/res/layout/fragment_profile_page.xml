@@ -55,7 +55,8 @@
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="60px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:clickable="true"/>
 
 
         <TextView
