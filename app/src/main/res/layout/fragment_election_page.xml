@@ -132,6 +132,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/roundedtextbox"
                 android:backgroundTint="@color/white"
+                android:cursorVisible="true"
                 android:fontFamily="@font/inter_semibold"
                 android:hint="Search for a candidate"
                 android:inputType="text"

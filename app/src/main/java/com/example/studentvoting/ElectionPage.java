@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +42,12 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
+
+        //Underline text
+        TextView textView = (TextView) rootView.findViewById(R.id.textView16);
+        SpannableString content = new SpannableString("important dates");
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        textView.setText(content);
 
         // Map To View Faculties (shoutout umar)(thanks for the shoutout -umar)
         // Get the MapView from the layout file
