@@ -7,16 +7,6 @@
     android:background="@color/darkblue"
     tools:context=".ElectionPage">
 
-    <ImageButton
-        android:id="@+id/nameFilterButton3"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_centerVertical="false"
-        android:layout_marginTop="220dp"
-        android:backgroundTint="@color/darkblue"
-        android:scaleType="fitCenter"
-        android:src="@drawable/name_select_2" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/ElectionTB"
         android:layout_width="match_parent"
@@ -138,24 +128,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="94dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/searchTextInput"
                     android:layout_width="370dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="25dp"
+                    android:inputType="text"
                     android:background="@drawable/roundedtextbox"
-                    android:backgroundTint="@color/backgroundgrey"
-                    android:backgroundTintMode="add"
-                    android:drawableBottom="@drawable/roundedtextbox"
+                    android:backgroundTint="@color/white"
                     android:fontFamily="@font/archivo_bold"
-                    android:hint="Search For A Candidate"
-                    android:selectAllOnFocus="true"
-                    android:singleLine="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:hint="Search for a candidate"
                     android:textColor="#000000"
-                    android:textColorHighlight="#FFFFFF"
-                    app:textInputLayoutFocusedRectEnabled="true" />
+                    android:textColorHint="@color/gray"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -190,7 +176,7 @@
         android:layout_height="50dp"
         android:layout_centerVertical="false"
         android:layout_marginTop="220dp"
-        android:backgroundTint="#00000033"
+        android:backgroundTint="@color/transparent"
         android:clickable="true"
         android:scaleType="fitCenter"
         android:src="@drawable/name_select_2" />
@@ -216,5 +202,20 @@
         android:clickable="true"
         android:scaleType="fitCenter"
         android:src="@drawable/party_select" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="285dp"
+        android:background="@drawable/roundedtextbox"
+        android:backgroundTintMode="screen"
+        android:fontFamily="@font/inter_bold"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Map of University Malaya"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
 
 </RelativeLayout>
