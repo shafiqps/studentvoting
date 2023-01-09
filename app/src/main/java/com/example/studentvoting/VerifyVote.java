@@ -55,7 +55,7 @@ public class VerifyVote extends Fragment {
 
         BiometricManager biometricManager = (BiometricManager) getActivity().getSystemService(Context.BIOMETRIC_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {//check if the version of the Android operating system that the device is running is Android 10 (API level 29) or higher
             switch (biometricManager.canAuthenticate()) {
                 case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
                     Toast.makeText(getContext().getApplicationContext(), "no suitable hardware", Toast.LENGTH_SHORT).show();
@@ -65,6 +65,7 @@ public class VerifyVote extends Fragment {
                     break;
                 case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
                     Toast.makeText(getContext().getApplicationContext(), "no biometric or device credential is enrolled.", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
 
@@ -89,13 +90,13 @@ public class VerifyVote extends Fragment {
             }
         });
 
-//        promptInfo = new PromptInfo().Builder()
-//                .setTitle("Verified Your Vote with Your FingerPrint")
-//                .setDescription("Use Fingerprint to Verify Your Vote")
-//                .setDeviceCredentialAllowed(true)
-//                .build();
-//
-//        biometricPrompt.authenticate(promptInfo);
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Verified Your Vote with Your FingerPrint")
+                .setDescription("Use Fingerprint to Verify Your Vote")
+                .setDeviceCredentialAllowed(true)
+                .build();
+
+        biometricPrompt.authenticate(promptInfo);
 
 
         return view;
