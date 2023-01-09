@@ -1,5 +1,8 @@
 package com.example.studentvoting;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,9 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -20,6 +23,8 @@ public class VoteCast extends Fragment {
     //candidate selection using radio button
     RadioGroup radioGroup;
     RadioButton radioButton;
+    Fragment ElectionPage;
+    Activity context;
 
 
     @Override
@@ -28,6 +33,7 @@ public class VoteCast extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_vote_cast, container, false);
 
+        context = getActivity();
         //candidate selection using radio button
         RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -49,38 +55,21 @@ public class VoteCast extends Fragment {
             }
         });
 
-        //confirm Button when done voting
-        Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
-
-        confirmBtn.setOnClickListener(this::onClick);
-
-        //Back Button
-        ImageButton btnprevResult = (ImageButton) rootView.findViewById(R.id.btnprevResult);
-        btnprevResult.setOnClickListener(this::onClick);
 
         return rootView;
     }
 
-    private void onClick(View view) {
-        Fragment fragment = null;
-        switch (view.getId()) {
-            case R.id.confirmBtn:
-                fragment = new VerifyVote();
-                replaceFragment(fragment);
-                break;
-            case R.id.btnprevResult:
-                if (getFragmentManager().getBackStackEntryCount() != 0) {
-                    getFragmentManager().popBackStack();
-                }
-                break ;
-        }
-    }
+    public void onStart(){
+        super.onStart();
+        Button confirmBtn = (Button) context.findViewById(R.id.confirmBtn);
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(context, FingerPrintActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    public void replaceFragment(Fragment someFragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, someFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 
 }
