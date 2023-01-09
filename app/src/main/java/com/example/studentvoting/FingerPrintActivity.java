@@ -24,7 +24,7 @@ public class FingerPrintActivity extends AppCompatActivity {
     BiometricManager biometricManager;
     Button confirmBtn;
 
-    private Fragment ElectionPage;
+    private Fragment Home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class FingerPrintActivity extends AppCompatActivity {
                 @Override
                 public void onAuthenticationFailed() {
                     super.onAuthenticationFailed();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, ElectionPage).commit();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.container, Home).commit();
                 }
             });
 
@@ -89,7 +89,7 @@ public class FingerPrintActivity extends AppCompatActivity {
             confirmBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, ElectionPage).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, Home).commit();
                 }
             });
 
