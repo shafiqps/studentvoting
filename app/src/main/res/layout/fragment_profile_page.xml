@@ -49,14 +49,13 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="180dp"
+            android:clickable="true"
             android:paddingLeft="0dp"
-            android:text="LeBron James"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="60px"
-            android:textStyle="bold"
-            android:clickable="true"/>
+            android:textStyle="bold" />
 
 
         <TextView
@@ -83,7 +82,6 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:paddingLeft="0dp"
-            android:text="shafiq@gmail.com"
             android:textColor="#2A3C9A"
             android:textSize="53px" />
 
@@ -110,7 +108,6 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:paddingLeft="0dp"
-            android:text="8, jalan pecah, MALAYSIA"
             android:textColor="#2A3C9A"
             android:textSize="53px" />
 
@@ -154,7 +151,6 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="120dp"
             android:paddingLeft="0dp"
-            android:text="Faculty of YOUR MOTHER"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="#2A3C9A"
@@ -171,7 +167,6 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="180dp"
             android:paddingLeft="0dp"
-            android:text="U2000963"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/black"

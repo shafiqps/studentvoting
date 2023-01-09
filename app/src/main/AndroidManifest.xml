@@ -4,6 +4,8 @@
     package="com.example.studentvoting">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
