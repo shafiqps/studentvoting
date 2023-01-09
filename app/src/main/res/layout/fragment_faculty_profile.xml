@@ -105,7 +105,7 @@
             android:id="@+id/socials_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recyclerView2"
+            android:layout_below="@id/recyclerViewprevrep"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
@@ -132,17 +132,17 @@
             android:clickable="true"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
+            android:id="@+id/recyclerViewprevrep"
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_height="127dp"
             android:layout_below="@id/previousRep_TV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:orientation="horizontal"
-            tools:listitem="@layout/list_prev_rep" />
+            tools:listitem="@layout/list_previous_rep" />
 
 
     </RelativeLayout>

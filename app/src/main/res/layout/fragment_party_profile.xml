@@ -134,218 +134,27 @@
             android:textSize="63px"
             android:textStyle="bold" />
 
-        <HorizontalScrollView
-            android:id="@+id/scrollableHorizontalView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewparty"
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="119dp"
             android:layout_below="@id/currentMembersTV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:divider="@drawable/divider"
-                android:isScrollContainer="false"
-                android:showDividers="middle">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardMember1"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_centerHorizontal="true"
-                        android:elevation="12dp"
-                        app:cardCornerRadius="200dp">
-
-                        <ImageView
-                            android:id="@+id/imageMember1"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thumbnail_ytn" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/member1NAME"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="15dp"
-                        android:text="LeGOAT"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/fuckcolor"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/member1POS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="President"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardMember2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_centerHorizontal="true"
-                        android:elevation="12dp"
-                        app:cardCornerRadius="200dp">
-
-                        <ImageView
-                            android:id="@+id/imageMember2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thumbnail_ytn" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/member2NAME"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="15dp"
-                        android:text="LeGOAT"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/fuckcolor"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/member2POS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text=" Vice President"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+            android:clickable="true"
+            android:orientation="horizontal"
+            tools:listitem="@layout/list_current_members" />
 
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardMember3"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_centerHorizontal="true"
-                        android:elevation="12dp"
-                        app:cardCornerRadius="200dp">
-
-                        <ImageView
-                            android:id="@+id/imageMember3"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thumbnail_ytn" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/member3NAME"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="15dp"
-                        android:text="LeGOAT"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/fuckcolor"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/member3POS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="President"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardMember4"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_centerHorizontal="true"
-                        android:elevation="12dp"
-                        app:cardCornerRadius="200dp">
-
-                        <ImageView
-                            android:id="@+id/imageMember4"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thumbnail_ytn" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/member4NAME"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="15dp"
-                        android:text="LeGOAT"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/fuckcolor"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/member4POS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="President"
-                        android:textAlignment="gravity"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/manifestoTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scrollableHorizontalView"
+            android:layout_below="@+id/recyclerViewparty"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
@@ -364,11 +173,11 @@
             android:layout_below="@id/manifestoTV"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:orientation="vertical"
-            tools:listitem="@layout/list_party_manifesto" />
+            tools:listitem="@layout/list_manifesto_party" />
     </RelativeLayout>
 
 </FrameLayout>
