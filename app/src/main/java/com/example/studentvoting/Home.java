@@ -1,8 +1,10 @@
 package com.example.studentvoting;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
@@ -13,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 public class Home extends Fragment {
 
@@ -29,7 +34,9 @@ public class Home extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
+        //RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         BtnToResult.setOnClickListener(this::onClick);
+        //recyclerView.setOnClickListener(this::onClick1);
 
         //dataInitialize();
         recyclerview = rootView.findViewById(R.id.recyclerView);
@@ -52,11 +59,14 @@ public class Home extends Fragment {
 
         };
 
-        AdapterNews adapter_news = new AdapterNews(news, Home.this );
+
+        AdapterNews adapter_news = new AdapterNews(news,Home.this ); //(list, clickListener this)
         recyclerview.setAdapter(adapter_news);
 
         return rootView;
     }
+
+
 
 //    //for recyclerView news
 //    @Override
@@ -109,6 +119,16 @@ public class Home extends Fragment {
                 break;
         }
     }
+
+//    public void onClick1(View view) {
+//        Fragment fragment = null;
+//        switch (view.getId()) {
+//            case R.id.recyclerView:
+//                fragment = new Result();
+//                replaceFragment(fragment);
+//                break;
+//        }
+//    }
 
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

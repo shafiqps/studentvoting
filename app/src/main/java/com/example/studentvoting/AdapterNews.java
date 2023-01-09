@@ -40,6 +40,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder>{
         holder.desc_news.setText(newsList.getDescNews());
         holder.imageNews.setImageResource(newsList.getImageNews());
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,4 +71,5 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder>{
             desc_news = itemView.findViewById(R.id.desc_news);
         }
     }
+
 }

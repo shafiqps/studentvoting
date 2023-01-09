@@ -30,7 +30,6 @@ public class VoteCast extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_vote_cast, container, false);
 
         //candidate selection using radio button
-
         RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
