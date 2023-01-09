@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -55,7 +57,20 @@ public class VoteCast extends Fragment {
             }
         });
 
+        ImageButton btnprevResult = (ImageButton) rootView.findViewById(R.id.btnprevResult);
+        btnprevResult.setOnClickListener(this::onClick);
+
         return rootView;
+    }
+
+    public void onClick(View view){
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.btnprevResult:
+                fragment = new ElectionPage();
+                replaceFragment(fragment);
+                break;
+        }
     }
 
     public void onStart() {

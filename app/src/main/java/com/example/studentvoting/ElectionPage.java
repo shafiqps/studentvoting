@@ -139,6 +139,17 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     }
 
     private void onClick(View view) {
+        /*
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog.setContentView(R.layout.fragment_candidates_list_faculty_based);
+        bottomSheetDialog.show();
+
+        if(bottomSheetDialog.isShowing())
+        {
+            bottomSheetDialog.dismiss();
+        }
+
+         */
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.goToVotingButton:
@@ -149,11 +160,23 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                 fragment = new ImportantDates();
                 replaceFragment(fragment);
                 break;
+            case R.id.FacNameResult:
+                fragment = new FacultyProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateA:
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateB:
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateC:
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
         }
-    }
-
-    private void onClick3(View view) {
-
     }
 
     public void replaceFragment(Fragment someFragment) {
@@ -285,52 +308,52 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         String name = marker.getSnippet();
 
         switch(name){
-            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Bunga Raya");
+            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Mahasiswa Progresif");
                 return true;
 
-            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Bunga Raya");
+            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Mahasiswa Progresif");
                 return true;
 
-            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Bunga Raya");
+            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Mahasiswa Progresif");
                 return true;
 
-            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Bunga Raya");
+            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Mahasiswa Progresif");
                 return true;
 
-            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Bunga Raya");
+            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Mahasiswa Progresif");
                 return true;
 
-            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Bunga Raya");
+            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Mahasiswa Progresif");
                 return true;
 
-            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Bunga Raya");
+            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Mahasiswa Progresif");
                 return true;
 
-            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Bunga Raya");
+            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Mahasiswa Progresif");
                 return true;
 
-            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Bunga Raya");
+            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Mahasiswa Progresif");
                 return true;
 
-            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Bunga Raya");
+            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Mahasiswa Progresif");
                 return true;
 
-            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Bunga Raya");
+            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Mahasiswa Progresif");
                 return true;
 
-            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Bunga Raya");
+            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Mahasiswa Progresif");
                 return true;
 
-            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Bunga Raya");
+            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Mahasiswa Progresif");
                 return true;
 
-            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Bunga Raya");
+            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Mahasiswa Progresif");
                 return true;
 
-            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Bunga Raya");
+            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Mahasiswa Progresif");
                 return true;
 
-            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Bunga Raya");
+            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Mahasiswa Progresif");
                 return true;
 
             default: return false;
@@ -347,25 +370,34 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         //Faculty
         TextView facText = (TextView) bottomSheetDialog.findViewById(R.id.FacNameResult);
         facText.setText(Faculty);
+        facText.setOnClickListener(this::onClick);
 
         //Candidate A
         TextView candA = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateA);
         candA.setText(CandidateA);
+        candA.setOnClickListener(this::onClick);
+
         TextView facA = (TextView) bottomSheetDialog.findViewById(R.id.textPartyX);
         facA.setText(PartyA);
 
         //Candidate B
         TextView candB = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateB);
         candB.setText(CandidateB);
+        candB.setOnClickListener(this::onClick);
+
         TextView facB = (TextView) bottomSheetDialog.findViewById(R.id.textPartyY);
         facB.setText(PartyB);
 
         //Candidate C
         TextView candC = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateC);
         candC.setText(CandidateC);
+        candC.setOnClickListener(this::onClick);
+
         TextView facC = (TextView) bottomSheetDialog.findViewById(R.id.textPartyZ);
         facC.setText(PartyC);
 
         bottomSheetDialog.show();
+
     }
+
 }
