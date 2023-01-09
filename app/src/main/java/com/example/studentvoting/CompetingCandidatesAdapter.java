@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,18 +16,20 @@ import java.util.ArrayList;
 public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCandidatesAdapter.MyViewHolder> {
 
     Context context;
+    private final RecyclerViewInterface recyclerViewInterface;
     ArrayList<CandidateList> candidateList;
     @NonNull
     @Override
     public CompetingCandidatesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater =  LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_competing_candidates, parent, false);
-        return new CompetingCandidatesAdapter.MyViewHolder(view);
+        return new CompetingCandidatesAdapter.MyViewHolder(view, recyclerViewInterface);
     }
 
-    public CompetingCandidatesAdapter(Context context, ArrayList<CandidateList> candidateList){
+    public CompetingCandidatesAdapter(Context context, ArrayList<CandidateList> candidateList, RecyclerViewInterface recyclerViewInterface){
         this.context = context;
         this.candidateList = candidateList;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @Override
@@ -34,6 +37,15 @@ public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCa
         holder.tv.setText(candidateList.get(position).getName());
         holder.tv2.setText(candidateList.get(position).getParty());
         holder.imageView.setImageResource(candidateList.get(position).getImage());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                CandidateProfile candidateProfile = new CandidateProfile();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.relativelayoutfac, candidateProfile).addToBackStack(null).commit();
+            }
+        });
     }
 
     @Override
@@ -47,11 +59,24 @@ public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCa
         TextView tv;
         TextView tv2;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             imageView = itemView.findViewById(R.id.gambau);
             tv = itemView.findViewById(R.id.candidatelistTV);
             tv2 = itemView.findViewById(R.id.partylistTV);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface!=null){
+                        int pos = getAdapterPosition();
+
+                        if(pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

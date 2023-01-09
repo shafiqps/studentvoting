@@ -90,7 +90,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
         BtnPrevResult.setOnClickListener(this::onClick);
         setUpCandidateList();
         rv.setLayoutManager(new LinearLayoutManager(FacultyProfile.this.getContext()));
-        CompetingCandidatesAdapter adapterCompetingCandidates = new CompetingCandidatesAdapter(this.getContext(), candidateList);
+        CompetingCandidatesAdapter adapterCompetingCandidates = new CompetingCandidatesAdapter(this.getContext(), candidateList, this);
         rv.setAdapter(adapterCompetingCandidates);
 
 
@@ -131,6 +131,5 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
 
     @Override
     public void onItemClick(int position) {
-
     }
 }
