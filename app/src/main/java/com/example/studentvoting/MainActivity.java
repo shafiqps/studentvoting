@@ -35,7 +35,7 @@ import android.widget.Toast;
 import androidx.biometric.BiometricPrompt;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String currentlyLoggedIn = "";
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
