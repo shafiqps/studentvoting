@@ -191,7 +191,7 @@
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
                 android:fontFamily="@font/archivo"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:text=""
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addressTV" />

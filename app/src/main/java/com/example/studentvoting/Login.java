@@ -96,6 +96,7 @@ public class Login extends Fragment {
                                 final String getPassword = snapshot.child(matrixno).child("password").getValue(String.class);
 
                                 if(getPassword.equals(pass)){
+                                    MainActivity.currentlyLoggedIn = matrixno;
                                     Fragment fragment = null;
                                     fragment = new Home();
                                     replaceFragment(fragment);
