@@ -114,6 +114,7 @@
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="5dp"
                         android:backgroundTint="@color/lightblue"
+                        android:clickable="true"
                         android:fontFamily="@font/archivo_bold"
                         android:text="Voting will open soon"
                         android:textAlignment="center"

@@ -90,6 +90,7 @@ public class VerifyVote extends Fragment {
             }
         });
 
+        /*
         promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Verified Your Vote with Your FingerPrint")
                 .setDescription("Use Fingerprint to Verify Your Vote")
@@ -97,6 +98,8 @@ public class VerifyVote extends Fragment {
                 .build();
 
         biometricPrompt.authenticate(promptInfo);
+
+         */
 
 
         return view;

@@ -34,7 +34,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
-    private static final long START_TIME_IN_MILLIS = 10000 ;
+    private static final long START_TIME_IN_MILLIS = 15000 ;
     private TextView mTextViewCountDown;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
@@ -62,10 +62,6 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         goToVotingButton = (Button) rootView.findViewById(R.id.goToVotingButton);
         mTextViewCountDown = rootView.findViewById(R.id.textView7);
         startTimer();
-
-        if(mTimerRunning = false) {
-            goToVotingButton.setText("Hi");
-        }
 
         // Map To View Faculties (shoutout umar)(thanks for the shoutout -umar)
         // Get the MapView from the layout file
