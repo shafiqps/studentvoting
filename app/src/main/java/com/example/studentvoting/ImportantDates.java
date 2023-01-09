@@ -73,9 +73,10 @@ public class ImportantDates extends Fragment {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.btnPrevResult:
-                fragment = new ElectionPage();
-                replaceFragment(fragment);
-                break;
+                if (getFragmentManager().getBackStackEntryCount() != 0) {
+                    getFragmentManager().popBackStack();
+                }
+                break ;
         }
     }
 

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class ProfilePage extends Fragment {
     DatabaseReference reff;
@@ -24,6 +26,7 @@ public class ProfilePage extends Fragment {
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_profile_page, container, false);
         String matrixno = MainActivity.currentlyLoggedIn;
+        ImageView rImage = rootview.findViewById(R.id.profile_IV);
         TextView nameTV = (TextView) rootview.findViewById(R.id.partyNameTV);
         TextView addressTV = (TextView) rootview.findViewById(R.id.homeAddress_TV);
         TextView emailTV = (TextView) rootview.findViewById(R.id.email_TV);
@@ -40,12 +43,14 @@ public class ProfilePage extends Fragment {
                 final String name = snapshot.child(matrixno).child("name").getValue(String.class);
                 final String faculty = snapshot.child(matrixno).child("faculty").getValue(String.class);
                 final String siswamail = snapshot.child(matrixno).child("siswamail").getValue(String.class);
+                final String link = snapshot.child(matrixno).child("image").getValue(String.class);
 
                 nameTV.setText(name);
                 addressTV.setText(address);
                 emailTV.setText(siswamail);
                 facultyTV.setText(faculty);
                 matrixnoTV.setText(matrixno);
+                Picasso.get().load(link).into(rImage);
 
             }
 

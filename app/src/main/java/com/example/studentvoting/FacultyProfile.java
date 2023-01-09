@@ -112,14 +112,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
         }
     }
 
-    private List<Candidate> compcandidateList(){
-        List<Candidate> facultyList = new ArrayList<>();
 
-        Candidate faculty = new Candidate("FSKTM", "babi", "anjing");
-        facultyList.add(faculty);
-
-        return facultyList;
-    }
 
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

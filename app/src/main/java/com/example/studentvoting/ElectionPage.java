@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,12 +35,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
-    private static final long START_TIME_IN_MILLIS = 15000 ;
+    private static final long START_TIME_IN_MILLIS = 30000 ;
     private TextView mTextViewCountDown;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private Button goToVotingButton;
+    private EditText searchTextInput;
 
     //Candidates List
     private String[] candidatesName;
@@ -74,11 +76,11 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
         Button BtnToCastVote = (Button) rootView.findViewById(R.id.goToVotingButton);
         TextView tvToImportantDates = (TextView) rootView.findViewById(R.id.textView16);
-        ImageButton BtnNameFilter = (ImageButton) rootView.findViewById(R.id.nameFilterButton);
+        //ImageButton BtnNameFilter = (ImageButton) rootView.findViewById(R.id.nameFilterButton);
 
         BtnToCastVote.setOnClickListener(this::onClick);
-        tvToImportantDates.setOnClickListener(this::onClick2);
-        BtnNameFilter.setOnClickListener(this::onClick3);
+        tvToImportantDates.setOnClickListener(this::onClick);
+        //BtnNameFilter.setOnClickListener(this::onClick);
 
         /*
         //Toast
@@ -143,21 +145,6 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                 fragment = new VoteCast();
                 replaceFragment(fragment);
                 break;
-        }
-    }
-    public void onClick1(View view) {
-        Fragment fragment = null;
-        switch (view.getId()) {
-            case R.id.buttonToResultPage:
-                fragment = new Result();
-                replaceFragment(fragment);
-                break;
-        }
-    };
-
-    private void onClick2(View view) {
-        Fragment fragment = null;
-        switch (view.getId()) {
             case R.id.textView16:
                 fragment = new ImportantDates();
                 replaceFragment(fragment);
@@ -192,7 +179,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
         setFacultyMarkers(googleMap);
 
-        //googleMap.setOnMarkerClickListener(this::onMarkerClick);
+        googleMap.setOnMarkerClickListener(this::onMarkerClick);
 
     }
 
@@ -298,61 +285,87 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         String name = marker.getSnippet();
 
         switch(name){
-            case "FSKTM": showBottomSheetDialog();
+            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Bunga Raya");
                 return true;
 
-            case "API": showBottomSheetDialog();
+            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Bunga Raya");
                 return true;
 
-            case "Sports": showBottomSheetDialog();
+            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Bunga Raya");
                 return true;
 
-            case "Law": showBottomSheetDialog();
+            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Bunga Raya");
                 return true;
 
-            case "Engine": showBottomSheetDialog();
+            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Bunga Raya");
                 return true;
 
-            case "FBE": showBottomSheetDialog();
+            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Bunga Raya");
                 return true;
 
-            case "Med": showBottomSheetDialog();
+            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Bunga Raya");
                 return true;
 
-            case "Dentist": showBottomSheetDialog();
+            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Bunga Raya");
                 return true;
 
-            case "FBA": showBottomSheetDialog();
+            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Bunga Raya");
                 return true;
 
-            case "Econs": showBottomSheetDialog();
+            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Bunga Raya");
                 return true;
 
-            case "Edu": showBottomSheetDialog();
+            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Bunga Raya");
                 return true;
 
-            case "FASS": showBottomSheetDialog();
+            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Bunga Raya");
                 return true;
 
-            case "Science": showBottomSheetDialog();
+            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Bunga Raya");
                 return true;
 
-            case "Arts": showBottomSheetDialog();
+            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Bunga Raya");
                 return true;
 
-            case "FLL": showBottomSheetDialog();
+            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Bunga Raya");
                 return true;
 
-            case "APM": showBottomSheetDialog();
+            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Bunga Raya");
                 return true;
 
             default: return false;
         }
     }
 
-    private void showBottomSheetDialog(){
+    private void showBottomSheetDialog(String Faculty, String CandidateA, String PartyA,
+                                       String CandidateB, String PartyB,
+                                       String CandidateC, String PartyC){
+
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
         bottomSheetDialog.setContentView(R.layout.fragment_candidates_list_faculty_based);
+
+        //Faculty
+        TextView facText = (TextView) bottomSheetDialog.findViewById(R.id.FacNameResult);
+        facText.setText(Faculty);
+
+        //Candidate A
+        TextView candA = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateA);
+        candA.setText(CandidateA);
+        TextView facA = (TextView) bottomSheetDialog.findViewById(R.id.textPartyX);
+        facA.setText(PartyA);
+
+        //Candidate B
+        TextView candB = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateB);
+        candB.setText(CandidateB);
+        TextView facB = (TextView) bottomSheetDialog.findViewById(R.id.textPartyY);
+        facB.setText(PartyB);
+
+        //Candidate C
+        TextView candC = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateC);
+        candC.setText(CandidateC);
+        TextView facC = (TextView) bottomSheetDialog.findViewById(R.id.textPartyZ);
+        facC.setText(PartyC);
+
         bottomSheetDialog.show();
     }
 }

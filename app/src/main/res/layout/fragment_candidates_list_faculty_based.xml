@@ -27,7 +27,7 @@
             android:textSize="50px" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/textCandidateA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -39,7 +39,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/textPartyX"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="11dp"
@@ -50,7 +50,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/textCandidateB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -62,7 +62,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/textPartyY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="11dp"
@@ -73,7 +73,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/textCandidateC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -85,7 +85,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/textPartyZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="11dp"

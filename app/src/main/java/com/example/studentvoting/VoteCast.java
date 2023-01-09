@@ -1,7 +1,5 @@
 package com.example.studentvoting;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 
@@ -23,15 +21,12 @@ public class VoteCast extends Fragment {
     //candidate selection using radio button
     RadioGroup radioGroup;
     RadioButton radioButton;
-    Activity context;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        context = getActivity();
-
+        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_vote_cast, container, false);
 
         //candidate selection using radio button
@@ -56,43 +51,24 @@ public class VoteCast extends Fragment {
         });
 
         //confirm Button when done voting
-//        Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
-//
-//        confirmBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent in = new Intent(getActivity(), FingerPrintActivity.class);
-//                in.putExtra("some", "some Data");
-//                startActivity(in);
-//            }
-//        });
+        Button confirmBtn = (Button) rootView.findViewById(R.id.confirmBtn);
+
+        confirmBtn.setOnClickListener(this::onClick);
 
 
 
         return rootView;
     }
 
-    public void onStart(){
-        super.onStart();
-        Button confirmBtn = (Button) context.findViewById(R.id.confirmBtn);
-        confirmBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, FingerPrintActivity.class);
-                startActivity(intent);
-            }
-        });
+    private void onClick(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.confirmBtn:
+                fragment = new VerifyVote();
+                replaceFragment(fragment);
+                break;
+        }
     }
-
-//    private void onClick(View view) {
-//        Fragment fragment = null;
-//        switch (view.getId()) {
-//            case R.id.confirmBtn:
-//                fragment = new Fragment();
-//                replaceFragment(fragment);
-//                break;
-//        }
-//    }
 
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
