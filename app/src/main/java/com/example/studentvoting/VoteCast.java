@@ -67,9 +67,9 @@ public class VoteCast extends Fragment {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.btnprevResult:
-                fragment = new ElectionPage();
-                replaceFragment(fragment);
-                break;
+                if (getFragmentManager().getBackStackEntryCount() != 0) {
+                    getFragmentManager().popBackStack();
+                }
         }
     }
 
