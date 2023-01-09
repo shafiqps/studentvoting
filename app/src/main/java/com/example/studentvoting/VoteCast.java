@@ -1,6 +1,5 @@
 package com.example.studentvoting;
 
-import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -55,7 +54,9 @@ public class VoteCast extends Fragment {
 
         confirmBtn.setOnClickListener(this::onClick);
 
-
+        //Back Button
+        ImageButton btnprevResult = (ImageButton) rootView.findViewById(R.id.btnprevResult);
+        btnprevResult.setOnClickListener(this::onClick);
 
         return rootView;
     }
@@ -67,6 +68,11 @@ public class VoteCast extends Fragment {
                 fragment = new VerifyVote();
                 replaceFragment(fragment);
                 break;
+            case R.id.btnprevResult:
+                if (getFragmentManager().getBackStackEntryCount() != 0) {
+                    getFragmentManager().popBackStack();
+                }
+                break ;
         }
     }
 
