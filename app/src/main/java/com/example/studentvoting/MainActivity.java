@@ -36,6 +36,7 @@ import androidx.biometric.BiometricPrompt;
 
 public class MainActivity extends AppCompatActivity {
     public static String currentlyLoggedIn = "";
+    public static String currentfacultyPage = "";
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

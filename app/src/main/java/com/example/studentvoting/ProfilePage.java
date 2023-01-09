@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 public class ProfilePage extends Fragment {
     DatabaseReference reff;
     @Override
@@ -61,19 +63,28 @@ public class ProfilePage extends Fragment {
         });
 
         TextView facTV = (TextView) rootview.findViewById(R.id.facultyTV);
-        facTV.setOnClickListener(this::onClick);
+        facTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.currentfacultyPage = facultyTV.getText().toString();
+                Fragment fragment = null;
+                fragment = new FacultyProfile();
+                replaceFragment(fragment);
+
+            }
+        });
         return rootview;
     }
 
-    private void onClick(View view) {
-        Fragment fragment = null;
-        switch (view.getId()) {
-            case R.id.facultyTV:
-                fragment = new FacultyProfile();
-                replaceFragment(fragment);
-                break;
-        }
-    }
+//    private void onClick(View view) {
+//        Fragment fragment = null;
+//        switch (view.getId()) {
+//            case R.id.facultyTV:
+//                fragment = new FacultyProfile();
+//                replaceFragment(fragment);
+//                break;
+//        }
+//    }
 
 
     public void replaceFragment(Fragment someFragment) {
