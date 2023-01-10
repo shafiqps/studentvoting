@@ -46,7 +46,7 @@ public class Home extends Fragment implements RecyclerViewInterface {
         recyclerview.setHasFixedSize(true);
 
         News[] news = new News[]{
-                new News("Angkatan Mahasiswa", "Majoriti 112 kerusi adalah sasaran utama Angakatan", R.drawable.news1),
+                new News("Angkatan Mahasiswa", "Majoriti 112 kerusi adalah sasaran utama Angkatan", R.drawable.news1),
                 new News("Mahasiswa Progresif", "Perubahan keadaan politik merisaukan semua mahasiswa/i", R.drawable.news2),
                 new News("Neo Siswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news3),
                 new News("Angkatan Mahasiswa", "Keadilan ingin dituntut atas tindakan MP melompat parti ", R.drawable.news4),
