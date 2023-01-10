@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static String currentfacultyPage = "";
     public static String candidateID = "";
     public static String partybro = "";
+    public static int voteChoice = 0;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

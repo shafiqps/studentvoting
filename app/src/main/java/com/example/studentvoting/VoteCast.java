@@ -89,12 +89,15 @@ public class VoteCast extends Fragment {
                 switch(checkedButtonId){
                     case R.id.radioBtn1:
                         Toast.makeText(getContext(), "Candidate 1 is selected", Toast.LENGTH_SHORT).show();
+                        MainActivity.voteChoice=1;
                         break;
                     case R.id.radioBtn2:
                         Toast.makeText(getContext(), "Candidate 2 is selected", Toast.LENGTH_SHORT).show();
+                        MainActivity.voteChoice=2;
                         break;
                     case R.id.radioBtn3:
                         Toast.makeText(getContext(), "Candidate 3 is selected", Toast.LENGTH_SHORT).show();
+                        MainActivity.voteChoice=3;
                         break;
                 }
 
