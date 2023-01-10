@@ -27,6 +27,7 @@ public class PartyProfile extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     ArrayList<currentMembers> currentMembersArrayList = new ArrayList<>();
+    ArrayList<Manifesto> manifestoArrayList = new ArrayList<>();
     int[] gambau = {R.drawable.asalboleh};
 
     // TODO: Rename and change types of parameters
@@ -73,12 +74,20 @@ public class PartyProfile extends Fragment {
             currentMembersArrayList.add(new currentMembers(members[i],position[i],gambau[0]));
         }
     }
+
+    public void setUpManifesto(){
+        String[] manifesto = getResources().getStringArray(R.array.manifesto);
+
+        for(int i=0; i<manifesto.length;i++){
+            manifestoArrayList.add(new Manifesto(manifesto[i]));
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_party_profile, container, false);
-        View view = inflater.inflate(R.layout.list_current_members, container, false);
+        //View view = inflater.inflate(R.layout.list_current_members, container, false);
         RecyclerView rv = (RecyclerView) rootview.findViewById(R.id.recyclerViewparty);
         ImageButton BtnPrev = (ImageButton) rootview.findViewById(R.id.BtnPrev);
         BtnPrev.setOnClickListener(this::onClick);
@@ -86,6 +95,14 @@ public class PartyProfile extends Fragment {
         CurrentMembersAdapter currentMembersAdapter = new CurrentMembersAdapter(this.getContext(), currentMembersArrayList);
         rv.setAdapter(currentMembersAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL,false));
+
+
+        RecyclerView rv2 = (RecyclerView) rootview.findViewById(R.id.recyclerViewmanifesto);
+        ManifestoAdapter manifestoAdapter = new ManifestoAdapter(this.getContext(), manifestoArrayList);
+        setUpManifesto();
+        rv2.setAdapter(manifestoAdapter);
+        rv2.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
         return rootview;
     }
 
