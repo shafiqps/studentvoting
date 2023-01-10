@@ -1,6 +1,8 @@
 package com.example.studentvoting;
 
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -13,15 +15,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.CountDownTimer;
+import android.text.Editable;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.style.UnderlineSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +47,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
@@ -53,6 +61,11 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
     //Database
     DatabaseReference reff;
+
+    //Search
+    TextView TESVIEW;
+    ArrayList<String> arrayList;
+    Dialog dialog;
 
     //Candidates List
     private String[] candidatesName;
@@ -68,6 +81,80 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
+
+        // assign variable
+        TESVIEW = rootView.findViewById(R.id.searchTextInput);
+
+        // initialize array list
+        arrayList=new ArrayList<>();
+
+        // set value in array list
+        arrayList.add("DSA Self Paced");
+        arrayList.add("Complete Interview Prep");
+        arrayList.add("Amazon SDE Test Series");
+        arrayList.add("Compiler Design");
+        arrayList.add("Git & Github");
+        arrayList.add("Python foundation");
+        arrayList.add("Operating systems");
+        arrayList.add("Theory of Computation");
+
+        TESVIEW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Initialize dialog
+                dialog=new Dialog(ElectionPage.this.getContext());
+
+                // set custom dialog
+                dialog.setContentView(R.layout.dialog_searchable_spinner);
+
+                // set custom height and width
+                dialog.getWindow().setLayout(880,1500);
+
+                // set transparent background
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                // show dialog
+                dialog.show();
+
+                // Initialize and assign variable
+                EditText editText=dialog.findViewById(R.id.edit_text);
+                ListView listView=dialog.findViewById(R.id.list_view);
+
+                // Initialize array adapter
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(ElectionPage.this.getContext(), android.R.layout.simple_list_item_1,arrayList);
+
+                // set adapter
+                listView.setAdapter(adapter);
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // when item selected from list
+                        // set selected item on textView
+                        TESVIEW.setText(adapter.getItem(position));
+
+                        // Dismiss dialog
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
 
         //Underline text
         TextView textView = (TextView) rootView.findViewById(R.id.textView16);
