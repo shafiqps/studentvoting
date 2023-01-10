@@ -3,10 +3,16 @@ package com.example.studentvoting;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +25,9 @@ public class PartyProfile extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    ArrayList<currentMembers> currentMembersArrayList = new ArrayList<>();
+    int[] gambau = {R.drawable.asalboleh};
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -55,10 +64,46 @@ public class PartyProfile extends Fragment {
         }
     }
 
+
+    public void setUpCurrentMembers(){
+        String[] members = getResources().getStringArray(R.array.member);
+        String[] position = getResources().getStringArray(R.array.position);
+
+        for(int i=0; i<members.length;i++){
+            currentMembersArrayList.add(new currentMembers(members[i],position[i],gambau[0]));
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_party_profile, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_party_profile, container, false);
+        View view = inflater.inflate(R.layout.list_current_members, container, false);
+        RecyclerView rv = (RecyclerView) rootview.findViewById(R.id.recyclerViewparty);
+        ImageButton BtnPrev = (ImageButton) rootview.findViewById(R.id.BtnPrev);
+        BtnPrev.setOnClickListener(this::onClick);
+        setUpCurrentMembers();
+        CurrentMembersAdapter currentMembersAdapter = new CurrentMembersAdapter(this.getContext(), currentMembersArrayList);
+        rv.setAdapter(currentMembersAdapter);
+        rv.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL,false));
+        return rootview;
+    }
+
+    private void onClick(View view) {
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.BtnPrev:
+                if (getFragmentManager().getBackStackEntryCount() != 0) {
+                    getFragmentManager().popBackStack();
+                }
+                break;
+        }
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
