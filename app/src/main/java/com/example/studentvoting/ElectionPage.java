@@ -53,7 +53,7 @@ import java.util.Iterator;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
-    private static final long START_TIME_IN_MILLIS = 10000 ;
+    private static final long START_TIME_IN_MILLIS = 20000 ;
     private TextView mTextViewCountDown;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;

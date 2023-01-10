@@ -1,5 +1,6 @@
 package com.example.studentvoting;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,11 +55,13 @@ public class AdapterFaculty extends RecyclerView.Adapter<AdapterFaculty.FacultyV
     public class FacultyViewHolder extends RecyclerView.ViewHolder {
         private TextView facName;
         private RecyclerView ChildRecyclerView;
+        private Drawable drawableBG ;
 
         public FacultyViewHolder(@NonNull View itemView) {
             super(itemView);
             facName = itemView.findViewById(R.id.facNameTV);
             ChildRecyclerView = itemView.findViewById(R.id.candidateprogressRV);
+            //drawableBG = itemView.findViewById(R.id.);
         }
     }
 }

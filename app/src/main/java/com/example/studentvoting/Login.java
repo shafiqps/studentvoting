@@ -6,16 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -85,7 +82,7 @@ public class Login extends Fragment {
 
         EditText password =  (EditText) rootView.findViewById(R.id.password_textbox);
 
-        Button BtnToResult = (Button) rootView.findViewById(R.id.login_btn);
+        Button BtnToResult = (Button) rootView.findViewById(R.id.submit_btn);
 
         TextView tv = (TextView) rootView.findViewById(R.id.noaccount_tv);
 

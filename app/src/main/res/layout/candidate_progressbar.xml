@@ -7,7 +7,7 @@
         android:id="@+id/candidateProgress"
         android:layout_width="match_parent"
         android:layout_height="150px"
-        android:progressDrawable="@drawable/result_progress1"
+        android:progressDrawable="@drawable/result_progress3"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
     <TextView
         android:id="@+id/candidateNameTV"

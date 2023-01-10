@@ -52,7 +52,6 @@
             android:fontFamily="@font/inter_bold"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:text=""
             android:textSize="23sp"
             android:textStyle="bold"
             />
@@ -79,7 +78,6 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="-4dp"
             android:paddingLeft="0dp"
-            android:text=""
             android:textColor="#2A3C9A"
             android:textSize="18sp"
             android:fontFamily="@font/inter_medium"/>
@@ -107,8 +105,7 @@
             android:paddingLeft="0dp"
             android:textColor="#2A3C9A"
             android:textSize="18sp"
-            android:fontFamily="@font/inter_medium"
-            android:text=""/>
+            android:fontFamily="@font/inter_medium" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/circular_bg"
@@ -132,8 +129,7 @@
                     android:id="@+id/profile_IV"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="" />
+                    android:scaleType="centerCrop" />
 
             </androidx.cardview.widget.CardView>
 
@@ -148,7 +144,6 @@
             android:layout_marginTop="2dp"
             android:textAllCaps="false"
             android:textColor="#2A3C9A"
-            android:text=""
             android:textSize="18sp"
             android:fontFamily="@font/inter_medium"/>
 
@@ -162,7 +157,6 @@
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:fontFamily="@font/inter_semibold"
-            android:text=""
             android:textSize="18sp" />
     </RelativeLayout>
 

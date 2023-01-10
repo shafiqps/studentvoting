@@ -232,7 +232,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/login_btn"
+                android:id="@+id/submit_btn"
                 android:layout_width="72dp"
                 android:layout_height="27dp"
                 android:layout_alignParentEnd="true"

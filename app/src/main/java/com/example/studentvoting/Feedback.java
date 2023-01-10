@@ -2,6 +2,7 @@ package com.example.studentvoting;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RatingBar;
@@ -17,11 +19,6 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Feedback#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Feedback extends Fragment {
     DatabaseReference reff;
     // TODO: Rename parameter arguments, choose names that match
@@ -68,9 +65,16 @@ public class Feedback extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_feedback, container, false);
+
         ImageButton BtnPrevResult = (ImageButton) rootView.findViewById(R.id.BtnPrevResult);
         BtnPrevResult.setOnClickListener(this::onClick);
+
+        //Submit Reviw Button
+        Button btnSubmit = (Button) rootView.findViewById(R.id.submit_btn) ;
+        btnSubmit.setOnClickListener(this::onClick);
+
         RatingBar ratingBar = rootView.findViewById(R.id.ratingBar2);
+
         ratingBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -110,6 +114,11 @@ public class Feedback extends Fragment {
             case R.id.BtnPrevResult:
                 fragment = new SettingsPage();
                 replaceFragment(fragment);
+                break;
+            case R.id.submit_btn:
+                fragment = new SettingsPage();
+                replaceFragment(fragment);
+                Toast.makeText(getContext(), "Feedback Is Submitted", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

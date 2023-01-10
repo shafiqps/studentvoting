@@ -99,7 +99,7 @@
                 android:textSize="12dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/login_btn"
+                android:id="@+id/submit_btn"
                 android:layout_width="72dp"
                 android:layout_height="27dp"
                 android:layout_below="@+id/forgotpassword_tv"
@@ -117,8 +117,8 @@
                 android:id="@+id/noaccount_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login_btn"
-                android:layout_alignEnd="@+id/login_btn"
+                android:layout_below="@+id/submit_btn"
+                android:layout_alignEnd="@+id/submit_btn"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="50dp"
                 android:clickable="true"
