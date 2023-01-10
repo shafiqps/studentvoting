@@ -1,2 +1,2 @@
 # studentvoting
-#yourmother
+voting system for um elections
