@@ -127,8 +127,10 @@ public class VoteCast extends Fragment {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, FingerPrintActivity.class);
-                startActivity(intent);
+                VerifyVote fragment = new VerifyVote();
+                replaceFragment(fragment);
+//                Intent intent = new Intent(context, FingerPrintActivity.class);
+//                startActivity(intent);
             }
         });
     }
