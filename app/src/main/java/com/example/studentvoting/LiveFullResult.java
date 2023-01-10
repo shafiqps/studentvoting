@@ -39,8 +39,8 @@ public class LiveFullResult extends Fragment {
         return rootView;
     }
 
-    private List<Faculty> facultyList(){
-        List<Faculty> facultyList = new ArrayList<>();
+    private ArrayList<Faculty> facultyList(){
+        ArrayList<Faculty> facultyList = new ArrayList<>();
 
         Faculty faculty1 = new Faculty("Academy of Islamic Studies", candidateList());
         facultyList.add(faculty1);
@@ -92,10 +92,10 @@ public class LiveFullResult extends Fragment {
         return facultyList;
     }
 
-    private List<Candidate> candidateList(){
-        List<Candidate> candidateList = new ArrayList<>();
+    private ArrayList<Candidate> candidateList(){
+        ArrayList<Candidate> candidateList = new ArrayList<>();
 
-        candidateList.add(new Candidate("Abu", "Ayam", "FSKTM"));
+        candidateList.add(new Candidate("Abu","Ayam", "FSKTM"));
         candidateList.add(new Candidate("Ho", "Ikan", "FLL"));
         return candidateList;
     }

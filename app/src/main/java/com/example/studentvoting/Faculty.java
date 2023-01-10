@@ -1,14 +1,19 @@
 package com.example.studentvoting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty {
     String facName;
-    List<Candidate> candidateList;
+    ArrayList<Candidate> candidateList;
 
-    public Faculty(String name, List<Candidate> candidateList){
+    public Faculty(String name, ArrayList<Candidate> candidateList){
         this.facName = name;
         this.candidateList = candidateList;
+    }
+
+    public Faculty(String name){
+        this.facName = name;
     }
 
     public String getName() {
@@ -19,11 +24,11 @@ public class Faculty {
         this.facName = facName;
     }
 
-    public List<Candidate> getCandidateList() {
+    public ArrayList<Candidate> getCandidateList() {
         return candidateList;
     }
 
-    public void setCandidateList(List<Candidate> candidateList) {
+    public void setCandidateList(ArrayList<Candidate> candidateList) {
         this.candidateList = candidateList;
     }
 }
