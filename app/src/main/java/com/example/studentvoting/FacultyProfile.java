@@ -1,5 +1,6 @@
 package com.example.studentvoting;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -148,7 +149,6 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
                 break;
         }
     }
-
 
 
     public void replaceFragment(Fragment someFragment) {

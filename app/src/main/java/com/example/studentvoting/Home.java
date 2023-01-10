@@ -1,5 +1,6 @@
 package com.example.studentvoting;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -19,13 +20,14 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class Home extends Fragment {
+public class Home extends Fragment implements RecyclerViewInterface {
 
     //private ArrayList<News> newsArrayList;
     private String[] newsHeading;
     private String[] newsDescription;
     private int[] imageResourceID;
     private RecyclerView recyclerview;
+    private RecyclerViewInterface recylerViewInterface;
 
 
     @Override
@@ -35,17 +37,13 @@ public class Home extends Fragment {
         ((MainActivity)getActivity()).showBottomNav();
 
         Button BtnToResult = (Button) rootView.findViewById(R.id.buttonToResultPage);
-        //RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
         BtnToResult.setOnClickListener(this::onClick);
-        //recyclerView.setOnClickListener(this::onClick1);
 
         //dataInitialize();
         recyclerview = rootView.findViewById(R.id.recyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext())); //getActivity()
         recyclerview.setHasFixedSize(true);
-//        //Adapter_News adapter_news = new Adapter_News(getContext(), newsArrayList);
-//        recyclerview.setAdapter(adapter_news);
-//        adapter_news.notifyDataSetChanged();
 
         News[] news = new News[]{
                 new News("Angkatan Mahasiswa", "Majoriti 112 kerusi adalah sasaran utama Angakatan", R.drawable.news1),
@@ -61,55 +59,13 @@ public class Home extends Fragment {
         };
 
 
-        AdapterNews adapter_news = new AdapterNews(news,Home.this ); //(list, clickListener this)
+        AdapterNews adapter_news = new AdapterNews(news,Home.this, this); //(list, clickListener this)
         recyclerview.setAdapter(adapter_news);
 
         return rootView;
     }
 
 
-
-//    //for recyclerView news
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//
-//    }
-
-//    private void dataInitialize(){
-//
-//        newsArrayList = new ArrayList<>();
-//
-//        newsHeading =  new String[]{
-//                getString(R.string.head_1),
-//                getString(R.string.head_2),
-//                getString(R.string.head_3),
-//
-//        };
-//
-//        imageResourceID = new int[]{
-//
-//                R.drawable.news1,
-//                R.drawable.news2,
-//                R.drawable.news3,
-//
-//        };
-//
-//        newsDescription = new String[]{
-//                getString(R.string.desc_1),
-//                getString(R.string.desc_2),
-//                getString(R.string.desc_3),
-//
-//        };
-//
-//        for(int i=0; i<newsHeading.length; i++){
-//
-//            News news = new News(newsHeading[i], newsDescription[i], imageResourceID[i]);
-//            newsArrayList.add(news);
-//        }
-//
-//    }
 
     public void onClick(View view) {
         Fragment fragment = null;
@@ -121,15 +77,6 @@ public class Home extends Fragment {
         }
     }
 
-//    public void onClick1(View view) {
-//        Fragment fragment = null;
-//        switch (view.getId()) {
-//            case R.id.recyclerView:
-//                fragment = new Result();
-//                replaceFragment(fragment);
-//                break;
-//        }
-//    }
 
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -138,17 +85,9 @@ public class Home extends Fragment {
         transaction.commit();
     }
 
+    @Override
+    public void onItemClick(int position) {
 
-//
-//   @Override
-//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
-//        Button BtnToResult = view.findViewById(R.id.buttonToResultPage);
-//        View.OnClickListener OCLToResultPage = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.action_Home_to_result);
-//            }
-//        };
-//        BtnToResult.setOnClickListener(OCLToResultPage);
-//    }
+    }
+
 }
