@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
@@ -30,6 +34,7 @@ import java.util.Locale;
  */
 public class Register extends Fragment {
 DatabaseReference reff;
+DatabaseReference reff2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -114,6 +119,8 @@ DatabaseReference reff;
 
 
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Student");
+        reff2 = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Student");
+
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
 //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_spinner_dropdown_item, items);
@@ -135,10 +142,29 @@ DatabaseReference reff;
                 } else if (matrixnumber.isEmpty()){
                     siswamailET.requestFocus();
                     siswamailET.setError("Matrix number cannot be empty!");
-                } else if(matrixnumber.length() < 8){
+                } else if(matrixnumber.length() < 8) {
                     siswamailET.requestFocus();
                     siswamailET.setError("Matrix number must be 8 characters!");
-                } else if(password.length() < 4) {
+                }else{
+                    reff2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+                                if(dataSnapshot.child("matrixno").getValue(String.class).equalsIgnoreCase(matrixnumber)){
+                                    siswamailET.requestFocus();
+                                    siswamailET.setError("User already exists!");
+                                }
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                if(password.length() < 4) {
                     passwordET.requestFocus();
                     passwordET.setError("Password must be longer than 4 characters!");
                 } else if(!password.equals(confirmpassword)) {
@@ -178,7 +204,8 @@ DatabaseReference reff;
 //    }
 
     public void insertStudentData(String name, String matrix,String siswamail, String password, String address, String faculty){
-        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,"https://firebasestorage.googleapis.com/v0/b/studentvoting-fc2ca.appspot.com/o/defaultprofile.png?alt=media&token=8625acab-1feb-45b3-a3e7-0c31fd118f3d");
+        String image = "https://firebasestorage.googleapis.com/v0/b/studentvoting-fc2ca.appspot.com/o/defaultprofile.png?alt=media&token=8625acab-1feb-45b3-a3e7-0c31fd118f3d";
+        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,image);
         reff.child(student1.getMatrixno()).setValue(student1).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

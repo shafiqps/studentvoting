@@ -6,6 +6,7 @@ public class Student {
     String siswamail;
     String password;
     String address;
+    String image;
 
     public String getImage() {
         return image;
@@ -15,7 +16,6 @@ public class Student {
         this.image = image;
     }
 
-    String image;
 
     public String getName() {
         return name;
