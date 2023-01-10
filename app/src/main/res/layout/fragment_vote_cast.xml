@@ -87,12 +87,14 @@
                     android:background="#000033">
 
                     <ImageView
+                        android:id="@+id/candidateIVA"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/mat" />
 
                     <TextView
+                        android:id="@+id/candidateNameA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -102,6 +104,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/candidatePartyA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -121,12 +124,14 @@
 
 
                     <ImageView
+                        android:id="@+id/candidateIVB"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/bong" />
 
                     <TextView
+                        android:id="@+id/candidateNameB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -136,6 +141,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/candidatePartyB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -154,12 +160,14 @@
                     android:background="#000033">
 
                     <ImageView
+                        android:id="@+id/candidateIVC"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/ahmad" />
 
                     <TextView
+                        android:id="@+id/candidateNameC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -169,6 +177,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/candidatePartyC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
