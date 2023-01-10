@@ -52,7 +52,7 @@ public class ProfilePage extends Fragment {
                 emailTV.setText(siswamail);
                 facultyTV.setText(faculty);
                 matrixnoTV.setText(matrixno);
-                //Picasso.get().load(link).into(rImage);
+                Picasso.get().load(link).into(rImage);
 
             }
 

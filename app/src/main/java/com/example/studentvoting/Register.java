@@ -87,6 +87,7 @@ DatabaseReference reff;
         EditText siswamailET = rootView.findViewById(R.id.siswamailTB);
         EditText passwordET = rootView.findViewById(R.id.passwordTB);
         EditText addressET = rootView.findViewById(R.id.addressTB);
+        EditText confimpasswordET = rootView.findViewById(R.id.confirmPasswordTB);
         Spinner facultySpinner = rootView.findViewById(R.id.facultySpinner);
 
 
@@ -125,13 +126,33 @@ DatabaseReference reff;
                 String matrixnumber = siswamailET.getText().toString().toUpperCase(Locale.ROOT);
                 String siswamail = siswamailET.getText().toString() + "@um.edu.my";
                 String password = passwordET.getText().toString();
+                String confirmpassword = confimpasswordET.getText().toString();
                 String address = addressET.getText().toString();
                 String faculty = facultySpinner.getSelectedItem().toString();
-                insertStudentData(name,matrixnumber,siswamail,password,address,faculty);
-                Fragment fragment = null;
-                fragment = new Home();
-                replaceFragment(fragment);
-
+                if(name.isEmpty()){
+                    nameET.requestFocus();
+                    nameET.setError("Name cannot be empty!");
+                } else if (matrixnumber.isEmpty()){
+                    siswamailET.requestFocus();
+                    siswamailET.setError("Matrix number cannot be empty!");
+                } else if(matrixnumber.length() < 8){
+                    siswamailET.requestFocus();
+                    siswamailET.setError("Matrix number must be 8 characters!");
+                } else if(password.length() < 4) {
+                    passwordET.requestFocus();
+                    passwordET.setError("Password must be longer than 4 characters!");
+                } else if(!password.equals(confirmpassword)) {
+                    confimpasswordET.requestFocus();
+                    confimpasswordET.setError("Password must be the same!");
+                } else if(address.isEmpty()){
+                    addressET.requestFocus();
+                    addressET.setError("Address cannot be empty!");
+                } else {
+                    insertStudentData(name,matrixnumber,siswamail,password,address,faculty);
+                    Fragment fragment = null;
+                    fragment = new Login();
+                    replaceFragment(fragment);
+                }
             }
         });
         return rootView;

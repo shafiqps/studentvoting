@@ -107,10 +107,14 @@ public class Login extends Fragment {
                                     Fragment fragment = null;
                                     fragment = new Home();
                                     replaceFragment(fragment);
+                                } else {
+                                    password.requestFocus();
+                                    password.setError("Invalid Password!");
                                 }
 
                             } else {
-                                Toast.makeText(rootView.getContext(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                                username.requestFocus();
+                                username.setError("User doesn't exist!");
                             }
                         }
 
