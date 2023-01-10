@@ -3,9 +3,9 @@ package com.example.studentvoting;
 public class currentMembers {
     String name;
     String position;
-    int image;
+    String image;
 
-    public currentMembers(String name, String position, int image) {
+    public currentMembers(String name, String position, String image) {
         this.name = name;
         this.position = position;
         this.image = image;
@@ -27,11 +27,11 @@ public class currentMembers {
         this.position = position;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

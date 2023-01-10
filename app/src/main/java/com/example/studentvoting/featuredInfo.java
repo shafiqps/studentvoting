@@ -1,19 +1,19 @@
 package com.example.studentvoting;
 
 public class featuredInfo {
-    int image;
+    String image;
     String info;
 
-    public featuredInfo(int image, String info) {
+    public featuredInfo(String image, String info) {
         this.image = image;
         this.info = info;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

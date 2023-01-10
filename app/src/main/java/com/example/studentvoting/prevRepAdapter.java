@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class prevRepAdapter extends RecyclerView.Adapter<prevRepAdapter.MyViewHolder>{
@@ -36,7 +38,8 @@ public class prevRepAdapter extends RecyclerView.Adapter<prevRepAdapter.MyViewHo
 
         holder.session.setText(prevRep.get(position).getSession());
         holder.name.setText(prevRep.get(position).getName());
-        holder.imagerep.setImageResource(prevRep.get(position).getImage());
+        Picasso.get().load(prevRep.get(position).getImage()).into(holder.imagerep);
+
     }
 
     @Override

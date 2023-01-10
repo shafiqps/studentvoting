@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class featuredInfoAdapter extends RecyclerView.Adapter<featuredInfoAdapter.MyViewHolder> {
@@ -34,7 +36,9 @@ public class featuredInfoAdapter extends RecyclerView.Adapter<featuredInfoAdapte
     public void onBindViewHolder(@NonNull featuredInfoAdapter.MyViewHolder holder, int position) {
 
         holder.info.setText(featuredInfoArrayList.get(position).getInfo());
-        holder.imageInfo.setImageResource(featuredInfoArrayList.get(position).getImage());
+        Picasso.get().load(featuredInfoArrayList.get(position).getImage()).into(holder.imageInfo);
+
+//        holder.imageInfo.setImageResource(featuredInfoArrayList.get(position).getImage());
     }
 
     @Override

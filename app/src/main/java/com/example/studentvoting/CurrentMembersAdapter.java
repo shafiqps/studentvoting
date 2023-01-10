@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class CurrentMembersAdapter extends RecyclerView.Adapter<CurrentMembersAdapter.MyViewHolder>{
@@ -34,7 +36,8 @@ public class CurrentMembersAdapter extends RecyclerView.Adapter<CurrentMembersAd
     public void onBindViewHolder(@NonNull CurrentMembersAdapter.MyViewHolder holder, int position) {
 
         holder.name.setText(currentMembersArrayList.get(position).getName());
-        holder.imageMember.setImageResource(currentMembersArrayList.get(position).getImage());
+        Picasso.get().load(currentMembersArrayList.get(position).getImage()).into(holder.imageMember);
+//        holder.imageMember.setImageResource(currentMembersArrayList.get(position).getImage());
         holder.position.setText(currentMembersArrayList.get(position).getPosition());
     }
 

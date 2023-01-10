@@ -2,10 +2,10 @@ package com.example.studentvoting;
 
 public class prevRep {
     String session;
-    int image;
+    String image;
     String name;
 
-    public prevRep(String session, int image, String name) {
+    public prevRep(String session, String image, String name) {
         this.session = session;
         this.image = image;
         this.name = name;
@@ -15,7 +15,7 @@ public class prevRep {
         return session;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 

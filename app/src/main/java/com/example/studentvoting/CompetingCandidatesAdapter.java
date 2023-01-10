@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCandidatesAdapter.MyViewHolder> {
@@ -36,7 +39,7 @@ public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCa
     public void onBindViewHolder(@NonNull CompetingCandidatesAdapter.MyViewHolder holder, int position) {
         holder.tv.setText(candidateList.get(position).getName());
         holder.tv2.setText(candidateList.get(position).getParty());
-        holder.imageView.setImageResource(candidateList.get(position).getImage());
+        Picasso.get().load(candidateList.get(position).getImage()).into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

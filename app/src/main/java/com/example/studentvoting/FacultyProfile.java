@@ -95,14 +95,14 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
 //        }
     }
 
-    private void setUpPrevRep(){
-        String[] sesh = getResources().getStringArray(R.array.SESSION);
-        String[] prevRepName = getResources().getStringArray(R.array.prevRepName);
-
-        for(int i=0; i<sesh.length;i++){
-            prevRepArrayList.add(new prevRep(sesh[i],gambau[0],prevRepName[i]));
-        }
-    }
+//    private void setUpPrevRep(){
+//        String[] sesh = getResources().getStringArray(R.array.SESSION);
+//        String[] prevRepName = getResources().getStringArray(R.array.prevRepName);
+//
+//        for(int i=0; i<sesh.length;i++){
+//            prevRepArrayList.add(new prevRep(sesh[i],gambau[0],prevRepName[i]));
+//        }
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,9 +118,10 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
                 for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String party = dataSnapshot.child("party").getValue(String.class);
+                    String url = dataSnapshot.child("image").getValue(String.class);
                     String candidateKey = dataSnapshot.child("candidatekey").getValue(String.class);
                     Log.i("demo",party);
-                    candidateList.add(new CandidateList(name,party,gambau[0],candidateKey));
+                    candidateList.add(new CandidateList(name,party,url,candidateKey));
 //
 //                    candidatenigga.add(name);
 //                    partynigga.add(party);
@@ -150,8 +151,9 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
                     String name = dataSnapshot.child("name").getValue(String.class);
+                    String url = dataSnapshot.child("image").getValue(String.class);
                     String session = dataSnapshot.child("session").getValue(String.class);
-                    prevRepArrayList.add(new prevRep(session,gambau[0],name));
+                    prevRepArrayList.add(new prevRep(session,url,name));
 //
 //                    candidatenigga.add(name);
 //                    partynigga.add(party);

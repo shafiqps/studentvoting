@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -75,13 +76,13 @@ public class CandidateProfile extends Fragment {
         }
     }
 
-    public void setUpFeaturedInfo(){
-        String[] info = getResources().getStringArray(R.array.info);
-
-        for(int i=0; i<info.length;i++){
-            featuredInfoArrayList.add(new featuredInfo(gambau[0],info[i]));
-        }
-    }
+//    public void setUpFeaturedInfo(){
+//        String[] info = getResources().getStringArray(R.array.info);
+//
+//        for(int i=0; i<info.length;i++){
+//            featuredInfoArrayList.add(new featuredInfo(gambau[0],info[i]));
+//        }
+//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,11 +103,13 @@ public class CandidateProfile extends Fragment {
         TextView facultyTV = (TextView) rootview.findViewById(R.id.facultyTV);
         TextView positionTV = (TextView) rootview.findViewById(R.id.positionTV);
         TextView partyTV = (TextView) rootview.findViewById(R.id.partyTV);
+        ImageView picure = rootview.findViewById(R.id.profile_IV);
         reff.child("Candidate/"+candidateID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final String name = snapshot.child("name").getValue(String.class);
                 final String faculty = snapshot.child("faculty").getValue(String.class);
+                final String url = snapshot.child("image").getValue(String.class);
                 final String position = snapshot.child("position").getValue(String.class);
                 final String party = snapshot.child("party").getValue(String.class);
 
@@ -114,7 +117,7 @@ public class CandidateProfile extends Fragment {
                 partyTV.setText(party);
                 facultyTV.setText(faculty);
                 positionTV.setText(position);
-//                Picasso.get().load(link).into(rImage);
+                Picasso.get().load(url).into(picure);
 
             }
 
@@ -129,8 +132,8 @@ public class CandidateProfile extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
                     String description = dataSnapshot.child("description").getValue(String.class);
-//                    String image = dataSnapshot.child("image").getValue(String.class);
-                    featuredInfoArrayList.add(new featuredInfo(gambau[0],description));
+                    String image = dataSnapshot.child("image").getValue(String.class);
+                    featuredInfoArrayList.add(new featuredInfo(image,description));
 
                 }
 

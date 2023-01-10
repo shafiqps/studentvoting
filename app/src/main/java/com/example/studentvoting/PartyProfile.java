@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -76,14 +78,14 @@ DatabaseReference reff3;
     }
 
 
-    public void setUpCurrentMembers(){
-        String[] members = getResources().getStringArray(R.array.member);
-        String[] position = getResources().getStringArray(R.array.position);
-
-        for(int i=0; i<members.length;i++){
-            currentMembersArrayList.add(new currentMembers(members[i],position[i],gambau[0]));
-        }
-    }
+//    public void setUpCurrentMembers(){
+//        String[] members = getResources().getStringArray(R.array.member);
+//        String[] position = getResources().getStringArray(R.array.position);
+//
+//        for(int i=0; i<members.length;i++){
+//            currentMembersArrayList.add(new currentMembers(members[i],position[i],gambau[0]));
+//        }
+//    }
 
     public void setUpManifesto(){
         String[] manifesto = getResources().getStringArray(R.array.manifesto);
@@ -111,6 +113,7 @@ DatabaseReference reff3;
 
         RecyclerView rv = (RecyclerView) rootview.findViewById(R.id.recyclerViewparty);
         ImageButton BtnPrev = (ImageButton) rootview.findViewById(R.id.BtnPrev);
+        ImageView rImage = rootview.findViewById(R.id.profile_IV);
         BtnPrev.setOnClickListener(this::onClick);
 //        setUpCurrentMembers();
 
@@ -118,11 +121,12 @@ DatabaseReference reff3;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final String about = snapshot.child("about").getValue(String.class);
+                final String image = snapshot.child("image").getValue(String.class);
 
 
                 aboutTV.setText(about);
 
-//                Picasso.get().load(link).into(rImage);
+                Picasso.get().load(image).into(rImage);
 
             }
 
@@ -137,7 +141,8 @@ DatabaseReference reff3;
                 for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String position = dataSnapshot.child("position").getValue(String.class);
-                    currentMembersArrayList.add(new currentMembers(name,position,gambau[0]));
+                    String url = dataSnapshot.child("image").getValue(String.class);
+                    currentMembersArrayList.add(new currentMembers(name,position,url));
 //
 //                    candidatenigga.add(name);
 //                    partynigga.add(party);

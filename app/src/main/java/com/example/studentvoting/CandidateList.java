@@ -4,7 +4,7 @@ public class CandidateList {
     String name;
     String party;
     String id;
-    int image;
+    String image;
 
     @Override
     public String toString() {
@@ -25,7 +25,7 @@ public class CandidateList {
         this.id = id;
     }
 
-    public CandidateList(String name, String party, int image, String id) {
+    public CandidateList(String name, String party, String image, String id) {
         this.name = name;
         this.party = party;
         this.image = image;
@@ -40,7 +40,7 @@ public class CandidateList {
         return party;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 }
