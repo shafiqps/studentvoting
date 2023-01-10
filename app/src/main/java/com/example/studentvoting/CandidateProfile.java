@@ -150,6 +150,7 @@ public class CandidateProfile extends Fragment {
         partyTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.partybro = partyTV.toString();
                 Fragment fragment = null;
                 fragment = new PartyProfile();
                 replaceFragment(fragment);
