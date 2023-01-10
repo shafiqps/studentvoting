@@ -19,6 +19,7 @@ import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
@@ -61,10 +63,15 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
     //Database
     DatabaseReference reff;
+    DatabaseReference reff2;
+    DatabaseReference ref;
 
     //Search
     TextView TESVIEW;
-    ArrayList<String> arrayList;
+    ArrayList<String> FacultyList = new ArrayList<>();
+    ArrayList<String> AllList = new ArrayList<>();
+    ArrayList<String> CandidateList = new ArrayList<>();
+
     Dialog dialog;
 
     //Candidates List
@@ -79,24 +86,79 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
         //Database
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+        reff2 = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
 
         // assign variable
         TESVIEW = rootView.findViewById(R.id.searchTextInput);
 
+        reff.child("Faculty").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+                    String name = dataSnapshot.getKey();
+                    Log.i("demo", name);
+                    AllList.add(name);
+                    FacultyList.add(name);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        for(int i = 0; FacultyList.size() > i; i++) {
+            for (int candidateNumber = 1; candidateNumber <= 3; candidateNumber++) {
+                ref = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Faculty").child(FacultyList.get(i).toString()).child("candidates").child(String.valueOf(candidateNumber));
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String name = dataSnapshot.child("name").getValue(String.class);
+                        CandidateList.add(name);
+                        AllList.add(name);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        }
+//        int i = 0;
+//        while(FacultyList.size() > i){
+//            reff2.child("Faculty/"+ FacultyList.get(i) + "/candidates").addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+//                        String name = dataSnapshot.child("name").getValue(String.class);
+//                        Log.i("demo2", name);
+//                        AllList.add(name);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                }
+//            });
+//            i++;
+//        }
+
+
+
         // initialize array list
-        arrayList=new ArrayList<>();
+//        arrayList=new ArrayList<>();
 
         // set value in array list
-        arrayList.add("DSA Self Paced");
-        arrayList.add("Complete Interview Prep");
-        arrayList.add("Amazon SDE Test Series");
-        arrayList.add("Compiler Design");
-        arrayList.add("Git & Github");
-        arrayList.add("Python foundation");
-        arrayList.add("Operating systems");
-        arrayList.add("Theory of Computation");
+//        arrayList.add("DSA Self Paced");
+//        arrayList.add("Complete Interview Prep");
+//        arrayList.add("Amazon SDE Test Series");
+//        arrayList.add("Compiler Design");
+//        arrayList.add("Git & Github");
+//        arrayList.add("Python foundation");
+//        arrayList.add("Operating systems");
+//        arrayList.add("Theory of Computation");
 
         TESVIEW.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +183,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                 ListView listView=dialog.findViewById(R.id.list_view);
 
                 // Initialize array adapter
-                ArrayAdapter<String> adapter=new ArrayAdapter<>(ElectionPage.this.getContext(), android.R.layout.simple_list_item_1,arrayList);
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(ElectionPage.this.getContext(), android.R.layout.simple_list_item_1,AllList);
 
                 // set adapter
                 listView.setAdapter(adapter);
