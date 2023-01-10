@@ -186,23 +186,25 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
 
     public boolean onMarkerClick(Marker marker) {
         String name = marker.getTitle();
-        ArrayList<String> candidateList = new ArrayList<>();
-        ArrayList<String> partyList = new ArrayList<>();
+//        ArrayList<String> candidateList = new ArrayList<>();
+//        ArrayList<String> partyList = new ArrayList<>();
 
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bsd_fac_result, null);
         TextView textView = bottomSheetView.findViewById(R.id.FacNameResult);
 
-        reff.child("Faculty/"+name+"/candidates").addValueEventListener(new ValueEventListener() {
+        reff.child("Faculty/"+name+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
-                    String name = dataSnapshot.child("name").getValue(String.class);
-                    String party = dataSnapshot.child("party").getValue(String.class);
+                String candidateA = snapshot.child("1").child("name").getValue(String.class);
+                String partyA = snapshot.child("1").child("party").getValue(String.class);
 
-                    candidateList.add(name);
-                    partyList.add(party);
-                }
+                String candidateB = snapshot.child("2").child("name").getValue(String.class);
+                String partyB = snapshot.child("2").child("party").getValue(String.class);
 
+                String candidateC = snapshot.child("3").child("name").getValue(String.class);
+                String partyC = snapshot.child("3").child("party").getValue(String.class);
+
+                showBottomSheetDialog(name,candidateA,partyA,candidateB,partyB,candidateC,partyC);
 
             }
 
@@ -212,11 +214,10 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
             }
         });
 
-        String[] candidatearray = new String[candidateList.size()];
-        String[] partyarray = new String[partyList.size()];
+//        String[] candidatearray = new String[candidateList.size()];
+//        String[] partyarray = new String[partyList.size()];
 
 
-        showBottomSheetDialog(name,candidatearray[0],partyarray[0],candidatearray[1],partyarray[1],candidatearray[2],partyarray[2]);
 
 //
 ////        switch(name){
