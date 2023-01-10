@@ -5,10 +5,17 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +23,7 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class Feedback extends Fragment {
-
+    DatabaseReference reff;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -63,6 +70,37 @@ public class Feedback extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_feedback, container, false);
         ImageButton BtnPrevResult = (ImageButton) rootView.findViewById(R.id.BtnPrevResult);
         BtnPrevResult.setOnClickListener(this::onClick);
+        RatingBar ratingBar = rootView.findViewById(R.id.ratingBar2);
+        ratingBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    float touchPositionX = event.getX();
+                    float width = ratingBar.getWidth();
+                    float starsf = (touchPositionX / width) * 5.0f;
+                    int stars = (int)starsf + 1;
+                    ratingBar.setRating(stars);
+
+                    Toast.makeText(rootView.getContext(), String.valueOf("test"), Toast.LENGTH_SHORT).show();
+                    v.setPressed(false);
+                }
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    v.setPressed(true);
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    v.setPressed(false);
+                }
+
+
+
+
+                return true;
+            }});
+
+        EditText feedbackET = rootView.findViewById(R.id.editTextTextPersonName);
+
+
         return rootView;
     }
 

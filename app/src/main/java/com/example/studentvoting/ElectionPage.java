@@ -246,14 +246,17 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                 replaceFragment(fragment);
                 break;
             case R.id.textCandidateA:
+                MainActivity.candidateID = MainActivity.candidateA;
                 fragment = new CandidateProfile();
                 replaceFragment(fragment);
                 break;
             case R.id.textCandidateB:
+                MainActivity.candidateID = MainActivity.candidateB;
                 fragment = new CandidateProfile();
                 replaceFragment(fragment);
                 break;
             case R.id.textCandidateC:
+                MainActivity.candidateID = MainActivity.candidateC;
                 fragment = new CandidateProfile();
                 replaceFragment(fragment);
                 break;
@@ -393,14 +396,21 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String candidateA = snapshot.child("1").child("name").getValue(String.class);
+                String idA = snapshot.child("1").child("candidatekey").getValue(String.class);
                 String partyA = snapshot.child("1").child("party").getValue(String.class);
 
                 String candidateB = snapshot.child("2").child("name").getValue(String.class);
+                String idB = snapshot.child("2").child("candidatekey").getValue(String.class);
                 String partyB = snapshot.child("2").child("party").getValue(String.class);
 
                 String candidateC = snapshot.child("3").child("name").getValue(String.class);
+                String idC = snapshot.child("3").child("candidatekey").getValue(String.class);
                 String partyC = snapshot.child("3").child("party").getValue(String.class);
 
+                MainActivity.currentfacultyPage = name;
+                MainActivity.candidateA = idA;
+                MainActivity.candidateB = idB;
+                MainActivity.candidateC = idC;
                 showBottomSheetDialog(name,candidateA,partyA,candidateB,partyB,candidateC,partyC);
 
             }

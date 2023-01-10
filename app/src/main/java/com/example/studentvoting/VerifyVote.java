@@ -25,13 +25,20 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.concurrent.Executor;
 
 
 
 
 public class VerifyVote extends Fragment {
-
+    DatabaseReference reff;
     BiometricPrompt biometricPrompt;
     PromptInfo promptInfo;
     RelativeLayout verification_fragment;
@@ -47,7 +54,10 @@ public class VerifyVote extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
-        //Inflate the layout for this fragment
+        int vote = MainActivity.voteChoice;
+        String facultyID = MainActivity.currentfacultyPage;
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+
         View view = inflater.inflate(R.layout.fragment_verify_vote, container, false);
 
 
@@ -80,8 +90,38 @@ public class VerifyVote extends Fragment {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                Toast.makeText(getActivity().getApplicationContext(), "Your Vote is verified", Toast.LENGTH_SHORT).show();
-                verification_fragment.setVisibility(View.VISIBLE);
+
+                reff.child("Faculty/"+facultyID+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        switch(vote){
+                            case 1:
+                                reff.child("Faculty/"+facultyID+"/candidates/1/currentvotes").setValue(ServerValue.increment(1));
+                                Toast.makeText(getActivity().getApplicationContext(), "Your Vote is verified", Toast.LENGTH_SHORT).show();
+                                verification_fragment.setVisibility(View.VISIBLE);
+                                break;
+                            case 2:
+                                int currentvotes2 = snapshot.child("2").child("currentvotes").getValue(Integer.class);
+                                currentvotes2++;
+                                reff.child("2").child("currentvotes").setValue(currentvotes2);
+                                break;
+                            case 3:
+                                int currentvotes3 = snapshot.child("3").child("currentvotes").getValue(Integer.class);
+                                currentvotes3++;
+                                reff.child("3").child("currentvotes").setValue(currentvotes3);
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
 
             @Override
