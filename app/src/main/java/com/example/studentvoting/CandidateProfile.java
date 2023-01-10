@@ -86,6 +86,7 @@ public class CandidateProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         String candidateID = MainActivity.candidateID;
+        featuredInfoArrayList.clear();
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         reff2 = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         // Inflate the layout for this fragment
@@ -150,7 +151,7 @@ public class CandidateProfile extends Fragment {
         partyTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.partybro = partyTV.toString();
+                MainActivity.partybro = partyTV.getText().toString();
                 Fragment fragment = null;
                 fragment = new PartyProfile();
                 replaceFragment(fragment);
