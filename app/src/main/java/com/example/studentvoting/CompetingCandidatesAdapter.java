@@ -41,6 +41,8 @@ public class CompetingCandidatesAdapter extends RecyclerView.Adapter<CompetingCa
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.candidateID = candidateList.get(holder.getAdapterPosition()).getId();
+
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 CandidateProfile candidateProfile = new CandidateProfile();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.relativelayoutfac, candidateProfile).addToBackStack(null).commit();

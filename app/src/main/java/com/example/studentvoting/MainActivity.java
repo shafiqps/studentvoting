@@ -21,6 +21,7 @@ import android.view.WindowManager;
 public class MainActivity extends AppCompatActivity {
     public static String currentlyLoggedIn = "";
     public static String currentfacultyPage = "";
+    public static String candidateID = "";
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

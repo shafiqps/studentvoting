@@ -38,6 +38,8 @@ import java.util.List;
 public class FacultyProfile extends Fragment implements RecyclerViewInterface {
     String currentFac = MainActivity.currentfacultyPage;
     DatabaseReference reff;
+    DatabaseReference reff2;
+
 
     List<String> candidatenigga = new ArrayList<>();
     List<String> partynigga = new ArrayList<>();
@@ -106,15 +108,19 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+        reff2 = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
+        candidateList.clear();
+        prevRepArrayList.clear();
         reff.child("Faculty/"+currentFac+"/candidates").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String party = dataSnapshot.child("party").getValue(String.class);
+                    String candidateKey = dataSnapshot.child("candidatekey").getValue(String.class);
                     Log.i("demo",party);
-                    candidateList.add(new CandidateList(name,party,gambau[0]));
+                    candidateList.add(new CandidateList(name,party,gambau[0],candidateKey));
 //
 //                    candidatenigga.add(name);
 //                    partynigga.add(party);
@@ -135,14 +141,37 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
         RecyclerView rv2 = (RecyclerView) rootview.findViewById(R.id.recyclerViewprevrep);
         ImageButton BtnPrevResult = (ImageButton) rootview.findViewById(R.id.BtnPrevResult);
         TextView tv = rootview.findViewById(R.id.facultyTV);
+        tv.setText(currentFac);
         rv.setOnClickListener(this::onClick);
         BtnPrevResult.setOnClickListener(this::onClick);
 //        setUpCandidateList();
-        setUpPrevRep();
+        reff2.child("Faculty/"+currentFac+"/previousrepresentative").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String session = dataSnapshot.child("session").getValue(String.class);
+                    prevRepArrayList.add(new prevRep(session,gambau[0],name));
+//
+//                    candidatenigga.add(name);
+//                    partynigga.add(party);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//        setUpPrevRep();
         rv.setLayoutManager(new LinearLayoutManager(FacultyProfile.this.getContext()));
         CompetingCandidatesAdapter adapterCompetingCandidates = new CompetingCandidatesAdapter(this.getContext(), candidateList, this);
+        rv.post(new Runnable(){ @Override public void run(){ adapterCompetingCandidates.notifyDataSetChanged();}});
         rv.setAdapter(adapterCompetingCandidates);
         prevRepAdapter prevRepAdapter = new prevRepAdapter(this.getContext(), prevRepArrayList);
+        rv2.post(new Runnable(){ @Override public void run(){ prevRepAdapter.notifyDataSetChanged();}});
         rv2.setAdapter(prevRepAdapter);
         rv2.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL,false));
 

@@ -3,6 +3,7 @@ package com.example.studentvoting;
 public class CandidateList {
     String name;
     String party;
+    String id;
     int image;
 
     @Override
@@ -14,15 +15,21 @@ public class CandidateList {
                 '}';
     }
 
-    public CandidateList(String name, String party) {
-        this.name = name;
-        this.party = party;
+    public String getId() {
+        return id;
     }
 
-    public CandidateList(String name, String party, int image) {
+    public CandidateList(String name, String party, String id) {
+        this.name = name;
+        this.party = party;
+        this.id = id;
+    }
+
+    public CandidateList(String name, String party, int image, String id) {
         this.name = name;
         this.party = party;
         this.image = image;
+        this.id = id;
     }
 
     public String getName() {
