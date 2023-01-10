@@ -34,6 +34,10 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
@@ -45,7 +49,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private Button goToVotingButton;
     private EditText searchTextInput;
-
+    DatabaseReference reff;
     //Candidates List
     private String[] candidatesName;
     private String[] candidatesParty;
@@ -310,58 +314,79 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
 
     public boolean onMarkerClick(Marker marker){
         String name = marker.getSnippet();
+        reff.child("Faculty/"+name+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String candidateA = snapshot.child("1").child("name").getValue(String.class);
+                String partyA = snapshot.child("1").child("party").getValue(String.class);
 
-        switch(name){
-            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Mahasiswa Progresif");
-                return true;
+                String candidateB = snapshot.child("2").child("name").getValue(String.class);
+                String partyB = snapshot.child("2").child("party").getValue(String.class);
 
-            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Mahasiswa Progresif");
-                return true;
+                String candidateC = snapshot.child("3").child("name").getValue(String.class);
+                String partyC = snapshot.child("3").child("party").getValue(String.class);
 
-            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Mahasiswa Progresif");
-                return true;
+                showBottomSheetDialog(name,candidateA,partyA,candidateB,partyB,candidateC,partyC);
 
-            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Mahasiswa Progresif");
-                return true;
+            }
 
-            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Mahasiswa Progresif");
-                return true;
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Mahasiswa Progresif");
-                return true;
-
-            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Mahasiswa Progresif");
-                return true;
-
-            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Mahasiswa Progresif");
-                return true;
-
-            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Mahasiswa Progresif");
-                return true;
-
-            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Mahasiswa Progresif");
-                return true;
-
-            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Mahasiswa Progresif");
-                return true;
-
-            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Mahasiswa Progresif");
-                return true;
-
-            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Mahasiswa Progresif");
-                return true;
-
-            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Mahasiswa Progresif");
-                return true;
-
-            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Mahasiswa Progresif");
-                return true;
-
-            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Mahasiswa Progresif");
-                return true;
-
-            default: return false;
-        }
+            }
+        });
+//        switch(name){
+//            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Mahasiswa Progresif");
+//                return true;
+//
+//            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Mahasiswa Progresif");
+//                return true;
+//
+//            default: return false;
+//        }
+        return false;
     }
 
     private void showBottomSheetDialog(String Faculty, String CandidateA, String PartyA,
