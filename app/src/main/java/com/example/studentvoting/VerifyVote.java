@@ -27,18 +27,28 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 
 
 
 public class VerifyVote extends Fragment {
-
+    DatabaseReference reff;
     BiometricPrompt biometricPrompt;
     BiometricPrompt.PromptInfo promptInfo;
     RelativeLayout fingerprintSuccess_fragment;
     androidx.biometric.BiometricManager biometricManager;
     Button confirmBtn;
+//    boolean authenticate = false;
 
     private Fragment Home;
 
@@ -46,6 +56,10 @@ public class VerifyVote extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String currentFac = MainActivity.currentfacultyPage;
+        int choice = MainActivity.voteChoice;
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+
         View rootView = inflater.inflate(R.layout.fragment_verify_vote, container, false);
 
         fingerprintSuccess_fragment = rootView.findViewById(R.id.fingerprintSuccess_fragment);
@@ -85,6 +99,34 @@ public class VerifyVote extends Fragment {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
+                switch(choice){
+                    case 1:
+                        Map<String, Object> updates = new HashMap<>();
+                        updates.put("Faculty/"+currentFac+"/candidates/1/currentvotes", ServerValue.increment(1));
+                        reff.updateChildren(updates);
+                        break;
+                    case 2:
+                        Map<String, Object> updates2 = new HashMap<>();
+                        updates2.put("Faculty/"+currentFac+"/candidates/2/currentvotes", ServerValue.increment(1));
+                        reff.updateChildren(updates2);
+                        break;
+                    case 3:
+                        Map<String, Object> updates3 = new HashMap<>();
+                        updates3.put("Faculty/"+currentFac+"/candidates/3/currentvotes", ServerValue.increment(1));
+                        reff.updateChildren(updates3);
+                        break;
+                }
+//                reff.child("Faculty/"+currentFac+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
                 Toast.makeText(getContext(), "Your Vote is verified", Toast.LENGTH_SHORT).show();
                 fingerprintSuccess_fragment.setVisibility(View.VISIBLE);
             }
