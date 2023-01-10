@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,16 +28,24 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class LiveMapResult extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private GoogleMap map;
     BottomSheetDialog bottomSheetDialog;
+    DatabaseReference reff;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         View rootView = inflater.inflate(R.layout.fragment_live_map_result, container, false);
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bsd_fac_result, null);
@@ -175,62 +184,93 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
     }
 
 
-    public boolean onMarkerClick(Marker marker){
-        String name = marker.getSnippet();
+    public boolean onMarkerClick(Marker marker) {
+        String name = marker.getTitle();
+        ArrayList<String> candidateList = new ArrayList<>();
+        ArrayList<String> partyList = new ArrayList<>();
+
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bsd_fac_result, null);
         TextView textView = bottomSheetView.findViewById(R.id.FacNameResult);
 
-        switch(name){
-            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Bunga Raya");
-                return true;
+        reff.child("Faculty/"+name+"/candidates").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String party = dataSnapshot.child("party").getValue(String.class);
 
-            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Bunga Raya");
-                return true;
+                    candidateList.add(name);
+                    partyList.add(party);
+                }
 
-            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Bunga Raya");
-                return true;
 
-            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Bunga Raya");
-                return true;
+            }
 
-            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Bunga Raya");
-                return true;
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Bunga Raya");
-                return true;
+            }
+        });
 
-            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Bunga Raya");
-                return true;
+        String[] candidatearray = new String[candidateList.size()];
+        String[] partyarray = new String[partyList.size()];
 
-            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Bunga Raya");
-                return true;
 
-            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Bunga Raya");
-                return true;
+        showBottomSheetDialog(name,candidatearray[0],partyarray[0],candidatearray[1],partyarray[1],candidatearray[2],partyarray[2]);
 
-            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Bunga Raya");
-                return true;
-
-            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Bunga Raya");
-                return true;
-
-            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Bunga Raya");
-                return true;
-
-            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Bunga Raya");
-                return true;
-
-            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Bunga Raya");
-                return true;
-
-            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Bunga Raya");
-                return true;
-
-            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Bunga Raya");
-                return true;
-
-            default: return false;
-        }
+//
+////        switch(name){
+////            case "FSKTM": showBottomSheetDialog("Faculty of CS&IT", "Wywy", "Angkatan Mahasiswa", "Ahmad Ilham", "Neo Siswa", "Shafiq Aiman", "Bunga Raya");
+////                return true;
+////
+////            case "API": showBottomSheetDialog("Academy of Islamic Studies", "Capang", "Angkatan Mahasiswa", "Tareq", "Neo Siswa", "Lamek", "Bunga Raya");
+////                return true;
+////
+////            case "Sports": showBottomSheetDialog("Faculty of Sports and Exercise Science", "Ammar", "Angkatan Mahasiswa", "Ikhwan", "Neo Siswa", "Theo", "Bunga Raya");
+////                return true;
+////
+////            case "Law": showBottomSheetDialog("Faculty of Law", "Umar", "Angkatan Mahasiswa", "Daus", "Neo Siswa", "Mizwar", "Bunga Raya");
+////                return true;
+////
+////            case "Engine": showBottomSheetDialog("Faculty of Engineering", "Icap", "Angkatan Mahasiswa", "Thesha", "Neo Siswa", "Aniq", "Bunga Raya");
+////                return true;
+////
+////            case "FBE": showBottomSheetDialog("Faculty of Built Environment", "Eyena", "Angkatan Mahasiswa", "Sham", "Neo Siswa", "Midol", "Bunga Raya");
+////                return true;
+////
+////            case "Med": showBottomSheetDialog("Faculty of Medicine", "Deen", "Angkatan Mahasiswa", "Sar", "Neo Siswa", "Yasmint", "Bunga Raya");
+////                return true;
+////
+////            case "Dentist": showBottomSheetDialog("Faculty of Dentistry", "Adham", "Angkatan Mahasiswa", "Kumaran", "Neo Siswa", "Lily", "Bunga Raya");
+////                return true;
+////
+////            case "FBA": showBottomSheetDialog("Faculty of Business and Accountancy", "Keat", "Angkatan Mahasiswa", "Ukhta", "Neo Siswa", "Umi", "Bunga Raya");
+////                return true;
+////
+////            case "Econs": showBottomSheetDialog("Faculty of Economics and Administration", "Nik", "Angkatan Mahasiswa", "Lutfi", "Neo Siswa", "Zahid", "Bunga Raya");
+////                return true;
+////
+////            case "Edu": showBottomSheetDialog("Faculty of Education", "Farah", "Angkatan Mahasiswa", "Zul", "Neo Siswa", "Fatin", "Bunga Raya");
+////                return true;
+////
+////            case "FASS": showBottomSheetDialog("Faculty of Arts and Social Sciences", "Billie", "Angkatan Mahasiswa", "Adam", "Neo Siswa", "Durra", "Bunga Raya");
+////                return true;
+////
+////            case "Science": showBottomSheetDialog("Faculty of Science", "Bali", "Angkatan Mahasiswa", "Dibo", "Neo Siswa", "Idris", "Bunga Raya");
+////                return true;
+////
+////            case "Arts": showBottomSheetDialog("Faculty of Creative Arts", "Farees", "Angkatan Mahasiswa", "Haris", "Neo Siswa", "Amisha", "Bunga Raya");
+////                return true;
+////
+////            case "FLL": showBottomSheetDialog("Faculty of Languages and Linguistics", "Rozi", "Angkatan Mahasiswa", "Masnaini", "Neo Siswa", "Usha", "Bunga Raya");
+////                return true;
+////
+////            case "APM": showBottomSheetDialog("Academy of Malay Studies", "Sazeli", "Angkatan Mahasiswa", "Zainumey", "Neo Siswa", "Aluna", "Bunga Raya");
+////                return true;
+////
+////            default: return false;
+//        }
+    return false;
     }
 
     private void showBottomSheetDialog(String Faculty, String CandidateA, String PartyA,
