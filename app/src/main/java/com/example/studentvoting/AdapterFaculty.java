@@ -40,7 +40,9 @@ public class AdapterFaculty extends RecyclerView.Adapter<AdapterFaculty.FacultyV
 
         AdapterCandidate adapterCandidate = new AdapterCandidate(faculty.getCandidateList());
         viewHolder.ChildRecyclerView.setLayoutManager(layoutManager);
+        viewHolder.ChildRecyclerView.post(new Runnable(){ @Override public void run(){ adapterCandidate.notifyDataSetChanged(); } });
         viewHolder.ChildRecyclerView.setAdapter(adapterCandidate);
+
         viewHolder.ChildRecyclerView.setRecycledViewPool(viewPool);
     }
 

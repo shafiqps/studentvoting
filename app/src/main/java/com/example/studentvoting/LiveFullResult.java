@@ -27,6 +27,7 @@ public class LiveFullResult extends Fragment {
 
     private RecyclerView recyclerView;
     DatabaseReference reff;
+    DatabaseReference reff2;
 //    ArrayList<FacultyList> candidateList = new ArrayList<>();
 
     @Override
@@ -41,85 +42,97 @@ public class LiveFullResult extends Fragment {
 
 
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+        reff2 = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         recyclerView = rootView.findViewById(R.id.livefullresultRV);
         recyclerView.setLayoutManager(new LinearLayoutManager(LiveFullResult.this.getContext()));
         recyclerView.setHasFixedSize(true);
         AdapterFaculty adapterFaculty = new AdapterFaculty(facultyList());
+        recyclerView.post(new Runnable(){ @Override public void run(){ adapterFaculty.notifyDataSetChanged(); } });
+
         recyclerView.setAdapter(adapterFaculty);
+
+//        getActivity().runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                adapterFaculty.notifyDataSetChanged();
+//                recyclerView.setAdapter(adapterFaculty);
+//            }
+//        });
+
 
         // Inflate the layout for this fragment
         return rootView;
     }
 
-    private List<Faculty> facultyList(){
-        List<Faculty> facultyList = new ArrayList<>();
+    private ArrayList<Faculty> facultyList(){
+        ArrayList<Faculty> facultyList = new ArrayList<>();
+
+        reff2.child("Faculty").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+                    String name = dataSnapshot.getKey();
+
+                    facultyList.add(new Faculty(name, candidateList(name)));
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//        Faculty faculty1 = new Faculty("Academy of Islamic Studies", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty1);
 //
-//        reff.child("Faculty").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
-//                    String name = dataSnapshot.getKey();
+//        Faculty faculty2 = new Faculty("Academy of Malay Studies", candidateList("Faculty of Computer Science and Information Technology"));
+//        facultyList.add(faculty2);
 //
-//                    facultyList.add(new Faculty(name, candidateList()));
+//        Faculty faculty3 = new Faculty("Faculty of Arts and Social Sciences", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty3);
 //
-//                }
+//        Faculty faculty4 = new Faculty("Faculty of Built Environment", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty4);
 //
+//        Faculty faculty5 = new Faculty("Faculty of Business and Accountancy", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty5);
 //
-//            }
+//        Faculty faculty6 = new Faculty("Faculty of Computer Science and Information Technology", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty6);
 //
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
+//        Faculty faculty7 = new Faculty("Faculty of Creative Arts", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty7);
 //
-//            }
-//        });
-        Faculty faculty1 = new Faculty("Academy of Islamic Studies", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty1);
-
-        Faculty faculty2 = new Faculty("Academy of Malay Studies", candidateList("Faculty of Computer Science and Information Technology"));
-        facultyList.add(faculty2);
-
-        Faculty faculty3 = new Faculty("Faculty of Arts and Social Sciences", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty3);
-
-        Faculty faculty4 = new Faculty("Faculty of Built Environment", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty4);
-
-        Faculty faculty5 = new Faculty("Faculty of Business and Accountancy", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty5);
-
-        Faculty faculty6 = new Faculty("Faculty of Computer Science and Information Technology", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty6);
-
-        Faculty faculty7 = new Faculty("Faculty of Creative Arts", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty7);
-
-        Faculty faculty8 = new Faculty("Faculty of Dentistry", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty8);
-
-        Faculty faculty9 = new Faculty("Faculty of Economics and Administration", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty9);
-
-        Faculty faculty10 = new Faculty("Faculty of Education", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty10);
-
-        Faculty faculty11 = new Faculty("Faculty of Engineering", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty11);
-
-        Faculty faculty12 = new Faculty("Faculty of Languages and Linguistics", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty12);
-
-        Faculty faculty13 = new Faculty("Faculty of Law", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty13);
-
-        Faculty faculty14 = new Faculty("Faculty of Medicine", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty14);
-
-        Faculty faculty15 = new Faculty("Faculty of Science", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty15);
-
-        Faculty faculty16 = new Faculty("Faculty of Sports and Exercise Science", candidateList("Academy of Islamic Studies"));
-        facultyList.add(faculty16);
+//        Faculty faculty8 = new Faculty("Faculty of Dentistry", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty8);
+//
+//        Faculty faculty9 = new Faculty("Faculty of Economics and Administration", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty9);
+//
+//        Faculty faculty10 = new Faculty("Faculty of Education", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty10);
+//
+//        Faculty faculty11 = new Faculty("Faculty of Engineering", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty11);
+//
+//        Faculty faculty12 = new Faculty("Faculty of Languages and Linguistics", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty12);
+//
+//        Faculty faculty13 = new Faculty("Faculty of Law", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty13);
+//
+//        Faculty faculty14 = new Faculty("Faculty of Medicine", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty14);
+//
+//        Faculty faculty15 = new Faculty("Faculty of Science", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty15);
+//
+//        Faculty faculty16 = new Faculty("Faculty of Sports and Exercise Science", candidateList("Academy of Islamic Studies"));
+//        facultyList.add(faculty16);
         return facultyList;
     }
 
@@ -146,6 +159,8 @@ public class LiveFullResult extends Fragment {
 
             }
         });
+
+
 
 //        candidateList.add(new Candidate("Abu", "Ayam", "FSKTM"));
 //        candidateList.add(new Candidate("Ho", "Ikan", "FLL"));
