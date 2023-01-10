@@ -46,7 +46,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, newsList.getTitle_news(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
