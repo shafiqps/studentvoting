@@ -9,8 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="590dp"
-        android:background="@drawable/roundedcorner">
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedcorner"
+        android:paddingBottom="100px">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/profileTB"
@@ -44,72 +45,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/circular_bg"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="180dp"
+            android:layout_marginTop="40px"
+            android:layout_marginStart="15dp"
             android:clickable="true"
-            android:paddingLeft="0dp"
             android:textAlignment="viewStart"
-            android:textAllCaps="true"
+            android:fontFamily="@font/inter_bold"
+            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="60px"
-            android:textStyle="bold" />
+            android:text=""
+            android:textSize="23sp"
+            android:textStyle="bold"
+            />
 
 
         <TextView
             android:id="@+id/infoTV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/facultyTV"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="120dp"
-            android:paddingLeft="0dp"
             android:text="Email"
+            android:fontFamily="@font/inter_bold"
             android:textColor="@color/black"
-            android:textSize="55px"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/email_TV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/infoTV"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-4dp"
             android:paddingLeft="0dp"
+            android:text=""
             android:textColor="#2A3C9A"
-            android:textSize="53px" />
+            android:textSize="18sp"
+            android:fontFamily="@font/inter_medium"/>
 
         <TextView
             android:id="@+id/homeAddressTV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/email_TV"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:paddingLeft="0dp"
             android:text="Home Address"
+            android:fontFamily="@font/inter_bold"
             android:textColor="@color/black"
-            android:textSize="53px"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/homeAddress_TV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/homeAddressTV"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-4dp"
             android:paddingLeft="0dp"
             android:textColor="#2A3C9A"
-            android:textSize="53px" />
+            android:textSize="18sp"
+            android:fontFamily="@font/inter_medium"
+            android:text=""/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/circular_bg"
@@ -117,8 +116,8 @@
             android:layout_height="155dp"
             android:layout_below="@+id/profileTB"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="250dp">
 
@@ -134,7 +133,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/thumbnail_ytn" />
+                    android:src="" />
 
             </androidx.cardview.widget.CardView>
 
@@ -145,32 +144,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/positionTV"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="120dp"
-            android:paddingLeft="0dp"
-            android:textAlignment="viewStart"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="2dp"
             android:textAllCaps="false"
             android:textColor="#2A3C9A"
-            android:textSize="50px" />
+            android:text=""
+            android:textSize="18sp"
+            android:fontFamily="@font/inter_medium"/>
 
         <TextView
             android:id="@+id/positionTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/partyNameTV"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="180dp"
-            android:paddingLeft="0dp"
-            android:textAlignment="viewStart"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-6dp"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="55px" />
+            android:fontFamily="@font/inter_semibold"
+            android:text=""
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </FrameLayout>
