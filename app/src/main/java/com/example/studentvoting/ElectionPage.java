@@ -37,6 +37,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
@@ -49,7 +50,10 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private Button goToVotingButton;
     private EditText searchTextInput;
+
+    //Database
     DatabaseReference reff;
+
     //Candidates List
     private String[] candidatesName;
     private String[] candidatesParty;
@@ -59,6 +63,10 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Database
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+
         View rootView = inflater.inflate(R.layout.fragment_election_page, container, false);
 
         //Underline text
@@ -87,33 +95,11 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         tvToImportantDates.setOnClickListener(this::onClick);
 
         /*
-        ImageButton facultyFilterbutton = (ImageButton) rootView.findViewById(R.id.facultyFilterbutton);
-        if(facultyFilterbutton.isPressed()){
-            facultyFilterbutton.setBackgroundColor(R.drawable.facultyfilter_bright);
-        }
-         */
-
-        /*
         //Toast
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Testing", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
         toast.show();
          */
-
-        //Candidates List
-        /*
-        recyclerview = rootView.findViewById(R.id.recycler_view);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getContext())); //getActivity()
-        recyclerview.setHasFixedSize(true);
-
-        Candidate[] candidates = new Candidate[]{
-                new Candidate("Mat Sabu","Angkatan Mahasiswa", "FSKTM"),
-                new Candidate("Bong Mokhtar", "Mahasiswa Progresif", "FSKTM"),
-                new Candidate("Ahmad Maslan", "Neo Siswa", "FSKTM"),
-        } ;
-
-        AdapterCandidate adapter_candidate = new AdapterCandidate(candidates, ElectionPage.this );
-        recyclerview.setAdapter(adapter_candidate); */
 
         return rootView;
     }
@@ -313,7 +299,9 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     }
 
     public boolean onMarkerClick(Marker marker){
-        String name = marker.getSnippet();
+        String name = marker.getTitle();
+        View bottomSheetView = getLayoutInflater().inflate(R.layout.fragment_candidates_list_faculty_based, null);
+        TextView textView = bottomSheetView.findViewById(R.id.FacNameResult);
         reff.child("Faculty/"+name+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
