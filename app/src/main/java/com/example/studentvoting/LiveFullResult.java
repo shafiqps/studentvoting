@@ -76,7 +76,7 @@ public class LiveFullResult extends Fragment {
         Faculty faculty1 = new Faculty("Academy of Islamic Studies", candidateList("Academy of Islamic Studies"));
         facultyList.add(faculty1);
 
-        Faculty faculty2 = new Faculty("Academy of Malay Studies", candidateList("Academy of Islamic Studies"));
+        Faculty faculty2 = new Faculty("Academy of Malay Studies", candidateList("Faculty of Computer Science and Information Technology"));
         facultyList.add(faculty2);
 
         Faculty faculty3 = new Faculty("Faculty of Arts and Social Sciences", candidateList("Academy of Islamic Studies"));
