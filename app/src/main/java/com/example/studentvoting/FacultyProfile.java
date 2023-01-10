@@ -118,7 +118,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
 
             }
         });
-
+        Log.i("demo2",candidateList.toString());
         View rootview = inflater.inflate(R.layout.fragment_faculty_profile, container, false);
         View view = inflater.inflate(R.layout.list_competing_candidates, container, false);
         RecyclerView rv = (RecyclerView) rootview.findViewById(R.id.recyclerViewfac);

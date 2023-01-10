@@ -4,6 +4,15 @@ import java.util.List;
 
 public class Faculty {
     String facName;
+
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "facName='" + facName + '\'' +
+                ", candidateList=" + candidateList +
+                '}';
+    }
+
     List<Candidate> candidateList;
 
     public Faculty(String name, List<Candidate> candidateList){

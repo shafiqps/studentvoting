@@ -1,9 +1,11 @@
 package com.example.studentvoting;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -119,8 +121,10 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
             public void onFinish() {
                 mTimerRunning = false ;
                 goToVotingButton.setText("Voting Is Open!");
+
                 goToVotingButton.setTextColor(getResources().getColor(R.color.white));
                 goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
+
             }
 
         }.start();

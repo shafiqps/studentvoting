@@ -5,6 +5,20 @@ public class CandidateList {
     String party;
     int image;
 
+    @Override
+    public String toString() {
+        return "CandidateList{" +
+                "name='" + name + '\'' +
+                ", party='" + party + '\'' +
+                ", image=" + image +
+                '}';
+    }
+
+    public CandidateList(String name, String party) {
+        this.name = name;
+        this.party = party;
+    }
+
     public CandidateList(String name, String party, int image) {
         this.name = name;
         this.party = party;
