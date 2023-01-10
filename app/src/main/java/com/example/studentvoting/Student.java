@@ -7,6 +7,16 @@ public class Student {
     String password;
     String address;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    String image;
+
     public String getName() {
         return name;
     }
@@ -55,13 +65,14 @@ public class Student {
         this.faculty = faculty;
     }
 
-    public Student(String name, String matrixno, String siswamail, String password, String address, String faculty) {
+    public Student(String name, String matrixno, String siswamail, String password, String address, String faculty, String image) {
         this.name = name;
         this.matrixno = matrixno;
         this.siswamail = siswamail;
         this.password = password;
         this.address = address;
         this.faculty = faculty;
+        this.image = image;
     }
 
     String faculty;
