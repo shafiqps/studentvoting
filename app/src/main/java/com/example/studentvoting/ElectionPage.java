@@ -1,9 +1,12 @@
 package com.example.studentvoting;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,7 +38,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.Locale;
 
 public class ElectionPage extends Fragment implements OnMapReadyCallback {
-    private static final long START_TIME_IN_MILLIS = 30000 ;
+    private static final long START_TIME_IN_MILLIS = 10000 ;
     private TextView mTextViewCountDown;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
@@ -61,7 +64,6 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         textView.setText(content);
 
         //Timer
-        goToVotingButton = (Button) rootView.findViewById(R.id.goToVotingButton);
         mTextViewCountDown = rootView.findViewById(R.id.textView7);
         startTimer();
 
@@ -74,13 +76,18 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         // Get the GoogleMap object from the MapView
         mapView.getMapAsync(this);
 
-        Button BtnToCastVote = (Button) rootView.findViewById(R.id.goToVotingButton);
+        goToVotingButton = (Button) rootView.findViewById(R.id.goToVotingButton);
         TextView tvToImportantDates = (TextView) rootView.findViewById(R.id.textView16);
-        //ImageButton BtnNameFilter = (ImageButton) rootView.findViewById(R.id.nameFilterButton);
 
-        BtnToCastVote.setOnClickListener(this::onClick);
+        goToVotingButton.setOnClickListener(this::onClick);
         tvToImportantDates.setOnClickListener(this::onClick);
-        //BtnNameFilter.setOnClickListener(this::onClick);
+
+        /*
+        ImageButton facultyFilterbutton = (ImageButton) rootView.findViewById(R.id.facultyFilterbutton);
+        if(facultyFilterbutton.isPressed()){
+            facultyFilterbutton.setBackgroundColor(R.drawable.facultyfilter_bright);
+        }
+         */
 
         /*
         //Toast
@@ -113,14 +120,21 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+                goToVotingButton.setClickable(false);
             }
 
             @Override
             public void onFinish() {
                 mTimerRunning = false ;
                 goToVotingButton.setText("Voting Is Open!");
-                goToVotingButton.setTextColor(getResources().getColor(R.color.white));
-                goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
+                goToVotingButton.setTextColor(Color.WHITE);
+                goToVotingButton.setBackgroundColor(ColorUtils.setAlphaComponent(Color.parseColor("#2a3c9a"), 255));
+
+                //goToVotingButton.setTextColor(getResources().getColor(R.color.white));
+                //goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
+
+                goToVotingButton.setClickable(true);
+
             }
 
         }.start();
@@ -139,17 +153,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     }
 
     private void onClick(View view) {
-        /*
-        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
-        bottomSheetDialog.setContentView(R.layout.fragment_candidates_list_faculty_based);
-        bottomSheetDialog.show();
 
-        if(bottomSheetDialog.isShowing())
-        {
-            bottomSheetDialog.dismiss();
-        }
-
-         */
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.goToVotingButton:

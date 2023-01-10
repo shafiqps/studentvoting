@@ -114,7 +114,7 @@
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="5dp"
                         android:backgroundTint="@color/lightblue"
-                        android:clickable="true"
+                        android:clickable="false"
                         android:fontFamily="@font/archivo_bold"
                         android:text="Voting will open soon"
                         android:textAlignment="center"
@@ -176,7 +176,7 @@
         android:backgroundTint="@color/transparent"
         android:clickable="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/filter_selection" />
+        android:src="@drawable/filter_selector" />
 
     <ImageButton
         android:id="@+id/facultyFilterbutton"
