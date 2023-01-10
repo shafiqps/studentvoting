@@ -64,6 +64,24 @@
         <item>babi10000</item>
     </string-array>
 
+    <string-array name="SESSION">
+        <item>2020/2021</item>
+        <item>2019/2020</item>
+        <item>2018/2019</item>
+    </string-array>
+
+    <string-array name="prevRepName">
+        <item>babi</item>
+        <item>anjing</item>
+        <item>shafiq</item>
+    </string-array>
+
+    <string-array name="info">
+        <item>infobani</item>
+        <item>infoanjing</item>
+        <item>infoanjing</item>
+    </string-array>
+
     <string name="article_1">KOTA KINABALU: Setiausaha Agung Bersatu Datuk Seri Hamzah Zainudin berkata pihaknya masih menunggu pengesahan daripada Jabatan Pendaftaran Pertubuhan (RoS) berhubung status Bersatu Sabah dalam Gabungan Rakyat Sabah (GRS).
 Hamzah berkata ini susulan tindakan bekas Ketua Badan Pimpinan Bersatu Sabah Datuk Seri Hajiji Noor keluar daripada Bersatu pada Disember tahun lalu.
 Beliau berkata demikian pada sidang media selepas mengadakan perjumpaan khas bersama kepimpinan Bersatu Sabah hari ini yang turut dihadiri Naib Presiden Bersatu Datuk Seri Dr Ronald Kiandee merangkap Ketua Badan Pimpinan Bersatu Sabah di sini.</string>

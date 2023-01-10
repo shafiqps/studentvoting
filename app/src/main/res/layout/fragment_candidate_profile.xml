@@ -20,6 +20,15 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
+        <ImageButton
+            android:id="@+id/BtnPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/arrow_back_"
+            android:translationX="40px"
+            android:translationY="33px"/>
+
         <TextView
             android:id="@+id/profileTV"
             android:layout_width="wrap_content"
@@ -68,7 +77,8 @@
             android:text="Party AWAL"
             android:textColor="@color/fuckcolor"
             android:textSize="60px"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:clickable="true"/>
 
         <TextView
             android:id="@+id/facultyTV"

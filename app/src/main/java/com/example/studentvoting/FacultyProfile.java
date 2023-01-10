@@ -42,6 +42,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
     List<String> candidatenigga = new ArrayList<>();
     List<String> partynigga = new ArrayList<>();
     ArrayList<CandidateList> candidateList = new ArrayList<>();
+    ArrayList<prevRep> prevRepArrayList = new ArrayList<>();
     int[] gambau = {R.drawable.asalboleh};
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,6 +93,15 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
 //        }
     }
 
+    private void setUpPrevRep(){
+        String[] sesh = getResources().getStringArray(R.array.SESSION);
+        String[] prevRepName = getResources().getStringArray(R.array.prevRepName);
+
+        for(int i=0; i<sesh.length;i++){
+            prevRepArrayList.add(new prevRep(sesh[i],gambau[0],prevRepName[i]));
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -122,15 +132,19 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
         View rootview = inflater.inflate(R.layout.fragment_faculty_profile, container, false);
         View view = inflater.inflate(R.layout.list_competing_candidates, container, false);
         RecyclerView rv = (RecyclerView) rootview.findViewById(R.id.recyclerViewfac);
+        RecyclerView rv2 = (RecyclerView) rootview.findViewById(R.id.recyclerViewprevrep);
         ImageButton BtnPrevResult = (ImageButton) rootview.findViewById(R.id.BtnPrevResult);
         TextView tv = rootview.findViewById(R.id.facultyTV);
         rv.setOnClickListener(this::onClick);
         BtnPrevResult.setOnClickListener(this::onClick);
 //        setUpCandidateList();
+        setUpPrevRep();
         rv.setLayoutManager(new LinearLayoutManager(FacultyProfile.this.getContext()));
         CompetingCandidatesAdapter adapterCompetingCandidates = new CompetingCandidatesAdapter(this.getContext(), candidateList, this);
         rv.setAdapter(adapterCompetingCandidates);
-
+        prevRepAdapter prevRepAdapter = new prevRepAdapter(this.getContext(), prevRepArrayList);
+        rv2.setAdapter(prevRepAdapter);
+        rv2.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL,false));
 
         return rootview;
     }
