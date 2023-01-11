@@ -1,5 +1,7 @@
 package com.example.studentvoting;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -34,6 +36,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -41,6 +45,7 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
     private GoogleMap map;
     BottomSheetDialog bottomSheetDialog;
     DatabaseReference reff;
+    DatabaseReference reff2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -238,28 +243,32 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
                 String candidateA = snapshot.child("1").child("name").getValue(String.class);
                 String idA = snapshot.child("1").child("candidatekey").getValue(String.class);
                 String partyA = snapshot.child("1").child("party").getValue(String.class);
+                long currentvoteA = (long) snapshot.child("1").child("currentvotes").getValue();
 
                 String candidateB = snapshot.child("2").child("name").getValue(String.class);
                 String idB = snapshot.child("2").child("candidatekey").getValue(String.class);
                 String partyB = snapshot.child("2").child("party").getValue(String.class);
+                long currentvoteB = (long) snapshot.child("2").child("currentvotes").getValue();
 
                 String candidateC = snapshot.child("3").child("name").getValue(String.class);
                 String idC = snapshot.child("3").child("candidatekey").getValue(String.class);
                 String partyC = snapshot.child("3").child("party").getValue(String.class);
+                long currentvoteC = (long)snapshot.child("3").child("currentvotes").getValue();
 
                 MainActivity.currentfacultyPage = name;
                 MainActivity.candidateA = idA;
                 MainActivity.candidateB = idB;
                 MainActivity.candidateC = idC;
-                showBottomSheetDialog(name,candidateA,partyA,candidateB,partyB,candidateC,partyC);
+                showBottomSheetDialog(name, candidateA, partyA, currentvoteA, candidateB, partyB, currentvoteB, candidateC, partyC, currentvoteC);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
 
 //        String[] candidatearray = new String[candidateList.size()];
 //        String[] partyarray = new String[partyList.size()];
@@ -321,9 +330,9 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
     return false;
     }
 
-    private void showBottomSheetDialog(String Faculty, String CandidateA, String PartyA,
-                                       String CandidateB, String PartyB,
-                                       String CandidateC, String PartyC){
+    private void showBottomSheetDialog(String Faculty, String CandidateA, String PartyA, long VoteA,
+                                       String CandidateB, String PartyB, long VoteB,
+                                       String CandidateC, String PartyC, long VoteC){
 
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
         bottomSheetDialog.setContentView(R.layout.fragment_candidates_list_faculty_based);
@@ -332,7 +341,6 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         TextView facText = (TextView) bottomSheetDialog.findViewById(R.id.FacNameResult);
         facText.setText(Faculty);
         facText.setOnClickListener(this::onClick);
-
 
         //Candidate A
         TextView candA = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateA);
@@ -343,6 +351,9 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         TextView facA = (TextView) bottomSheetDialog.findViewById(R.id.textPartyX);
         facA.setText(PartyA);
 
+        TextView voteA = (TextView) bottomSheetDialog.findViewById(R.id.textVoteA);
+        voteA.setText(String.valueOf(VoteA));
+
 
         //Candidate B
         TextView candB = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateB);
@@ -352,6 +363,10 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         TextView facB = (TextView) bottomSheetDialog.findViewById(R.id.textPartyY);
         facB.setText(PartyB);
 
+        TextView voteB = (TextView) bottomSheetDialog.findViewById(R.id.textVoteB);
+        assert voteB != null;
+        voteB.setText(String.valueOf(VoteB));
+
         //Candidate C
         TextView candC = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateC);
         candC.setText(CandidateC);
@@ -359,6 +374,9 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
 
         TextView facC = (TextView) bottomSheetDialog.findViewById(R.id.textPartyZ);
         facC.setText(PartyC);
+        TextView voteC = (TextView) bottomSheetDialog.findViewById(R.id.textVoteC);
+        assert voteC != null;
+        voteC.setText(String.valueOf(VoteC));
 
         bottomSheetDialog.show();
     }
