@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
 public class VoteCast extends Fragment {
@@ -52,16 +53,27 @@ public class VoteCast extends Fragment {
         TextView candidateC = rootView.findViewById(R.id.candidateNameC);
         TextView partyC = rootView.findViewById(R.id.candidatePartyC);
 
+        ImageView imageA = rootView.findViewById(R.id.candidateIVA);
+        ImageView imageB = rootView.findViewById(R.id.candidateIVB);
+        ImageView imageC = rootView.findViewById(R.id.candidateIVC);
+
+
         facultyName.setText(facultyID);
         reff.child("Faculty/"+facultyID+"/candidates").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final String nameA = snapshot.child("1").child("name").getValue(String.class);
                 final String partA = snapshot.child("1").child("party").getValue(String.class);
+                final String urlA = snapshot.child("1").child("image").getValue(String.class);
+
                 final String nameB = snapshot.child("2").child("name").getValue(String.class);
                 final String partB = snapshot.child("2").child("party").getValue(String.class);
+                final String urlB = snapshot.child("2").child("image").getValue(String.class);
+
                 final String nameC = snapshot.child("3").child("name").getValue(String.class);
                 final String partC = snapshot.child("3").child("party").getValue(String.class);
+                final String urlC = snapshot.child("3").child("image").getValue(String.class);
+
 
 
                 candidateA.setText(nameA);
@@ -70,7 +82,10 @@ public class VoteCast extends Fragment {
                 partyB.setText(partB);
                 candidateC.setText(nameC);
                 partyC.setText(partC);
-//                Picasso.get().load(link).into(rImage);
+                Picasso.get().load(urlA).into(imageA);
+                Picasso.get().load(urlB).into(imageB);
+                Picasso.get().load(urlC).into(imageC);
+
 
             }
 
