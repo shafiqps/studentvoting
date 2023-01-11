@@ -7,8 +7,7 @@
     android:background="@color/darkblue"
     tools:context=".Register">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,112 +16,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="128dp"
             android:fontFamily="@font/archivo_bold"
             android:text="Registration"
             android:textColor="@color/white"
-            android:textSize="70px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="401dp"
+        <RelativeLayout
+            android:layout_width="326dp"
             android:layout_height="580dp"
+            android:layout_centerInParent="true"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/loginbackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registrationTV"
-            app:layout_constraintVertical_bias="0.402">
+            android:background="@drawable/loginbackground">
 
             <TextView
                 android:id="@+id/nameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/archivo_bold"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/inter_bold"
                 android:text="Name"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/siswamailTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="31dp"
                 android:fontFamily="@font/archivo_bold"
                 android:text="Siswamail Username"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameTB" />
+                android:textSize="17sp"
+                android:layout_below="@id/nameTB"/>
 
             <TextView
                 android:id="@+id/passwordTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/archivo_bold"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/siswamailTB"
+                android:fontFamily="@font/inter_bold"
                 android:text="Password"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/siswamailTB" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/confirmPasswordTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/archivo_bold"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_bold"
                 android:text="Confirm Password"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordTB" />
+                android:layout_below="@id/passwordTB"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/addressTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/archivo_bold"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/confirmPasswordTB"
+                android:fontFamily="@font/inter_bold"
                 android:text="Address"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTB" />
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/facultyregisterTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/archivo_bold"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_bold"
                 android:text="Faculty"
                 android:textColor="@color/white"
-                android:textSize="55px"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addressTB" />
+                android:textSize="17sp"
+                android:layout_below="@id/addressTB"/>
 
             <EditText
                 android:id="@+id/nameTB"
-                android:layout_width="331dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="890dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
+                android:layout_below="@id/nameTV"
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
-                android:fontFamily="@font/archivo"
+                android:fontFamily="@font/inter_bold"
                 android:inputType="textPersonName"
                 android:text=""
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,84 +117,77 @@
 
             <EditText
                 android:id="@+id/siswamailTB"
-                android:layout_width="331dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="890dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
-                android:fontFamily="@font/archivo"
+                android:fontFamily="@font/inter_bold"
                 android:inputType="textPersonName"
                 android:text=""
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/siswamailTV" />
+                android:layout_below="@id/siswamailTV"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTextLayout"
-                android:layout_width="331dp"
+                android:layout_width="890dp"
                 android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
                 android:textColorHint="#B9B8B8"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordTV"
+                android:layout_below="@id/passwordTV"
                 app:passwordToggleEnabled="true" />
 
             <EditText
                 android:id="@+id/passwordTB"
                 android:layout_width="331dp"
                 android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
+                android:layout_below="@id/passwordTV"
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
                 android:fontFamily="@font/archivo"
                 android:inputType="textPassword"
-                android:text=""
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
+                android:text="" />
 
 
             <EditText
                 android:id="@+id/confirmPasswordTB"
-                android:layout_width="331dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="890dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
-                android:fontFamily="@font/archivo"
+                android:fontFamily="@font/inter_bold"
                 android:inputType="textPassword"
                 android:text=""
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV" />
+                android:layout_below="@id/confirmPasswordTV"/>
 
             <EditText
                 android:id="@+id/addressTB"
-                android:layout_width="331dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="890dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
+                android:layout_below="@id/addressTV"
                 android:background="@drawable/roundedtextbox"
                 android:ems="10"
                 android:fontFamily="@font/archivo"
                 android:inputType="text"
-                android:text=""
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addressTV" />
+                android:text=""/>
 
             <RelativeLayout
                 android:id="@+id/facultyRL"
-                android:layout_width="331dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="3dp"
+                android:layout_width="890dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginEnd="31dp"
                 android:layout_weight=".28"
                 android:background="@drawable/roundedtextbox"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facultyregisterTV">
+                android:layout_below="@id/facultyregisterTV">
 
                 <Spinner
                     android:id="@+id/facultySpinner"
@@ -237,18 +217,17 @@
                 android:layout_height="27dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="48dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="31dp"
                 android:background="@drawable/rounded_button"
                 android:fontFamily="@font/archivo_bold"
                 android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facultyRL" />
+                android:layout_below="@id/facultyRL"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </FrameLayout>
