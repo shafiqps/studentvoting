@@ -104,6 +104,9 @@ public class CandidateProfile extends Fragment {
         TextView positionTV = (TextView) rootview.findViewById(R.id.positionTV);
         TextView partyTV = (TextView) rootview.findViewById(R.id.partyTV);
         ImageView picure = rootview.findViewById(R.id.profile_IV);
+        TextView facebTV = rootview.findViewById(R.id.fbTV);
+        TextView twitTV = rootview.findViewById(R.id.twTV);
+        TextView instaTV = rootview.findViewById(R.id.igTV);
         reff.child("Candidate/"+candidateID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -112,6 +115,14 @@ public class CandidateProfile extends Fragment {
                 final String url = snapshot.child("image").getValue(String.class);
                 final String position = snapshot.child("position").getValue(String.class);
                 final String party = snapshot.child("party").getValue(String.class);
+
+                final String faceb = snapshot.child("facebook").getValue(String.class);
+                final String igram = snapshot.child("instagram").getValue(String.class);
+                final String twit = snapshot.child("twitter").getValue(String.class);
+
+                facebTV.setText(faceb);
+                twitTV.setText(twit);
+                instaTV.setText(igram);
 
                 nameTV.setText(name);
                 partyTV.setText(party);

@@ -89,6 +89,7 @@ public class SettingsPage extends Fragment {
                 replaceFragment(fragment);
                 break;
             case R.id.logoutBTN:
+
                 fragment = new Login();
                 replaceFragment(fragment);
                 break;

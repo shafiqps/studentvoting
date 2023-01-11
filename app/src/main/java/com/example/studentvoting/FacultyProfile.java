@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 //import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
@@ -142,6 +143,30 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
         RecyclerView rv2 = (RecyclerView) rootview.findViewById(R.id.recyclerViewprevrep);
         ImageButton BtnPrevResult = (ImageButton) rootview.findViewById(R.id.BtnPrevResult);
         TextView tv = rootview.findViewById(R.id.facultyTV);
+        TextView facebTV = rootview.findViewById(R.id.fbTV);
+        TextView twitTV = rootview.findViewById(R.id.twTV);
+        TextView instaTV = rootview.findViewById(R.id.igTV);
+
+        reff.child("Faculty/"+currentFac).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                final String faceb = snapshot.child("facebook").getValue(String.class);
+                final String igram = snapshot.child("instagram").getValue(String.class);
+                final String twit = snapshot.child("twitter").getValue(String.class);
+
+                facebTV.setText(faceb);
+                twitTV.setText(twit);
+                instaTV.setText(igram);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         tv.setText(currentFac);
         rv.setOnClickListener(this::onClick);
         BtnPrevResult.setOnClickListener(this::onClick);
