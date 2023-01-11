@@ -83,6 +83,9 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        AllList.clear();
+        FacultyList.clear();
+        CandidateList.clear();
 
         //Database
         reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
