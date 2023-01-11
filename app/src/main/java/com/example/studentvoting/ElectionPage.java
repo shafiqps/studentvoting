@@ -268,14 +268,20 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
             @Override
             public void onFinish() {
                 mTimerRunning = false ;
-                goToVotingButton.setText("Voting Is Open!");
-                goToVotingButton.setTextColor(Color.WHITE);
-                goToVotingButton.setBackgroundColor(ColorUtils.setAlphaComponent(Color.parseColor("#2a3c9a"), 255));
+                if(MainActivity.hasVoted == 1) {
+                    goToVotingButton.setText("Voting Is Open!");
+                    goToVotingButton.setTextColor(Color.WHITE);
+                    goToVotingButton.setBackgroundColor(ColorUtils.setAlphaComponent(Color.parseColor("#2a3c9a"), 255));
 
-                //goToVotingButton.setTextColor(getResources().getColor(R.color.white));
-                //goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
+                    //goToVotingButton.setTextColor(getResources().getColor(R.color.white));
+                    //goToVotingButton.setBackgroundColor(getResources().getColor(R.color.fuckcolor));
 
-                goToVotingButton.setClickable(true);
+                    goToVotingButton.setClickable(true);
+                } else {
+                    goToVotingButton.setText("Already Voted!");
+                    goToVotingButton.setTextColor(Color.WHITE);
+
+                }
 
             }
 
@@ -299,6 +305,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
         Fragment fragment = null;
         switch (view.getId()) {
             case R.id.goToVotingButton:
+                MainActivity.currentfacultyPage = MainActivity.currentlyuserpage;
                 fragment = new VoteCast();
                 replaceFragment(fragment);
                 break;

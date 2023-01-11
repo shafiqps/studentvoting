@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static String candidateA = "";
     public static String candidateB = "";
     public static String candidateC = "";
+    public static String currentlyuserpage;
+    public static int hasVoted = 0;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;

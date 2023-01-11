@@ -85,7 +85,7 @@ public class Feedback extends Fragment {
                     int stars = (int)starsf + 1;
                     ratingBar.setRating(stars);
 
-                    Toast.makeText(rootView.getContext(), String.valueOf("test"), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(rootView.getContext(), String.valueOf("test"), Toast.LENGTH_SHORT).show();
                     v.setPressed(false);
                 }
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {

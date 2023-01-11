@@ -101,17 +101,23 @@ public class VerifyVote extends Fragment {
                 super.onAuthenticationSucceeded(result);
                 switch(choice){
                     case 1:
+
                         Map<String, Object> updates = new HashMap<>();
+                        updates.put("Student/"+MainActivity.currentlyLoggedIn+"/voted", 2);
                         updates.put("Faculty/"+currentFac+"/candidates/1/currentvotes", ServerValue.increment(1));
                         reff.updateChildren(updates);
                         break;
                     case 2:
                         Map<String, Object> updates2 = new HashMap<>();
+                        updates2.put("Student/"+MainActivity.currentlyLoggedIn+"/voted", 2);
                         updates2.put("Faculty/"+currentFac+"/candidates/2/currentvotes", ServerValue.increment(1));
                         reff.updateChildren(updates2);
                         break;
                     case 3:
                         Map<String, Object> updates3 = new HashMap<>();
+
+                        updates3.put("Student/"+MainActivity.currentlyLoggedIn+"/voted", 2);
+
                         updates3.put("Faculty/"+currentFac+"/candidates/3/currentvotes", ServerValue.increment(1));
                         reff.updateChildren(updates3);
                         break;
@@ -127,6 +133,7 @@ public class VerifyVote extends Fragment {
 //
 //                    }
 //                });
+                MainActivity.hasVoted = 2;
                 Toast.makeText(getContext(), "Your Vote is verified", Toast.LENGTH_SHORT).show();
                 fingerprintSuccess_fragment.setVisibility(View.VISIBLE);
             }

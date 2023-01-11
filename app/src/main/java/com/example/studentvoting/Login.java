@@ -100,6 +100,8 @@ public class Login extends Fragment {
 
                                 if(getPassword.equals(pass)){
                                     MainActivity.currentlyLoggedIn = matrixno;
+                                    MainActivity.hasVoted = snapshot.child(matrixno).child("voted").getValue(Integer.class);
+                                    MainActivity.currentlyuserpage = snapshot.child(matrixno).child("faculty").getValue(String.class);
                                     MainActivity.currentfacultyPage = snapshot.child(matrixno).child("faculty").getValue(String.class);
                                     Fragment fragment = null;
                                     fragment = new Home();
