@@ -54,15 +54,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/circular_bg"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:paddingLeft="0dp"
-            android:text="LeBron "
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40px"
+            android:fontFamily="@font/inter_bold"
+            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="60px"
+            android:textSize="23sp"
             android:textStyle="bold" />
 
 
@@ -72,12 +69,10 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/dot"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="0dp"
-            android:layout_toEndOf="@+id/dot"
-            android:text="Party AWAL"
+            android:layout_toRightOf="@+id/dot"
+            android:fontFamily="@font/inter_semibold"
             android:textColor="@color/fuckcolor"
-            android:textSize="60px"
-            android:textStyle="normal"
+            android:textSize="23sp"
             android:clickable="true"/>
 
         <TextView
@@ -85,18 +80,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/positionTV"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="120dp"
-            android:paddingLeft="0dp"
-            android:text="Faculty of YOUR MOTHER"
-            android:textAlignment="viewStart"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
             android:textAllCaps="false"
             android:textColor="@color/fuckcolor"
-            android:textSize="53px"
-            android:textStyle="normal" />
+            android:textSize="18sp"
+            android:fontFamily="@font/inter_medium" />
 
         <ImageView
             android:id="@+id/dot"
@@ -105,19 +94,17 @@
             android:layout_alignTop="@+id/partyNameTV"
             android:layout_alignBottom="@+id/partyNameTV"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/partyNameTV"
-            android:src="@drawable/dot" />
+            android:src="@drawable/dot"
+            app:tint="@color/black" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/circular_bg"
             android:layout_width="155dp"
             android:layout_height="155dp"
             android:layout_below="@+id/profileTB"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="250dp">
 
@@ -132,8 +119,7 @@
                     android:id="@+id/profile_IV"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/thumbnail_ytn" />
+                    android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -144,30 +130,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/partyTV"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-3dp"
             android:paddingLeft="0dp"
-            android:text="President"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
+            android:fontFamily="@font/inter_medium"
             android:textColor="@color/black"
-            android:textSize="55px" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/infoTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/facultyTV"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="120dp"
-            android:paddingLeft="0dp"
             android:text="Featured information"
             android:textColor="@color/black"
-            android:textSize="53px"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
@@ -175,15 +154,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/recyclerViewInfo"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="120dp"
-            android:paddingLeft="0dp"
             android:text="Socials"
             android:textColor="@color/black"
-            android:textSize="53px"
+            android:fontFamily="@font/inter_bold"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -203,30 +179,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:gravity="center_vertical"
-                android:text="TextView"
+                android:text="Facebook"
                 android:textAlignment="gravity"
                 android:textColor="#2A3C9A"
-                android:textSize="20dp" />
+                android:fontFamily="@font/inter_medium"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/twTV"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:gravity="center_vertical"
-                android:text="TextView"
+                android:text="Twitter"
                 android:textAlignment="gravity"
                 android:textColor="#2A3C9A"
-                android:textSize="20dp" />
+                android:textSize="18sp"
+                android:fontFamily="@font/inter_medium" />
 
             <TextView
                 android:id="@+id/igTV"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:gravity="center_vertical"
-                android:text="TextView"
+                android:text="Instagram"
                 android:textAlignment="gravity"
                 android:textColor="#2A3C9A"
-                android:textSize="20dp" />
+                android:fontFamily="@font/inter_medium"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -235,8 +214,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/socialTV"
             android:layout_alignBottom="@+id/profileTB"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="-678dp"
             android:orientation="vertical">
@@ -266,11 +244,8 @@
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_below="@id/infoTV"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"
             android:orientation="horizontal"
             tools:listitem="@layout/list_featured_info" />
 
