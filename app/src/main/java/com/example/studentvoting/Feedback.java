@@ -2,6 +2,7 @@ package com.example.studentvoting;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,7 +18,10 @@ import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Feedback extends Fragment {
     DatabaseReference reff;
@@ -65,13 +69,13 @@ public class Feedback extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_feedback, container, false);
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Student");
 
         ImageButton BtnPrevResult = (ImageButton) rootView.findViewById(R.id.BtnPrevResult);
         BtnPrevResult.setOnClickListener(this::onClick);
 
         //Submit Reviw Button
         Button btnSubmit = (Button) rootView.findViewById(R.id.submit_btn) ;
-        btnSubmit.setOnClickListener(this::onClick);
 
         RatingBar ratingBar = rootView.findViewById(R.id.ratingBar2);
 
@@ -85,7 +89,6 @@ public class Feedback extends Fragment {
                     int stars = (int)starsf + 1;
                     ratingBar.setRating(stars);
 
-                    //Toast.makeText(rootView.getContext(), String.valueOf("test"), Toast.LENGTH_SHORT).show();
                     v.setPressed(false);
                 }
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -104,6 +107,29 @@ public class Feedback extends Fragment {
 
         EditText feedbackET = rootView.findViewById(R.id.editTextTextPersonName);
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = null;
+                String feedback = feedbackET.getText().toString();
+                int rating = ratingBar.getNumStars();
+                feedbackclass feedback1 = new feedbackclass(feedback,rating);
+                reff.child("Feedback").setValue(feedback1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+
+                        } else {
+
+                        }
+                    }
+                });
+                fragment = new SettingsPage();
+                replaceFragment(fragment);
+                Toast.makeText(getContext(), "Feedback Is Submitted", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return rootView;
     }
@@ -115,11 +141,7 @@ public class Feedback extends Fragment {
                 fragment = new SettingsPage();
                 replaceFragment(fragment);
                 break;
-            case R.id.submit_btn:
-                fragment = new SettingsPage();
-                replaceFragment(fragment);
-                Toast.makeText(getContext(), "Feedback Is Submitted", Toast.LENGTH_SHORT).show();
-                break;
+
         }
     }
 

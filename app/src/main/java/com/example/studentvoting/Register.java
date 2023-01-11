@@ -203,7 +203,7 @@ DatabaseReference reff2;
 
     public void insertStudentData(String name, String matrix,String siswamail, String password, String address, String faculty){
         String image = "https://firebasestorage.googleapis.com/v0/b/studentvoting-fc2ca.appspot.com/o/defaultprofile.png?alt=media&token=8625acab-1feb-45b3-a3e7-0c31fd118f3d";
-        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,image);
+        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,image,1);
         reff.child(student1.getMatrixno()).setValue(student1).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
