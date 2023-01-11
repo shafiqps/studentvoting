@@ -123,9 +123,6 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
                     String candidateKey = dataSnapshot.child("candidatekey").getValue(String.class);
                     Log.i("demo",party);
                     candidateList.add(new CandidateList(name,party,url,candidateKey));
-//
-//                    candidatenigga.add(name);
-//                    partynigga.add(party);
                 }
 
 
@@ -179,9 +176,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
                     String url = dataSnapshot.child("image").getValue(String.class);
                     String session = dataSnapshot.child("session").getValue(String.class);
                     prevRepArrayList.add(new prevRep(session,url,name));
-//
-//                    candidatenigga.add(name);
-//                    partynigga.add(party);
+
                 }
 
 

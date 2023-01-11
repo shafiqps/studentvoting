@@ -30,6 +30,7 @@
                 android:layout_height="95dp"
                 android:layout_weight="1"
                 android:src="@drawable/ahmad"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
-                android:text="hi"
+                android:text="Hi"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/black"
                 android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
