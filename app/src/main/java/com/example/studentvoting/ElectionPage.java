@@ -280,6 +280,7 @@ public class ElectionPage extends Fragment implements OnMapReadyCallback {
                 } else {
                     goToVotingButton.setText("Already Voted!");
                     goToVotingButton.setTextColor(Color.WHITE);
+                    goToVotingButton.setBackgroundColor(ColorUtils.setAlphaComponent(Color.parseColor("#00c04b"), 255));
 
                 }
 
