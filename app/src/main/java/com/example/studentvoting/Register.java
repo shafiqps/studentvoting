@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -92,6 +94,9 @@ DatabaseReference reff2;
         EditText addressET = rootView.findViewById(R.id.addressTB);
         EditText confimpasswordET = rootView.findViewById(R.id.confirmPasswordTB);
         Spinner facultySpinner = rootView.findViewById(R.id.facultySpinner);
+
+        ImageButton backToLogin = (ImageButton) rootView.findViewById(R.id.buttonToLogin);
+        backToLogin.setOnClickListener(this::onClick2);
 
 
         Button btn = rootView.findViewById(R.id.submit_btn);
@@ -215,6 +220,18 @@ DatabaseReference reff2;
             }
         });
     }
+
+    public void onClick2(View view) {
+
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.buttonToLogin:
+                fragment = new Login();
+                replaceFragment(fragment);
+                break;
+        }
+    }
+
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, someFragment);
