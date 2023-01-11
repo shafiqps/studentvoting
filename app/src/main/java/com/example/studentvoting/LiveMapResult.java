@@ -65,6 +65,46 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
             return rootView;
     }
 
+    private void onClick(View view) {
+
+        Fragment fragment = null;
+        switch (view.getId()) {
+            case R.id.goToVotingButton:
+                fragment = new VoteCast();
+                replaceFragment(fragment);
+                break;
+            case R.id.textView16:
+                fragment = new ImportantDates();
+                replaceFragment(fragment);
+                break;
+            case R.id.FacNameResult:
+                fragment = new FacultyProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateA:
+                MainActivity.candidateID = MainActivity.candidateA;
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateB:
+                MainActivity.candidateID = MainActivity.candidateB;
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
+            case R.id.textCandidateC:
+                MainActivity.candidateID = MainActivity.candidateC;
+                fragment = new CandidateProfile();
+                replaceFragment(fragment);
+                break;
+        }
+    }
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, someFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
     public void onMapReady(GoogleMap googleMap) {
 
@@ -196,14 +236,21 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String candidateA = snapshot.child("1").child("name").getValue(String.class);
+                String idA = snapshot.child("1").child("candidatekey").getValue(String.class);
                 String partyA = snapshot.child("1").child("party").getValue(String.class);
 
                 String candidateB = snapshot.child("2").child("name").getValue(String.class);
+                String idB = snapshot.child("2").child("candidatekey").getValue(String.class);
                 String partyB = snapshot.child("2").child("party").getValue(String.class);
 
                 String candidateC = snapshot.child("3").child("name").getValue(String.class);
+                String idC = snapshot.child("3").child("candidatekey").getValue(String.class);
                 String partyC = snapshot.child("3").child("party").getValue(String.class);
 
+                MainActivity.currentfacultyPage = name;
+                MainActivity.candidateA = idA;
+                MainActivity.candidateB = idB;
+                MainActivity.candidateC = idC;
                 showBottomSheetDialog(name,candidateA,partyA,candidateB,partyB,candidateC,partyC);
 
             }
@@ -284,22 +331,32 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         //Faculty
         TextView facText = (TextView) bottomSheetDialog.findViewById(R.id.FacNameResult);
         facText.setText(Faculty);
+        facText.setOnClickListener(this::onClick);
+
 
         //Candidate A
         TextView candA = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateA);
         candA.setText(CandidateA);
+        candA.setOnClickListener(this::onClick);
+
+
         TextView facA = (TextView) bottomSheetDialog.findViewById(R.id.textPartyX);
         facA.setText(PartyA);
+
 
         //Candidate B
         TextView candB = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateB);
         candB.setText(CandidateB);
+        candB.setOnClickListener(this::onClick);
+
         TextView facB = (TextView) bottomSheetDialog.findViewById(R.id.textPartyY);
         facB.setText(PartyB);
 
         //Candidate C
         TextView candC = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateC);
         candC.setText(CandidateC);
+        candC.setOnClickListener(this::onClick);
+
         TextView facC = (TextView) bottomSheetDialog.findViewById(R.id.textPartyZ);
         facC.setText(PartyC);
 
