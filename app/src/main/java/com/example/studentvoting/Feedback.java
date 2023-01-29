@@ -69,7 +69,7 @@ public class Feedback extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_feedback, container, false);
-        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Student");
+        reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         ImageButton BtnPrevResult = (ImageButton) rootView.findViewById(R.id.BtnPrevResult);
         BtnPrevResult.setOnClickListener(this::onClick);

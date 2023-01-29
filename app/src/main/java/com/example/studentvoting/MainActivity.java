@@ -13,6 +13,7 @@ import android.view.View;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.studentvoting.databinding.ActivityMainBinding;
+import com.google.firebase.database.DatabaseReference;
 
 import android.view.MenuItem;
 import android.view.Window;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-
+    DatabaseReference reff;
 
     BottomNavigationView bottomNavigationView;
     Login loginFragment = new Login();
@@ -85,6 +86,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        reff.goOnline();
+    }
+
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        reff.goOffline();
+    }
     void hideBottomNav(){
         bottomNavigationView.setVisibility(View.GONE);
     }

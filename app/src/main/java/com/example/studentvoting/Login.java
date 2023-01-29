@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -90,39 +91,48 @@ public class Login extends Fragment {
         BtnToResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String matrixno = username.getText().toString().toUpperCase(Locale.ROOT);
-                String pass = password.getText().toString();
-                reff.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.hasChild(matrixno)) {
-                                final String getPassword = snapshot.child(matrixno).child("password").getValue(String.class);
 
-                                if(getPassword.equals(pass)){
-                                    Fragment fragment = null;
-                                    fragment = new Home();
-                                    replaceFragment(fragment);
-                                    MainActivity.currentlyLoggedIn = matrixno;
-                                    MainActivity.hasVoted = snapshot.child(matrixno).child("voted").getValue(Integer.class);
-                                    MainActivity.currentlyuserpage = snapshot.child(matrixno).child("faculty").getValue(String.class);
-                                    MainActivity.currentfacultyPage = snapshot.child(matrixno).child("faculty").getValue(String.class);
+                    String matrixno = username.getText().toString().toUpperCase(Locale.ROOT);
+                    String pass = password.getText().toString();
+                    if(matrixno.isEmpty()){
+                        username.requestFocus();
+                        username.setError("Cannot be empty!");
+                    } else if (pass.isEmpty()){
+                        password.requestFocus();
+                        password.setError("Cannot be empty!");
+                    } else {
+                        reff.child("Student").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(matrixno)) {
+                                    final String getPassword = snapshot.child(matrixno).child("password").getValue(String.class);
+
+                                    if (getPassword.equals(pass)) {
+                                        Fragment fragment = null;
+                                        fragment = new Home();
+                                        replaceFragment(fragment);
+                                        MainActivity.currentlyLoggedIn = matrixno;
+                                        MainActivity.hasVoted = snapshot.child(matrixno).child("voted").getValue(Integer.class);
+                                        MainActivity.currentlyuserpage = snapshot.child(matrixno).child("faculty").getValue(String.class);
+                                        MainActivity.currentfacultyPage = snapshot.child(matrixno).child("faculty").getValue(String.class);
+
+                                    } else {
+                                        password.requestFocus();
+                                        password.setError("Invalid Password!");
+                                    }
 
                                 } else {
-                                    password.requestFocus();
-                                    password.setError("Invalid Password!");
+                                    username.requestFocus();
+                                    username.setError("User doesn't exist!");
                                 }
-
-                            } else {
-                                username.requestFocus();
-                                username.setError("User doesn't exist!");
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(getContext(), "Error in connection", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
             }
         });
 
