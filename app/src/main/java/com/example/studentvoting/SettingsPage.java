@@ -1,14 +1,24 @@
 package com.example.studentvoting;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,6 +84,10 @@ public class SettingsPage extends Fragment {
 
         BtnToResult3.setOnClickListener(this::onClick);
 
+        Button BtnToResult4 = (Button) rootView.findViewById(R.id.deleteBTN);
+
+        BtnToResult4.setOnClickListener(this::onClick);
+
         return rootView;
     }
 
@@ -90,6 +104,14 @@ public class SettingsPage extends Fragment {
                 break;
             case R.id.logoutBTN:
 
+                fragment = new Login();
+                replaceFragment(fragment);
+                break;
+            case R.id.deleteBTN:
+                DatabaseReference reff;
+                reff = FirebaseDatabase.getInstance("https://studentvoting-fc2ca-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Student");
+                reff.child(MainActivity.currentlyLoggedIn).removeValue();
+                Toast.makeText(getContext(), "Account removed", Toast.LENGTH_SHORT).show();
                 fragment = new Login();
                 replaceFragment(fragment);
                 break;
