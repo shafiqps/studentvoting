@@ -7,7 +7,7 @@ public class Student {
     String password;
     String address;
     String image;
-    int currentVote;
+    int voted;
 
     public String getImage() {
         return image;
@@ -17,6 +17,13 @@ public class Student {
         this.image = image;
     }
 
+    public int getVoted() {
+        return voted;
+    }
+
+    public void setVoted(int voted) {
+        this.voted = voted;
+    }
 
     public String getName() {
         return name;
@@ -66,7 +73,7 @@ public class Student {
         this.faculty = faculty;
     }
 
-    public Student(String name, String matrixno, String siswamail, String password, String address, String faculty, String image, int currentVote) {
+    public Student(String name, String matrixno, String siswamail, String password, String address, String faculty, String image, int voted) {
         this.name = name;
         this.matrixno = matrixno;
         this.siswamail = siswamail;
@@ -74,7 +81,7 @@ public class Student {
         this.address = address;
         this.faculty = faculty;
         this.image = image;
-        this.currentVote = currentVote;
+        this.voted = voted;
     }
 
     String faculty;

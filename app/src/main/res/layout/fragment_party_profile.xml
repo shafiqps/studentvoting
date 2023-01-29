@@ -26,25 +26,28 @@
             android:showDividers="middle">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/fbIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/baseline_facebook" />
+                android:src="@drawable/baseline_facebook"
+                android:clickable="true"/>
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/twIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/twitter" />
+                android:src="@drawable/twitter"
+                android:clickable="true"/>
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/igIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/instagram" />
+                android:src="@drawable/instagram"
+                android:clickable="true"/>
 
         </LinearLayout>
 

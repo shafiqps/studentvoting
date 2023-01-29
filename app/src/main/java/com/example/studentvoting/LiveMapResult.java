@@ -351,8 +351,8 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         TextView facA = (TextView) bottomSheetDialog.findViewById(R.id.textPartyX);
         facA.setText(PartyA);
 
-        TextView voteA = (TextView) bottomSheetDialog.findViewById(R.id.textVoteA);
-        voteA.setText(String.valueOf(VoteA));
+//        TextView voteA = (TextView) bottomSheetDialog.findViewById(R.id.textVoteA);
+//        voteA.setText(String.valueOf(VoteA));
 
 
         //Candidate B
@@ -363,9 +363,9 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
         TextView facB = (TextView) bottomSheetDialog.findViewById(R.id.textPartyY);
         facB.setText(PartyB);
 
-        TextView voteB = (TextView) bottomSheetDialog.findViewById(R.id.textVoteB);
-        assert voteB != null;
-        voteB.setText(String.valueOf(VoteB));
+//        TextView voteB = (TextView) bottomSheetDialog.findViewById(R.id.textVoteB);
+//        assert voteB != null;
+//        voteB.setText(String.valueOf(VoteB));
 
         //Candidate C
         TextView candC = (TextView) bottomSheetDialog.findViewById(R.id.textCandidateC);
@@ -374,9 +374,9 @@ public class LiveMapResult extends Fragment implements OnMapReadyCallback, Googl
 
         TextView facC = (TextView) bottomSheetDialog.findViewById(R.id.textPartyZ);
         facC.setText(PartyC);
-        TextView voteC = (TextView) bottomSheetDialog.findViewById(R.id.textVoteC);
-        assert voteC != null;
-        voteC.setText(String.valueOf(VoteC));
+//        TextView voteC = (TextView) bottomSheetDialog.findViewById(R.id.textVoteC);
+//        assert voteC != null;
+//        voteC.setText(String.valueOf(VoteC));
 
         bottomSheetDialog.show();
     }

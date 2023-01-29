@@ -99,13 +99,14 @@ public class Login extends Fragment {
                                 final String getPassword = snapshot.child(matrixno).child("password").getValue(String.class);
 
                                 if(getPassword.equals(pass)){
+                                    Fragment fragment = null;
+                                    fragment = new Home();
+                                    replaceFragment(fragment);
                                     MainActivity.currentlyLoggedIn = matrixno;
                                     MainActivity.hasVoted = snapshot.child(matrixno).child("voted").getValue(Integer.class);
                                     MainActivity.currentlyuserpage = snapshot.child(matrixno).child("faculty").getValue(String.class);
                                     MainActivity.currentfacultyPage = snapshot.child(matrixno).child("faculty").getValue(String.class);
-                                    Fragment fragment = null;
-                                    fragment = new Home();
-                                    replaceFragment(fragment);
+
                                 } else {
                                     password.requestFocus();
                                     password.setError("Invalid Password!");

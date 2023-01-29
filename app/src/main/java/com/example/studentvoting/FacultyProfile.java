@@ -121,7 +121,7 @@ public class FacultyProfile extends Fragment implements RecyclerViewInterface {
                     String party = dataSnapshot.child("party").getValue(String.class);
                     String url = dataSnapshot.child("image").getValue(String.class);
                     String candidateKey = dataSnapshot.child("candidatekey").getValue(String.class);
-                    Log.i("demo",party);
+//                    Log.i("demo",party);
                     candidateList.add(new CandidateList(name,party,url,candidateKey));
                 }
 

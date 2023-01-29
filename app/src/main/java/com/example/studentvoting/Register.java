@@ -152,12 +152,12 @@ DatabaseReference reff2;
                     reff2.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
-                                if(dataSnapshot.child("matrixno").getValue(String.class).equalsIgnoreCase(matrixnumber)){
-                                    siswamailET.requestFocus();
-                                    siswamailET.setError("User already exists!");
-                                }
-                            }
+//                            for(DataSnapshot dataSnapshot :  snapshot.getChildren()){
+//                                if(dataSnapshot.child("matrixno").getValue(String.class).equalsIgnoreCase(matrixnumber)){
+//                                    siswamailET.requestFocus();
+//                                    siswamailET.setError("User already exists!");
+//                                }
+//                            }
 
                         }
 
@@ -177,7 +177,7 @@ DatabaseReference reff2;
                     addressET.requestFocus();
                     addressET.setError("Address cannot be empty!");
                 } else {
-                    insertStudentData(name,matrixnumber,siswamail,password,address,faculty);
+                    insertStudentData(name,matrixnumber,siswamail,password,address,faculty, 1);
                     Fragment fragment = null;
                     fragment = new Login();
                     replaceFragment(fragment);
@@ -206,9 +206,9 @@ DatabaseReference reff2;
 //        }
 //    }
 
-    public void insertStudentData(String name, String matrix,String siswamail, String password, String address, String faculty){
+    public void insertStudentData(String name, String matrix,String siswamail, String password, String address, String faculty,int voted){
         String image = "https://firebasestorage.googleapis.com/v0/b/studentvoting-fc2ca.appspot.com/o/defaultprofile.png?alt=media&token=8625acab-1feb-45b3-a3e7-0c31fd118f3d";
-        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,image,1);
+        Student student1 = new Student(name,matrix,siswamail,password,address,faculty,image,voted);
         reff.child(student1.getMatrixno()).setValue(student1).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
